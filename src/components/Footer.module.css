@@ -1,0 +1,114 @@
+.footer {
+  border-top: 1px solid var(--rule);
+  background: var(--ground-tint);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding: clamp(3rem, 5vw, 4.5rem) var(--gutter) 2.5rem;
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 28ch;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  line-height: 1.55;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--live);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--live) 22%, transparent);
+  animation: breathe 2.6s var(--ease-in-out) infinite;
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.col a {
+  transition: color 0.25s var(--ease-out);
+}
+
+.col a:hover {
+  color: var(--accent);
+}
+
+.colTitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.25rem;
+}
+
+.current {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--ink-faint);
+}
+
+.base {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding: 1.25rem var(--gutter) 2rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 48rem) {
+  .inner {
+    grid-template-columns: 1.6fr repeat(3, minmax(0, 1fr));
+    gap: 3rem 2rem;
+  }
+}
