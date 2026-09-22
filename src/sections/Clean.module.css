@@ -1,0 +1,222 @@
+.wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.points {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.point {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1.5rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.point dt {
+  font-weight: 600;
+  font-size: var(--step-0);
+}
+
+.point dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--accent);
+  text-align: end;
+}
+
+.demoCol {
+  min-width: 0;
+}
+
+.screen {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.bezel {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--rule-firm);
+  border-radius: var(--radius-lg);
+  background: #04070e;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.wallpaper,
+.wallpaper img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wallpaper img {
+  opacity: 0.85;
+}
+
+.junk {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 6px;
+  background: rgb(14 20 32 / 0.82);
+  backdrop-filter: blur(4px);
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 1vw, 0.72rem);
+  color: #d8e2ee;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.85) translateY(6px);
+  transition: opacity 0.35s var(--ease-out), transform 0.45s var(--ease-out);
+}
+
+.junk[data-on] {
+  opacity: 1;
+  transform: none;
+}
+
+.junkIcon {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--flag);
+  flex: none;
+}
+
+/* The wipe: a bright sheet crosses the screen once, and the junk is gone behind it. */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgb(190 226 255 / 0.9) 50%,
+    transparent 70%
+  );
+  transform: translateX(-140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.screen[data-phase='wiping'] .flash {
+  animation: sweep 0.72s var(--ease-in-out) forwards;
+}
+
+.screen[data-phase='wiping'] .junk {
+  opacity: 0;
+  transition-duration: 0.18s;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-140%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+
+.dock {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 8px;
+  background: rgb(10 16 26 / 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.dock span {
+  width: clamp(12px, 1.6vw, 18px);
+  height: clamp(12px, 1.6vw, 18px);
+  border-radius: 4px;
+  background: rgb(160 195 226 / 0.55);
+}
+
+.dock span:first-child {
+  background: var(--accent);
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--step--1);
+}
+
+.state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  color: var(--ink-faint);
+  transition: color 0.4s var(--ease-out);
+}
+
+.state::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--flag);
+  transition: background-color 0.4s var(--ease-out);
+}
+
+.state[data-phase='clean'] {
+  color: var(--live);
+}
+
+.state[data-phase='clean']::before {
+  background: var(--live);
+}
+
+.replay {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--rule-firm);
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+.replay:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (min-width: 62rem) {
+  .wrap {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  }
+}
