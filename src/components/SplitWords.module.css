@@ -1,0 +1,33 @@
+.wrap {
+  display: inline;
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.word {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  animation: rise 1s var(--ease-out) var(--word-delay, 0ms) forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+}
