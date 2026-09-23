@@ -22,6 +22,13 @@ sitemap, robots.txt and a 404 page. Canonical links point at
 SITE_URL=https://staging.example.com npm run build
 ```
 
+## Deploying
+
+Every push to `main` builds the site and publishes `dist/` to GitHub Pages
+(`.github/workflows/pages.yml`). The custom domain, `hoakaos.com`, is set in the
+repository's Pages settings rather than a `CNAME` file, which an Actions deploy
+ignores.
+
 Every URL ends in a slash (`/en/pricing/`), so any static host serves
 `dist/en/pricing/index.html` for it with no rewrite rules, and a bare `/en` gets
 the host's own redirect to `/en/`. Nothing needs Node at runtime.
