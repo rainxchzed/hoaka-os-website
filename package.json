@@ -10,7 +10,6 @@
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
-    "@fontsource-variable/jetbrains-mono": "^5.2.5",
     "@fontsource-variable/montserrat": "^5.2.5",
     "@fontsource-variable/onest": "^5.2.5",
     "lenis": "^1.2.3",
