@@ -1,5 +1,5 @@
 export const CONTACT = {
-  email: 'salom@hoaka.uz',
-  phone: '+998 90 000 00 00',
+  email: 'hello@hoakaos.com',
+  phone: '+998 70 165 00 87',
   site: 'https://hoakaos.com',
 } as const
