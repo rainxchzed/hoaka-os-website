@@ -46,7 +46,7 @@ export function Logo({ size = 28, withWordmark = true, className }: Props) {
             lineHeight: 1,
           }}
         >
-          Hoaka<span style={{ opacity: 0.55, fontWeight: 600 }}>&nbsp;OS</span>
+          Hoaka<span data-os style={{ opacity: 0.55, fontWeight: 600 }}>&nbsp;OS</span>
         </span>
       ) : null}
     </span>
