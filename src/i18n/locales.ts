@@ -34,7 +34,7 @@ const SLUGS: Record<PageKey, Record<Locale, string>> = {
 
 export function pathFor(locale: Locale, page: PageKey): string {
   const slug = SLUGS[page][locale]
-  return slug ? `/${locale}/${slug}` : `/${locale}`
+  return slug ? `/${locale}/${slug}/` : `/${locale}/`
 }
 
 export function isLocale(value: string | undefined): value is Locale {

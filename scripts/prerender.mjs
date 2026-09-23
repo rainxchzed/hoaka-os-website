@@ -81,6 +81,7 @@ function rootPage() {
   const alternates = LOCALES.map(
     (code) => `<link rel="alternate" hreflang="${code}" href="${SITE}${pathFor(code, 'home')}" />`,
   ).join('\n    ')
+  const fallback = pathFor('uz', 'home')
 
   return `<!doctype html>
 <html lang="uz-Latn-UZ">
@@ -90,10 +91,10 @@ function rootPage() {
     <title>Hoaka OS</title>
     <meta name="description" content="${esc(dictFor('uz').meta.home.description)}" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href="${SITE}/uz" />
+    <link rel="canonical" href="${SITE}${fallback}" />
     ${alternates}
-    <link rel="alternate" hreflang="x-default" href="${SITE}/uz" />
-    <meta http-equiv="refresh" content="0; url=/uz" />
+    <link rel="alternate" hreflang="x-default" href="${SITE}${fallback}" />
+    <meta http-equiv="refresh" content="0; url=${fallback}" />
     <style>
       body { font-family: system-ui, sans-serif; margin: 3rem auto; max-width: 34rem; padding: 0 1.25rem; line-height: 1.6 }
       li { margin: 0.5rem 0 }
@@ -119,7 +120,7 @@ function rootPage() {
             if (tag.indexOf('en') === 0) { pick = 'en'; break }
           }
         }
-        location.replace('/' + pick)
+        location.replace('/' + pick + '/')
       })()
     </script>
   </head>
@@ -168,20 +169,6 @@ await writeFile(join(DIST, 'sitemap.xml'), sitemap(), 'utf8')
 await writeFile(
   join(DIST, 'robots.txt'),
   `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`,
-  'utf8',
-)
-
-// Netlify and Cloudflare Pages read this. Without it an extensionless path like
-// /en can fall through to the SPA fallback instead of /en/index.html.
-const redirects = ROUTES.map(
-  (route) => `${route.path}  ${route.path}/index.html  200`,
-).join('\n')
-await writeFile(join(DIST, '_redirects'), `${redirects}\n`, 'utf8')
-
-// Vercel reads this.
-await writeFile(
-  join(DIST, 'vercel.json'),
-  JSON.stringify({ cleanUrls: true, trailingSlash: false }, null, 2) + '\n',
   'utf8',
 )
 

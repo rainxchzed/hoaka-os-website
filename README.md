@@ -21,25 +21,9 @@ sitemap and robots.txt. Set `SITE_URL` to change the canonical host:
 SITE_URL=https://hoaka.uz npm run build
 ```
 
-Deploy `dist/` to any static host. Nothing needs Node at runtime.
-
-### One host requirement
-
-An extensionless path must resolve to the directory's `index.html`: `/en` has to
-serve `dist/en/index.html`, not the SPA fallback. The build writes `_redirects`
-(Netlify, Cloudflare Pages) and `vercel.json` for the hosts that read them. On
-nginx use:
-
-```nginx
-location / {
-  try_files $uri $uri/ $uri/index.html /index.html;
-}
-```
-
-If a host gets this wrong the site still works — `/` and every `/xx/` path serve
-correctly, and the root page refuses to redirect when it is served for anything
-other than `/`, so there is no redirect loop. A visitor landing on a bare `/en`
-would just see the three language links instead of the page.
+Every URL ends in a slash (`/en/pricing/`), so any static host serves
+`dist/en/pricing/index.html` for it with no rewrite rules, and a bare `/en` gets
+the host's own redirect to `/en/`. Nothing needs Node at runtime.
 
 ## Routes
 
@@ -49,9 +33,9 @@ all three so a crawler never lands on a dead end.
 
 | Page    | uz             | ru               | en             |
 | ------- | -------------- | ---------------- | -------------- |
-| Home    | `/uz`          | `/ru`            | `/en`          |
-| Pricing | `/uz/narxlar`  | `/ru/stoimost`   | `/en/pricing`  |
-| Pilot   | `/uz/sinov`    | `/ru/pilot`      | `/en/pilot`    |
+| Home    | `/uz/`         | `/ru/`           | `/en/`         |
+| Pricing | `/uz/narxlar/` | `/ru/stoimost/`  | `/en/pricing/` |
+| Pilot   | `/uz/sinov/`   | `/ru/pilot/`     | `/en/pilot/`   |
 
 Slugs live in `src/i18n/locales.ts`. Adding a page means adding a `PageKey`, its
 slugs, a view in `src/pages/`, and an entry in `VIEWS` in `src/App.tsx`. The
