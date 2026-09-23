@@ -89,6 +89,16 @@
     padding-top: 62vh;
   }
 
+  /* On a phone it would scroll across the room; the first step already says it. */
+  .heading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   .scrim {
     background: linear-gradient(0deg, rgb(6 13 36 / 0.94) 0%, rgb(6 13 36 / 0.7) 38%, transparent 62%);
   }
