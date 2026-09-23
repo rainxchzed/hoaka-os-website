@@ -13,7 +13,7 @@ export function useSmoothScroll() {
 
     void import('lenis').then(({ default: Lenis }) => {
       if (cancelled) return
-      const instance = new Lenis({ duration: 1.05, wheelMultiplier: 0.9, touchMultiplier: 1.6 })
+      const instance = new Lenis({ lerp: 0.14, wheelMultiplier: 1.15, touchMultiplier: 1.5 })
       lenis = instance
 
       const tick = (time: number) => {
