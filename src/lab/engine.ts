@@ -52,7 +52,7 @@ const EMISSIVE: Record<ScreenState, number> = {
 
 export async function createLab(host: HTMLElement, options: LabOptions): Promise<Lab> {
   const renderer = new WebGLRenderer({ antialias: false, powerPreference: 'high-performance' })
-  const maxRatio = options.lite ? 1.25 : 2
+  const maxRatio = options.lite ? 1.25 : 1.5
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxRatio))
   renderer.toneMapping = NeutralToneMapping
   renderer.toneMappingExposure = 1.05
@@ -107,7 +107,8 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   const ao = options.lite ? null : new GTAOPass(scene, camera, 1, 1)
   if (ao) {
     ao.blendIntensity = 0.9
-    ao.updateGtaoMaterial({ radius: 0.45, distanceExponent: 1.4, thickness: 1.2, scale: 1.1 })
+    ao.updateGtaoMaterial({ radius: 0.45, distanceExponent: 1.4, thickness: 1.2, scale: 1.1, samples: 10 })
+    ao.updatePdMaterial({ samples: 10 })
     composer.addPass(ao)
   }
   const bloom = new UnrealBloomPass(new Vector2(1, 1), 0.34, 0.42, 1.02)
@@ -205,12 +206,19 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   let last = performance.now()
   let slow = 0
   let first = true
+  let frameCount = 0
 
   const tick = (now: number) => {
     frameId = requestAnimationFrame(tick)
     const dt = Math.min(0.1, (now - last) / 1000)
     last = now
     if (!visible && !first) return
+    const settled =
+      pending.size === 0 &&
+      Math.abs(live.minutes - MOMENTS[moment].minutes) < 0.5 &&
+      live.camPos.distanceToSquared(goal.camPos) < 0.0004
+    frameCount += 1
+    if (settled && !first && frameCount % 2 === 1) return
 
     for (const [id, swap] of pending) {
       if (now < swap.at) continue
