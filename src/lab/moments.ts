@@ -1,5 +1,6 @@
 import type { ScreenState } from './screens'
 import type { EmptyChairs } from './seating'
+import type { BoardState } from './board'
 
 export type MomentId = 'boot' | 'open' | 'lecture' | 'exam' | 'logout'
 export type LabelId = 'interrupted' | 'noContact' | 'blocked'
@@ -18,7 +19,7 @@ export type Moment = {
   people: number
   chairs: EmptyChairs
   overrides?: Record<string, ScreenState>
-  front: 'board' | 'lecture'
+  board: BoardState
   marker: boolean
   labels: { id: LabelId; seat: 'B3' | 'C6' | 'A6' }[]
 }
@@ -36,7 +37,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     screens: 'desktop',
     people: 0,
     chairs: 'tidy',
-    front: 'board',
+    board: 'clean',
     marker: false,
     labels: [],
   },
@@ -53,7 +54,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     people: 0.65,
     chairs: 'tidy',
     overrides: { A6: 'blocked', C2: 'blocked' },
-    front: 'board',
+    board: 'notes',
     marker: false,
     labels: [{ id: 'blocked', seat: 'A6' }],
   },
@@ -69,7 +70,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     screens: 'lecture',
     people: 1,
     chairs: 'tidy',
-    front: 'lecture',
+    board: 'lecture',
     marker: false,
     labels: [],
   },
@@ -86,7 +87,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     people: 1,
     chairs: 'tidy',
     overrides: { B3: 'examLeft', C6: 'off' },
-    front: 'board',
+    board: 'exam',
     marker: true,
     labels: [
       { id: 'interrupted', seat: 'B3' },
@@ -105,7 +106,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     screens: 'desktop',
     people: 0,
     chairs: 'left',
-    front: 'board',
+    board: 'traces',
     marker: false,
     labels: [],
   },

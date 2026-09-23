@@ -27,6 +27,7 @@ import { buildDome } from './dome'
 import { buildBeams } from './beams'
 import { createSeating } from './seating'
 import { screenTextures } from './screens'
+import { boardMaterials } from './board'
 import type { ScreenState } from './screens'
 import { MOMENTS } from './moments'
 import type { LabelId, MomentId } from './moments'
@@ -102,6 +103,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
       }),
     ]),
   ) as Record<ScreenState, MeshStandardMaterial>
+  const boards = await boardMaterials()
   const lectureFront = screenMaterial.lecture.clone()
   lectureFront.emissiveIntensity = 0.85
 
@@ -189,7 +191,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
       if (seatState.get(seat.id) === next && !pending.has(seat.id)) continue
       pending.set(seat.id, { state: next, at: now + (options.reduced ? 0 : seat.order * SWAP_STAGGER_MS) })
     }
-    room.front.material = m.front === 'lecture' ? lectureFront : room.board
+    room.front.material = m.board === 'lecture' ? lectureFront : boards[m.board]
     seating.set(m.people, m.chairs, Object.keys(m.overrides ?? {}), now, options.reduced)
     for (const id of Object.keys(labelEls) as LabelId[]) {
       labelEls[id].dataset.on = m.labels.some((l) => l.id === id) ? 'true' : 'false'
@@ -353,6 +355,10 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     Object.values(screenMaterial).forEach((mm) => mm.dispose())
     Object.values(textures).forEach((tex: Texture) => tex.dispose())
     lectureFront.dispose()
+    Object.values(boards).forEach((board) => {
+      board.map?.dispose()
+      board.dispose()
+    })
     envMap.dispose()
     target.dispose()
     ao?.dispose()

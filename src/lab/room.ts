@@ -32,7 +32,6 @@ export function buildRoom() {
     group,
     seats: furniture.seats,
     front: fixtures.front,
-    board: palette.board,
     outside: shell.outside,
     clock: fixtures.clock,
     marker,
