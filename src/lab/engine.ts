@@ -62,6 +62,8 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   renderer.toneMappingExposure = 1.05
   renderer.shadowMap.enabled = true
   renderer.shadowMap.type = PCFSoftShadowMap
+  // Redrawn only while the sun or the chairs move; the camera drift never changes it.
+  renderer.shadowMap.autoUpdate = false
   renderer.domElement.style.display = 'block'
   renderer.domElement.style.width = '100%'
   renderer.domElement.style.height = '100%'
@@ -299,6 +301,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     room.outside.uniforms.uBottom.value.copy(live.bottom)
 
     seatsMoving = seating.update(now, k)
+    if (first || seatsMoving || live.sunPos.distanceToSquared(goal.sunPos) > 1e-6) renderer.shadowMap.needsUpdate = true
     beams.material.uniforms.uDir.value.copy(sun.target.position).sub(live.sunPos).normalize()
     beams.material.uniforms.uColor.value.copy(live.sunColor)
     beams.material.uniforms.uStrength.value = live.beams
