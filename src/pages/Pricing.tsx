@@ -1,8 +1,12 @@
+import { ClipboardCheck, HardDriveDownload, LayoutDashboard, ListChecks, PackageCheck, RotateCcw, X } from 'lucide-react'
 import { useI18n } from '../i18n'
 import { Button } from '../components/Button'
 import { PriceCalculator } from '../components/PriceCalculator'
 import { Ledger } from '../sections/Ledger'
 import styles from './Pricing.module.css'
+
+// In the dictionaries' order: reset, reimaging, updates, lists, exam day, console.
+const COVERS = [RotateCcw, HardDriveDownload, PackageCheck, ListChecks, ClipboardCheck, LayoutDashboard]
 
 export function Pricing() {
   const { t, href } = useI18n()
@@ -23,17 +27,33 @@ export function Pricing() {
         <div className={`shell ${styles.split}`}>
           <h2 className="h-xl">{p.includedTitle}</h2>
           <div>
-            <dl className={styles.pairs}>
-              {p.included.map((item) => (
-                <div key={item.k} className={styles.pair}>
-                  <dt>{item.k}</dt>
-                  <dd>{item.v}</dd>
-                </div>
-              ))}
+            <dl className={styles.covers}>
+              {p.included.map((item, i) => {
+                const Icon = COVERS[i % COVERS.length]
+                return (
+                  <div key={item.k} className={styles.cover}>
+                    <dt>
+                      <span className={styles.coverIcon} aria-hidden="true">
+                        <Icon size={20} strokeWidth={1.6} />
+                      </span>
+                      {item.k}
+                    </dt>
+                    <dd>{item.v}</dd>
+                  </div>
+                )
+              })}
             </dl>
-            <p className={styles.excluded}>
-              <span>{p.excludedTitle}:</span> {p.excluded.join(' · ')}
-            </p>
+            <div className={styles.excluded}>
+              <h3 className={styles.colTitle}>{p.excludedTitle}</h3>
+              <ul className={styles.chips}>
+                {p.excluded.map((item) => (
+                  <li key={item} className={styles.chip}>
+                    <X size={13} strokeWidth={2} aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -44,19 +64,31 @@ export function Pricing() {
         <div className={`shell ${styles.split}`}>
           <h2 className="h-xl">{req.title}</h2>
           <div className={styles.columns}>
-            {[req.provide, req.stack].map((column) => (
-              <div key={column.title}>
-                <h3 className={styles.colTitle}>{column.title}</h3>
-                <dl className={styles.pairs}>
-                  {column.items.map((item) => (
-                    <div key={item.k} className={styles.pair}>
-                      <dt>{item.k}</dt>
-                      <dd>{item.v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            ))}
+            <div>
+              <h3 className={styles.colTitle}>{req.provide.title}</h3>
+              <ul className={styles.checklist}>
+                {req.provide.items.map((item) => (
+                  <li key={item.k} className={styles.check}>
+                    <span className={styles.box} aria-hidden="true" />
+                    <span className={styles.checkText}>
+                      <strong>{item.k}</strong>
+                      <span>{item.v}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className={styles.colTitle}>{req.stack.title}</h3>
+              <dl className={styles.spec}>
+                {req.stack.items.map((item) => (
+                  <div key={item.k} className={styles.specRow}>
+                    <dt>{item.k}</dt>
+                    <dd>{item.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
         </div>
       </section>
@@ -73,7 +105,10 @@ export function Pricing() {
           <div>
             <ul className={styles.open}>
               {p.open.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className={styles.blank}>
+                  <span>{item}</span>
+                  <span className={styles.field} aria-hidden="true" />
+                </li>
               ))}
             </ul>
             <h3 className={styles.colTitle}>{p.sourcesTitle}</h3>

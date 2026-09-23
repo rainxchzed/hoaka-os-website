@@ -12,34 +12,67 @@
   gap: var(--s-4);
 }
 
-.pairs {
+.covers {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-4) var(--s-4);
 }
 
-.pair {
+.cover {
   display: grid;
-  gap: 0.3rem;
-  padding-block: var(--s-2);
+  align-content: start;
+  gap: 0.45rem;
+  padding-top: var(--s-2);
   border-top: 1px solid var(--line);
 }
 
-.pair dt {
+.cover dt {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-weight: 600;
 }
 
-.pair dd {
+.coverIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--cobalt) 14%, transparent);
+  color: var(--cobalt);
+}
+
+.cover dd {
   color: var(--ink-2);
 }
 
 .excluded {
-  margin-top: var(--s-3);
-  color: var(--ink-3);
+  display: grid;
+  gap: var(--s-1);
+  margin-top: var(--s-5);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem 0.4rem 0.65rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-2);
   font-size: var(--t-sm);
 }
 
-.excluded span {
-  color: var(--ink-2);
-  font-weight: 600;
+.chip svg {
+  color: var(--ink-3);
 }
 
 .columns {
@@ -56,19 +89,114 @@
   color: var(--ink-3);
 }
 
+/* What to have ready before we arrive: an unticked checklist. */
+.checklist {
+  display: grid;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-block: var(--s-2);
+  border-top: 1px solid var(--line);
+}
+
+.box {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  border: 1.5px solid var(--ink-3);
+  border-radius: 4px;
+}
+
+.checkText {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.checkText strong {
+  font-weight: 600;
+}
+
+.checkText span {
+  color: var(--ink-2);
+}
+
+/* The image as a spec sheet, keys and values joined by leader dots. */
+.spec {
+  display: grid;
+}
+
+.specRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.6rem;
+  padding-block: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.specRow dt {
+  display: flex;
+  flex: 1 1 8rem;
+  align-items: baseline;
+  gap: 0.6rem;
+  color: var(--ink-3);
+}
+
+.specRow dt::after {
+  content: '';
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 1px dotted var(--line-strong);
+  translate: 0 -0.25em;
+}
+
+.specRow dd {
+  font-weight: 600;
+}
+
 .cta {
   margin-top: var(--s-4);
 }
 
+/* Each open term keeps an empty line after it, to be filled in together. */
 .open {
   display: grid;
   margin-bottom: var(--s-5);
 }
 
-.open li {
-  padding-block: 0.9rem;
-  border-top: 1px dashed var(--line-strong);
+.blank {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: var(--s-2);
   color: var(--ink-2);
+}
+
+.field {
+  position: relative;
+  display: block;
+  height: 1.9rem;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.blank:hover .field::after {
+  content: '';
+  position: absolute;
+  left: 0.15rem;
+  bottom: 0.35rem;
+  width: 1.5px;
+  height: 1.15rem;
+  background: var(--cobalt);
+  animation: caret 1.05s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
 }
 
 .source {
@@ -87,6 +215,7 @@
 }
 
 @media (min-width: 48rem) {
+  .covers,
   .columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
