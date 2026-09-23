@@ -44,6 +44,7 @@ export function Pilot() {
           <ol className={styles.steps}>
             {t.pilot.steps.map((step) => (
               <li key={step.n} className={styles.step}>
+                <span className={styles.span} aria-hidden="true" />
                 <span className={`tabular ${styles.n}`}>{step.n}</span>
                 <h2 className={styles.k}>{step.k}</h2>
                 <p className={styles.v}>{step.v}</p>
