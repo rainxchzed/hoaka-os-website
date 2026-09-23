@@ -10,6 +10,8 @@ import { App } from './App'
 const container = document.getElementById('root')
 
 if (container) {
+  document.documentElement.setAttribute('data-js', '')
+
   const tree = (
     <StrictMode>
       <BrowserRouter>
