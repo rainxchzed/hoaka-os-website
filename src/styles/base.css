@@ -106,6 +106,31 @@ dd {
   padding-inline: var(--gutter);
 }
 
+.page-main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sky zones are windows onto the fixed canvas; everything else paints its own ground
+   so the canvas behind never shows through. */
+.page-main > :not([data-sky]) {
+  background: var(--ground);
+}
+
+/* Before the live sky takes over, and wherever it cannot, a still of its first frame. */
+:root:not([data-sky-mode='live']) [data-sky='dawn'] {
+  background: #070f26 image-set(url('/media/sky-dawn.avif') type('image/avif'), url('/media/sky-dawn.webp') type('image/webp')) 78% 50% / cover no-repeat;
+}
+
+:root:not([data-sky-mode='live']) [data-sky='dusk'] {
+  background: #070f26 image-set(url('/media/sky-dusk.avif') type('image/avif'), url('/media/sky-dusk.webp') type('image/webp')) 78% 50% / cover no-repeat;
+}
+
+:root[data-sky-mode='live'] [data-sky] {
+  background: transparent;
+}
+
 .skip-link {
   position: absolute;
   left: -9999px;

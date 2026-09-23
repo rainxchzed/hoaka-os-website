@@ -6,6 +6,7 @@ import type { Locale, PageKey } from '../i18n/locales'
 import { useSmoothScroll } from '../lib/useSmoothScroll'
 import { Nav } from './Nav'
 import { Footer } from './Footer'
+import { Sky } from '../sky/Sky'
 import { dictFor } from '../i18n'
 
 type Props = { locale: Locale; page: PageKey; children: ReactNode }
@@ -24,8 +25,11 @@ export function PageShell({ locale, page, children }: Props) {
       <a className="skip-link" href="#main">
         {t.nav.skip}
       </a>
+      <Sky />
       <Nav page={page} />
-      <main id="main">{children}</main>
+      <main id="main" className="page-main">
+        {children}
+      </main>
       <Footer page={page} />
     </I18nProvider>
   )
