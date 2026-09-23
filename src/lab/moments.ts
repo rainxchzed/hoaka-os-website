@@ -43,7 +43,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
   },
   open: {
     minutes: 9 * 60,
-    camera: { position: [16, 12.5, 19.5], target: [-0.6, 0.5, -1.0] },
+    camera: { position: [17.7, 13.7, 21.5], target: [-0.6, 0.5, -1.0] },
     sun: { color: '#ffdcb0', intensity: 4.5, position: [-11, 5.5, -1] },
     hemi: { sky: '#9db2ee', ground: '#76665a', intensity: 0.42 },
     env: 0.32,
@@ -76,7 +76,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
   },
   exam: {
     minutes: 14 * 60,
-    camera: { position: [10.5, 11.5, 16.5], target: [-1.2, 1.9, -0.6] },
+    camera: { position: [11.9, 12, 19.1], target: [-1.6, 0.5, -0.6] },
     sun: { color: '#ffe3c2', intensity: 4.0, position: [-10, 6.5, 3.5] },
     hemi: { sky: '#9fb3e8', ground: '#74665a', intensity: 0.4 },
     env: 0.3,
