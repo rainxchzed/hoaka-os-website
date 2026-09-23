@@ -214,7 +214,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     const portrait = width / height < 0.9
     camera.aspect = width / height
     camera.fov = portrait ? 40 : 24
-    if (portrait) camera.setViewOffset(width, height, 0, height * 0.2, width, height)
+    if (portrait) camera.setViewOffset(width, height, 0, height * 0.25, width, height)
     else camera.setViewOffset(width, height, -width * 0.13, height * 0.03, width, height)
     camera.updateProjectionMatrix()
   }

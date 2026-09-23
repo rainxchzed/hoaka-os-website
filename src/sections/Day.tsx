@@ -44,12 +44,14 @@ export function Day() {
               data-active={active === step.id ? '' : undefined}
               className={styles.step}
             >
-              <time className={`tabular ${styles.time}`} dateTime={step.time}>
-                {step.time}
-              </time>
-              <h3 className={styles.title}>{step.title}</h3>
-              <p className={styles.body}>{step.body}</p>
-              {step.id === 'exam' ? <p className={styles.honest}>{t.day.honest}</p> : null}
+              <div className={styles.card}>
+                <time className={`tabular ${styles.time}`} dateTime={step.time}>
+                  {step.time}
+                </time>
+                <h3 className={styles.title}>{step.title}</h3>
+                <p className={styles.body}>{step.body}</p>
+                {step.id === 'exam' ? <p className={styles.honest}>{t.day.honest}</p> : null}
+              </div>
             </li>
           ))}
         </ol>
