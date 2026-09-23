@@ -23,10 +23,11 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js'
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { buildRoom } from './room'
+import { buildDome, buildOrrery } from './orrery'
 import { screenTextures } from './screens'
 import type { ScreenState } from './screens'
 import { MOMENTS } from './moments'
-import type { LabelId, MomentId } from './moments'
+import type { LabelId, Moment, MomentId } from './moments'
 
 export type LabOptions = {
   labels: Record<LabelId, string>
@@ -72,6 +73,23 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   const camera = new PerspectiveCamera(30, 1, 0.1, 400)
   const room = buildRoom()
   scene.add(room.group)
+
+  const dome = buildDome()
+  scene.add(dome.dome)
+
+  // The sun's path hangs behind the room, facing where the cameras spend their time.
+  const orrery = buildOrrery()
+  const moments = Object.values(MOMENTS)
+  const mean = (pick: (m: Moment) => [number, number, number]) =>
+    moments
+      .reduce((acc, m) => acc.add(new Vector3(...pick(m))), new Vector3())
+      .divideScalar(moments.length)
+  const eye = mean((m) => m.camera.position)
+  const focus = mean((m) => m.camera.target)
+  const away = focus.clone().sub(eye).normalize()
+  orrery.group.position.copy(focus).addScaledVector(away, 10).add(new Vector3(0, 1.8, 0))
+  orrery.group.lookAt(eye)
+  scene.add(orrery.group)
 
   const textures = await screenTextures()
   const screenMaterial = Object.fromEntries(
@@ -146,6 +164,9 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     bottom: new Color(start.outside.bottom),
     minutes: start.minutes,
     marker: 0,
+    zenith: new Color(start.backdrop.zenith),
+    horizon: new Color(start.backdrop.horizon),
+    glow: new Color(start.backdrop.glow),
   }
   const goal = {
     camPos: new Vector3(),
@@ -156,6 +177,9 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     hemiGround: new Color(),
     top: new Color(),
     bottom: new Color(),
+    zenith: new Color(),
+    horizon: new Color(),
+    glow: new Color(),
   }
 
   const setMoment = (id: MomentId) => {
@@ -183,6 +207,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     composer.setSize(width, height)
     bloom.setSize(width, height)
     ao?.setSize(width, height)
+    renderer.getDrawingBufferSize(dome.material.uniforms.uRes.value)
     const portrait = width / height < 0.9
     camera.aspect = width / height
     camera.fov = portrait ? 40 : 24
@@ -241,6 +266,9 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     live.hemiGround.lerp(goal.hemiGround.set(m.hemi.ground), k)
     live.top.lerp(goal.top.set(m.outside.top), k)
     live.bottom.lerp(goal.bottom.set(m.outside.bottom), k)
+    live.zenith.lerp(goal.zenith.set(m.backdrop.zenith), k)
+    live.horizon.lerp(goal.horizon.set(m.backdrop.horizon), k)
+    live.glow.lerp(goal.glow.set(m.backdrop.glow), k)
     live.sunIntensity += (m.sun.intensity - live.sunIntensity) * k
     live.hemiIntensity += (m.hemi.intensity - live.hemiIntensity) * k
     live.env += (m.env - live.env) * k
@@ -265,6 +293,12 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     scene.environmentIntensity = live.env
     room.outside.uniforms.uTop.value.copy(live.top)
     room.outside.uniforms.uBottom.value.copy(live.bottom)
+
+    orrery.setTime(live.minutes)
+    dome.material.uniforms.uZenith.value.copy(live.zenith)
+    dome.material.uniforms.uHorizon.value.copy(live.horizon)
+    dome.material.uniforms.uGlow.value.copy(live.glow)
+    dome.material.uniforms.uSun.value.copy(orrery.sunWorld())
 
     const hours = live.minutes / 60
     room.clock.hour.rotation.z = -((hours % 12) / 12) * Math.PI * 2

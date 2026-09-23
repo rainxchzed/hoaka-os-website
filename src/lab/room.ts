@@ -1,5 +1,4 @@
 import {
-  BackSide,
   BoxGeometry,
   CircleGeometry,
   Color,
@@ -13,7 +12,6 @@ import {
   PlaneGeometry,
   RingGeometry,
   ShaderMaterial,
-  SphereGeometry,
   Vector3,
 } from 'three'
 import type { BufferGeometry, Material } from 'three'
@@ -61,37 +59,6 @@ function solid(geometry: BufferGeometry, material: Material | Material[], x: num
   mesh.castShadow = true
   mesh.receiveShadow = true
   return mesh
-}
-
-function gradientMaterial(top: string, bottom: string, lo: number, hi: number) {
-  return new ShaderMaterial({
-    side: BackSide,
-    depthWrite: false,
-    uniforms: {
-      uTop: { value: new Color(top) },
-      uBottom: { value: new Color(bottom) },
-      uLo: { value: lo },
-      uHi: { value: hi },
-    },
-    vertexShader: /* glsl */ `
-      varying vec3 vDir;
-      void main() {
-        vDir = normalize((modelMatrix * vec4(position, 1.0)).xyz - cameraPosition);
-        gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
-      }
-    `,
-    fragmentShader: /* glsl */ `
-      uniform vec3 uTop;
-      uniform vec3 uBottom;
-      uniform float uLo;
-      uniform float uHi;
-      varying vec3 vDir;
-      void main() {
-        gl_FragColor = vec4(mix(uBottom, uTop, smoothstep(uLo, uHi, vDir.y)), 1.0);
-        #include <colorspace_fragment>
-      }
-    `,
-  })
 }
 
 export function buildRoom() {
@@ -165,10 +132,6 @@ export function buildRoom() {
     pane.rotation.y = Math.PI / 2
     group.add(pane)
   }
-
-  const backdrop = new Mesh(new SphereGeometry(90, 32, 16), gradientMaterial('#0c1a3d', '#060d24', -0.35, 0.55))
-  backdrop.renderOrder = -1
-  group.add(backdrop)
 
   const benchTop = new RoundedBoxGeometry(3.9, 0.045, 0.72, 2, 0.012)
   group.add(
