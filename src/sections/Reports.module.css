@@ -1,120 +1,37 @@
-.wrap {
+.grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2.5rem, 5vw, 4.5rem);
-  align-items: center;
+  gap: var(--s-5);
 }
 
-.sheets {
-  --fan-max: 18px;
-  position: relative;
+.body {
+  margin-top: var(--s-3);
+}
+
+.list {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  perspective: 1400px;
-  min-height: 22rem;
-  /* The fan leans past its own box; clip it so it cannot widen the page. */
-  overflow: clip;
-  overflow-clip-margin: 20px;
+  gap: var(--s-4);
+  align-content: start;
 }
 
-.sheet {
-  grid-area: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: clamp(1.2rem, 2.4vw, 1.9rem);
-  border: 1px solid var(--rule-firm);
-  border-radius: 6px;
-  background: var(--surface);
-  box-shadow: var(--shadow-lg);
-  transform:
-    translate3d(calc(var(--i) * 12%), calc(var(--i) * -5%), 0)
-    rotateY(-13deg)
-    rotateX(4deg)
-    rotateZ(calc(var(--i) * -1.6deg));
-  transform-origin: left center;
-  transition: transform 0.7s var(--ease-out), box-shadow 0.7s var(--ease-out);
+.item {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line-strong);
 }
 
-.sheets:hover .sheet {
-  transform:
-    translate3d(calc(var(--i) * 15%), calc(var(--i) * -6%), calc(var(--i) * 26px))
-    rotateY(-6deg)
-    rotateX(1deg);
+.name {
+  font-size: var(--t-md);
 }
 
-.sheetOrg {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
+.v {
+  color: var(--ink-2);
 }
 
-.sheetName {
-  margin: 0.35rem 0 0.2rem;
-  font-size: var(--step-1);
-  font-weight: 600;
-}
-
-.sheetRange {
-  font-size: var(--step--1);
-  color: var(--accent);
-}
-
-.rules {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  flex: 1;
-}
-
-.rules span {
-  height: 6px;
-  border-radius: 999px;
-  background: var(--surface-2);
-}
-
-.sheetFoot {
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--rule);
-  font-size: var(--step--1);
-  color: var(--ink-soft);
-}
-
-.print {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--rule-firm);
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: var(--step--1);
-  color: var(--ink-soft);
-}
-
-/* Narrow screens have no width to spend on the lean, so the fan flattens into a
-   plain offset stack: no rotation means no corner reaching past the gutter. */
-@media (max-width: 46rem) {
-  .sheets {
-    overflow: visible;
-    padding-inline-end: calc(var(--fan-max) + 4px);
-  }
-
-  .sheet {
-    --fan: calc(var(--i) * 9px);
-    transform: translate3d(var(--fan), calc(var(--i) * -7px), 0);
-  }
-
-  .sheets:hover .sheet {
-    transform: translate3d(var(--fan), calc(var(--i) * -7px), 0);
-  }
-}
-
-@media (min-width: 62rem) {
-  .wrap {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+@media (min-width: 60rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--s-7);
   }
 }

@@ -1,0 +1,106 @@
+.day {
+  position: relative;
+  display: grid;
+  grid-template-areas: 'all';
+}
+
+.stage {
+  grid-area: all;
+  align-self: start;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  z-index: 0;
+}
+
+/* Keeps the timeline legible where it overlaps the far edge of the room. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgb(6 13 36 / 0.82) 0%, rgb(6 13 36 / 0.55) 30%, transparent 52%);
+}
+
+.track {
+  grid-area: all;
+  position: relative;
+  z-index: 1;
+  padding-block: 18vh 30vh;
+}
+
+.heading {
+  max-width: 22ch;
+  font-size: var(--t-md);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s-2);
+  max-width: 31rem;
+  min-height: 92vh;
+  transition: opacity 0.6s var(--ease);
+}
+
+/* Only a running page knows which step is current; without it every step reads. */
+:global(:root[data-js]) .step:not([data-active]) {
+  opacity: 0.32;
+}
+
+.time {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--cobalt);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.body {
+  max-width: 44ch;
+  color: var(--ink-2);
+  font-size: var(--t-base);
+  line-height: 1.65;
+}
+
+.honest {
+  max-width: 44ch;
+  padding-left: var(--s-2);
+  border-left: 2px solid var(--alarm);
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+}
+
+@media (max-aspect-ratio: 9/10) {
+  .track {
+    padding-top: 62vh;
+  }
+
+  .scrim {
+    background: linear-gradient(0deg, rgb(6 13 36 / 0.94) 0%, rgb(6 13 36 / 0.7) 38%, transparent 62%);
+  }
+
+  .step {
+    justify-content: flex-end;
+    padding-bottom: 8vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(:root[data-js]) .step:not([data-active]) {
+    opacity: 0.55;
+  }
+}

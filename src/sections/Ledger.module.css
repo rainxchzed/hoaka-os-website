@@ -1,0 +1,105 @@
+.title {
+  font-size: var(--t-md);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+}
+
+.sentence {
+  max-width: 30ch;
+  margin-top: var(--s-3);
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  text-wrap: pretty;
+}
+
+.figure {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.figure[data-ours] {
+  color: var(--cobalt);
+}
+
+.table {
+  width: 100%;
+  max-width: 52rem;
+  margin-top: var(--s-6);
+  border-collapse: collapse;
+  font-size: var(--t-sm);
+}
+
+.table th,
+.table td {
+  padding: 0.85rem 1rem 0.85rem 0;
+  border-top: 1px solid var(--line);
+  text-align: start;
+  vertical-align: baseline;
+}
+
+.table th {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.prod,
+.per {
+  color: var(--ink-3);
+}
+
+.amt {
+  text-align: end !important;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  max-width: 52rem;
+  margin-top: var(--s-3);
+}
+
+.source {
+  max-width: 52ch;
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+}
+
+@media (max-width: 40rem) {
+  .sentence {
+    font-size: var(--t-lg);
+    line-height: 1.28;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+  }
+
+  .table tr {
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .table th,
+  .table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .amt {
+    text-align: start !important;
+  }
+}

@@ -2,31 +2,34 @@ import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import styles from './Button.module.css'
 
-type Tone = 'solid' | 'ghost' | 'quiet'
-
 type Props = {
   to: string
   children: ReactNode
-  tone?: Tone
-  size?: 'md' | 'lg'
+  tone?: 'solid' | 'link'
   className?: string
 }
 
-export function Button({ to, children, tone = 'solid', size = 'md', className }: Props) {
-  const cls = [styles.btn, styles[tone], styles[size], className].filter(Boolean).join(' ')
-  const isExternal = to.startsWith('http') || to.startsWith('mailto:')
+export function Button({ to, children, tone = 'solid', className }: Props) {
+  const cls = [tone === 'solid' ? styles.btn : styles.link, className].filter(Boolean).join(' ')
+  const body = (
+    <>
+      <span>{children}</span>
+      <span className={styles.arrow} aria-hidden="true">
+        →
+      </span>
+    </>
+  )
 
-  if (isExternal) {
+  if (to.startsWith('mailto:') || to.startsWith('http')) {
     return (
       <a className={cls} href={to}>
-        <span className={styles.label}>{children}</span>
+        {body}
       </a>
     )
   }
-
   return (
     <Link className={cls} to={to}>
-      <span className={styles.label}>{children}</span>
+      {body}
     </Link>
   )
 }

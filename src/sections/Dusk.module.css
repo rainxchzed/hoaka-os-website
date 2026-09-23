@@ -1,0 +1,24 @@
+.dusk {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: clamp(6rem, 18vh, 12rem);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.title {
+  max-width: 16ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  margin-top: var(--s-2);
+}
