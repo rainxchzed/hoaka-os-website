@@ -57,7 +57,9 @@ function headFor({ locale, page, path }) {
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${esc(meta.title)}" />
     <meta property="og:description" content="${esc(meta.description)}" />
-    <meta property="og:image" content="${SITE}/media/hero-poster.webp" />
+    <meta property="og:image" content="${SITE}/media/og-${locale}.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
 }
