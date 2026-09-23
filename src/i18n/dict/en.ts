@@ -92,6 +92,7 @@ export const en: Dict = {
     title: 'What one machine costs for a year',
     sentence: 'Abroad, four separate products do this job for {abroad} per machine in the first year and {after} every year after, plus {exam} a year for the exam software. Hoaka does all of it for {ours} per machine, the same every year.',
     figures: { abroad: '$241.66', after: '$41.67', exam: '$3,295', ours: '$15' },
+    compare: { abroad: 'Abroad, first year', ours: 'Hoaka, every year' },
     rows: [
       { job: 'The operating system', prod: 'Windows 11 Pro', amt: '$199.99', per: 'once' },
       { job: 'The machine comes back clean', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'a year' },

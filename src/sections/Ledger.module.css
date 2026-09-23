@@ -5,9 +5,15 @@
   color: var(--ink-2);
 }
 
+.top {
+  display: grid;
+  gap: var(--s-5);
+  align-items: center;
+  margin-top: var(--s-3);
+}
+
 .sentence {
   max-width: 30ch;
-  margin-top: var(--s-3);
   font-family: var(--font-display);
   font-size: var(--t-xl);
   font-weight: 300;
@@ -26,20 +32,83 @@
   color: var(--cobalt);
 }
 
+/* The sentence's two totals, drawn to the same scale. */
+.compare {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.6rem var(--s-2);
+}
+
+.barLabel {
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+}
+
+.barValue {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.barTrack {
+  grid-column: 1 / -1;
+  display: block;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.barFill {
+  display: block;
+  width: var(--share);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ink-3);
+  transform-origin: left center;
+}
+
+.bar[data-ours] .barValue {
+  color: var(--cobalt);
+}
+
+.bar[data-ours] .barFill {
+  background: var(--cobalt);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--cobalt) 55%, transparent);
+}
+
 .table {
   width: 100%;
-  max-width: 52rem;
   margin-top: var(--s-6);
   border-collapse: collapse;
-  font-size: var(--t-sm);
+}
+
+.table tr {
+  transition: background-color 0.25s var(--ease);
+}
+
+.table tr:hover {
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
 }
 
 .table th,
 .table td {
-  padding: 0.85rem 1rem 0.85rem 0;
+  padding: 1.05rem 1.25rem 1.05rem 0;
   border-top: 1px solid var(--line);
   text-align: start;
-  vertical-align: baseline;
+  vertical-align: middle;
+}
+
+.table tr:last-child th,
+.table tr:last-child td {
+  border-bottom: 1px solid var(--line);
 }
 
 .table th {
@@ -50,12 +119,46 @@
 .prod,
 .per {
   color: var(--ink-3);
+  font-size: var(--t-sm);
+}
+
+.meter {
+  width: 32%;
+}
+
+.track {
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+/* Nothing to buy: the slot stays open. */
+.track[data-none] {
+  height: 0;
+  border-top: 1px dashed var(--line-strong);
+  background: none;
+}
+
+.fill {
+  display: block;
+  width: var(--share);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ink-2);
+  transform-origin: left center;
 }
 
 .amt {
   text-align: end !important;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
+}
+
+.per {
+  width: 6rem;
+  padding-inline-start: 0.25rem;
 }
 
 .foot {
@@ -64,14 +167,37 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--s-2) var(--s-4);
-  max-width: 52rem;
   margin-top: var(--s-3);
 }
 
 .source {
-  max-width: 52ch;
+  max-width: 60ch;
   color: var(--ink-3);
   font-size: var(--t-sm);
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .barFill,
+    .fill {
+      animation: grow linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 45%;
+    }
+  }
+}
+
+@media (min-width: 60rem) {
+  .top {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--s-7);
+  }
 }
 
 @media (max-width: 40rem) {
@@ -89,17 +215,38 @@
   }
 
   .table tr {
-    padding: 0.8rem 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem var(--s-2);
+    padding: 0.95rem 0;
     border-top: 1px solid var(--line);
   }
 
   .table th,
   .table td {
+    width: auto;
     padding: 0;
-    border: 0;
+    border: 0 !important;
+  }
+
+  .prod {
+    grid-column: 1;
+  }
+
+  .meter {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 0.25rem;
   }
 
   .amt {
-    text-align: start !important;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .per {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: end;
   }
 }

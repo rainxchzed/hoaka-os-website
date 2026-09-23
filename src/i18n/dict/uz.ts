@@ -91,6 +91,7 @@ export const uz = {
     title: 'Bitta kompyuter bir yilda qancha turadi',
     sentence: 'Chet elda bu ishni to‘rtta alohida mahsulot bajaradi: birinchi yili har bir kompyuter uchun {abroad}, keyin har yili {after}, ustiga imtihon dasturi uchun yiliga {exam}. Hoaka hammasini har bir kompyuter uchun {ours} ga bajaradi, har yili bir xil.',
     figures: { abroad: '$241.66', after: '$41.67', exam: '$3 295', ours: '$15' },
+    compare: { abroad: 'Chet elda, birinchi yil', ours: 'Hoaka, har yili' },
     rows: [
       { job: 'Operatsion tizim', prod: 'Windows 11 Pro', amt: '$199.99', per: 'bir marta' },
       { job: 'Kompyuter toza qaytadi', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'yiliga' },
