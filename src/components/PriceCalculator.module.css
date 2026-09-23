@@ -226,3 +226,15 @@
     gap: var(--s-7);
   }
 }
+
+@media (pointer: coarse) {
+  .range {
+    --thumb: 1.9rem;
+    height: 2.75rem;
+  }
+
+  .preset {
+    min-height: 2.75rem;
+    align-items: center;
+  }
+}

@@ -116,3 +116,24 @@
     display: none;
   }
 }
+
+/* Fingers need bigger cells than a pointer does. */
+@media (pointer: coarse) {
+  .track {
+    --cell: 2.75rem;
+  }
+
+  .item {
+    height: 2.5rem;
+  }
+
+  .list[data-long] .track {
+    --cell: 2.9rem;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 26rem) {
+  .globe {
+    display: none;
+  }
+}

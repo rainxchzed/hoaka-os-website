@@ -211,3 +211,9 @@
     gap: var(--s-7);
   }
 }
+
+@media (pointer: coarse) {
+  .direct a {
+    padding-block: 0.35rem;
+  }
+}

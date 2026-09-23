@@ -129,3 +129,15 @@
     display: none;
   }
 }
+
+@media (pointer: coarse) {
+  .brand {
+    padding-block: 0.6rem;
+  }
+
+  .burger {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0 0.7rem;
+  }
+}
