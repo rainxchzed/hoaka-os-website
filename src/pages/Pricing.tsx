@@ -1,5 +1,6 @@
 import { useI18n } from '../i18n'
 import { Button } from '../components/Button'
+import { PriceCalculator } from '../components/PriceCalculator'
 import { Ledger } from '../sections/Ledger'
 import styles from './Pricing.module.css'
 
@@ -14,15 +15,7 @@ export function Pricing() {
         <div className="shell">
           <h1 className="h-2xl">{p.title}</h1>
           <p className={`lede ${styles.lede}`}>{p.lede}</p>
-          <dl className={styles.tiers}>
-            {p.tiers.map((tier, i) => (
-              <div key={tier.count} className={styles.tier} data-free={i === 0 ? '' : undefined}>
-                <dt className={styles.count}>{tier.count}</dt>
-                <dd className={`tabular ${styles.price}`}>{tier.price}</dd>
-                <dd className={styles.note}>{tier.note}</dd>
-              </div>
-            ))}
-          </dl>
+          <PriceCalculator />
         </div>
       </header>
 

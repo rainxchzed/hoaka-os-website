@@ -126,6 +126,13 @@ export const uz = {
     title: 'Bitta narx, bitta o’lchov birligi',
     lede: 'Bir kompyuter uchun yiliga $15. Narx sinfxona bo’yicha beriladi, AQSh dollarida.',
     tiersTitle: 'Sinfxona o’lchamiga qarab',
+    calc: {
+      label: 'Sinfxonangizdagi kompyuterlar',
+      ours: 'Hoaka',
+      abroadFirst: 'Chet elda, birinchi yil',
+      abroadAfter: 'Chet elda, keyingi har yili',
+      note: 'Chet el narxiga imtihon dasturi ham kiradi. Ko‘rsatkich, taklif emas.',
+    },
     tiers: [
       { count: '20 kompyutergacha', price: 'Bepul', note: 'To’lovsiz' },
       { count: '25 kompyuter', price: '$375', note: 'yiliga' },

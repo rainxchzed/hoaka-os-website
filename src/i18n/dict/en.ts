@@ -127,6 +127,13 @@ export const en: Dict = {
     title: 'One price, one unit',
     lede: '$15 per machine per year. Quoted per lab, in US dollars.',
     tiersTitle: 'By lab size',
+    calc: {
+      label: 'Machines in your lab',
+      ours: 'Hoaka',
+      abroadFirst: 'Abroad, first year',
+      abroadAfter: 'Abroad, every year after',
+      note: 'The abroad figures include the exam software. An indicator, not a quote.',
+    },
     tiers: [
       { count: 'Up to 20 machines', price: 'Free', note: 'No charge' },
       { count: '25 machines', price: '$375', note: 'a year' },
