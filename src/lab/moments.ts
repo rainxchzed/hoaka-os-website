@@ -11,6 +11,7 @@ export type Moment = {
   hemi: { sky: string; ground: string; intensity: number }
   env: number
   outside: { top: string; bottom: string }
+  beams: number
   backdrop: { zenith: string; horizon: string; glow: string }
   screens: ScreenState
   overrides?: Record<string, ScreenState>
@@ -27,6 +28,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     hemi: { sky: '#8ea3e6', ground: '#6b5848', intensity: 0.34 },
     env: 0.26,
     outside: { top: '#5d7fd0', bottom: '#ffc38f' },
+    beams: 0.16,
     backdrop: { zenith: '#0a1640', horizon: '#1c2a5e', glow: '#ff9a5a' },
     screens: 'desktop',
     front: 'board',
@@ -40,6 +42,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     hemi: { sky: '#9db2ee', ground: '#76665a', intensity: 0.42 },
     env: 0.32,
     outside: { top: '#5f95ec', bottom: '#cfe1ff' },
+    beams: 0.1,
     backdrop: { zenith: '#0c1b4b', horizon: '#1f3670', glow: '#ffcf95' },
     screens: 'browser',
     overrides: { A6: 'blocked', C2: 'blocked' },
@@ -54,6 +57,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     hemi: { sky: '#a8bcf2', ground: '#7a6c60', intensity: 0.46 },
     env: 0.34,
     outside: { top: '#5a93ee', bottom: '#bad6ff' },
+    beams: 0.06,
     backdrop: { zenith: '#0f2358', horizon: '#24427d', glow: '#fff0d0' },
     screens: 'lecture',
     front: 'lecture',
@@ -67,6 +71,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     hemi: { sky: '#9fb3e8', ground: '#74665a', intensity: 0.4 },
     env: 0.3,
     outside: { top: '#5b8de2', bottom: '#d5e2f6' },
+    beams: 0.08,
     backdrop: { zenith: '#0e2052', horizon: '#223d74', glow: '#ffdcae' },
     screens: 'exam',
     overrides: { B3: 'examLeft', C6: 'off' },
@@ -84,6 +89,7 @@ export const MOMENTS: Record<MomentId, Moment> = {
     hemi: { sky: '#4a5ca6', ground: '#6e5140', intensity: 0.22 },
     env: 0.16,
     outside: { top: '#1f2e66', bottom: '#ff9a5e' },
+    beams: 0.15,
     backdrop: { zenith: '#0a1232', horizon: '#34284f', glow: '#ff7d45' },
     screens: 'desktop',
     front: 'board',

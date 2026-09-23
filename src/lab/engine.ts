@@ -24,6 +24,7 @@ import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js'
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { buildRoom } from './room'
 import { buildDome } from './dome'
+import { buildBeams } from './beams'
 import { screenTextures } from './screens'
 import type { ScreenState } from './screens'
 import { MOMENTS } from './moments'
@@ -77,6 +78,13 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   const dome = buildDome()
   scene.add(dome.dome)
 
+  // Light shafts stay out of the AO pass, which would read them as solid.
+  const beams = buildBeams()
+  beams.mesh.layers.set(1)
+  camera.layers.enable(1)
+  scene.add(beams.mesh)
+  const aoCamera = new PerspectiveCamera()
+
   const textures = await screenTextures()
   const screenMaterial = Object.fromEntries(
     (Object.keys(textures) as ScreenState[]).map((state) => [
@@ -108,7 +116,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   const target = new WebGLRenderTarget(1, 1, { type: HalfFloatType, samples: options.lite ? 0 : 4 })
   const composer = new EffectComposer(renderer, target)
   composer.addPass(new RenderPass(scene, camera))
-  const ao = options.lite ? null : new GTAOPass(scene, camera, 1, 1)
+  const ao = options.lite ? null : new GTAOPass(scene, aoCamera, 1, 1)
   if (ao) {
     ao.blendIntensity = 0.9
     ao.updateGtaoMaterial({ radius: 0.45, distanceExponent: 1.4, thickness: 1.2, scale: 1.1, samples: 10 })
@@ -146,6 +154,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     hemiGround: new Color(start.hemi.ground),
     hemiIntensity: start.hemi.intensity,
     env: start.env,
+    beams: start.beams,
     top: new Color(start.outside.top),
     bottom: new Color(start.outside.bottom),
     minutes: start.minutes,
@@ -258,6 +267,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     live.sunIntensity += (m.sun.intensity - live.sunIntensity) * k
     live.hemiIntensity += (m.hemi.intensity - live.hemiIntensity) * k
     live.env += (m.env - live.env) * k
+    live.beams += (m.beams - live.beams) * k
     live.minutes += (m.minutes - live.minutes) * k
     live.marker += ((m.marker ? 1 : 0) - live.marker) * k
 
@@ -280,6 +290,10 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     room.outside.uniforms.uTop.value.copy(live.top)
     room.outside.uniforms.uBottom.value.copy(live.bottom)
 
+    beams.material.uniforms.uDir.value.copy(sun.target.position).sub(live.sunPos).normalize()
+    beams.material.uniforms.uColor.value.copy(live.sunColor)
+    beams.material.uniforms.uStrength.value = live.beams
+    beams.material.uniforms.uTime.value = options.reduced ? 0 : t
     dome.material.uniforms.uZenith.value.copy(live.zenith)
     dome.material.uniforms.uHorizon.value.copy(live.horizon)
     dome.material.uniforms.uGlow.value.copy(live.glow)
@@ -298,6 +312,8 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
       el.style.transform = `translate3d(${((projected.x + 1) / 2) * width}px, ${((1 - projected.y) / 2) * height}px, 0)`
     }
 
+    aoCamera.copy(camera)
+    aoCamera.layers.set(0)
     composer.render()
     first = false
 
