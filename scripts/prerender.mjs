@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
-const SITE = (process.env.SITE_URL ?? 'https://hoaka.uz').replace(/\/$/, '')
+const SITE = (process.env.SITE_URL ?? 'https://hoakaos.com').replace(/\/$/, '')
 
 const { render, ROUTES, LOCALES, LOCALE_HTML_LANG, pathFor, dictFor } = await import(
   join(DIST, '../dist-ssr/entry-server.js')

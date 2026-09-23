@@ -15,10 +15,11 @@ npm run typecheck
 
 `npm run build` runs three steps: the client bundle, an SSR bundle, and
 `scripts/prerender.mjs`, which renders every route to HTML and writes the
-sitemap, robots.txt and a 404 page. Set `SITE_URL` to change the canonical host:
+sitemap, robots.txt and a 404 page. Canonical links point at
+`https://hoakaos.com`; set `SITE_URL` to build for another host:
 
 ```bash
-SITE_URL=https://hoaka.uz npm run build
+SITE_URL=https://staging.example.com npm run build
 ```
 
 Every URL ends in a slash (`/en/pricing/`), so any static host serves
