@@ -25,6 +25,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { buildRoom } from './room'
 import { buildDome } from './dome'
 import { buildBeams } from './beams'
+import { createSeating } from './seating'
 import { screenTextures } from './screens'
 import type { ScreenState } from './screens'
 import { MOMENTS } from './moments'
@@ -77,6 +78,8 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
 
   const dome = buildDome()
   scene.add(dome.dome)
+
+  const seating = createSeating(room.seats, room.seating.place, room.seating.commit)
 
   // Light shafts stay out of the AO pass, which would read them as solid.
   const beams = buildBeams()
@@ -187,6 +190,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
       pending.set(seat.id, { state: next, at: now + (options.reduced ? 0 : seat.order * SWAP_STAGGER_MS) })
     }
     room.front.material = m.front === 'lecture' ? lectureFront : room.board
+    seating.set(m.people, m.chairs, Object.keys(m.overrides ?? {}), now, options.reduced)
     for (const id of Object.keys(labelEls) as LabelId[]) {
       labelEls[id].dataset.on = m.labels.some((l) => l.id === id) ? 'true' : 'false'
     }
@@ -227,6 +231,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
   let slow = 0
   let first = true
   let frameCount = 0
+  let seatsMoving = false
 
   const tick = (now: number) => {
     frameId = requestAnimationFrame(tick)
@@ -235,6 +240,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     if (!visible && !first) return
     const settled =
       pending.size === 0 &&
+      !seatsMoving &&
       Math.abs(live.minutes - MOMENTS[moment].minutes) < 0.5 &&
       live.camPos.distanceToSquared(goal.camPos) < 0.0004
     frameCount += 1
@@ -290,6 +296,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     room.outside.uniforms.uTop.value.copy(live.top)
     room.outside.uniforms.uBottom.value.copy(live.bottom)
 
+    seatsMoving = seating.update(now, k)
     beams.material.uniforms.uDir.value.copy(sun.target.position).sub(live.sunPos).normalize()
     beams.material.uniforms.uColor.value.copy(live.sunColor)
     beams.material.uniforms.uStrength.value = live.beams

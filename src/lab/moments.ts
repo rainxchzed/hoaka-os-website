@@ -1,4 +1,5 @@
 import type { ScreenState } from './screens'
+import type { EmptyChairs } from './seating'
 
 export type MomentId = 'boot' | 'open' | 'lecture' | 'exam' | 'logout'
 export type LabelId = 'interrupted' | 'noContact' | 'blocked'
@@ -14,6 +15,8 @@ export type Moment = {
   beams: number
   backdrop: { zenith: string; horizon: string; glow: string }
   screens: ScreenState
+  people: number
+  chairs: EmptyChairs
   overrides?: Record<string, ScreenState>
   front: 'board' | 'lecture'
   marker: boolean
@@ -31,6 +34,8 @@ export const MOMENTS: Record<MomentId, Moment> = {
     beams: 0.16,
     backdrop: { zenith: '#0a1640', horizon: '#1c2a5e', glow: '#ff9a5a' },
     screens: 'desktop',
+    people: 0,
+    chairs: 'tidy',
     front: 'board',
     marker: false,
     labels: [],
@@ -45,6 +50,8 @@ export const MOMENTS: Record<MomentId, Moment> = {
     beams: 0.1,
     backdrop: { zenith: '#0c1b4b', horizon: '#1f3670', glow: '#ffcf95' },
     screens: 'browser',
+    people: 0.65,
+    chairs: 'tidy',
     overrides: { A6: 'blocked', C2: 'blocked' },
     front: 'board',
     marker: false,
@@ -60,6 +67,8 @@ export const MOMENTS: Record<MomentId, Moment> = {
     beams: 0.06,
     backdrop: { zenith: '#0f2358', horizon: '#24427d', glow: '#fff0d0' },
     screens: 'lecture',
+    people: 1,
+    chairs: 'tidy',
     front: 'lecture',
     marker: false,
     labels: [],
@@ -74,6 +83,8 @@ export const MOMENTS: Record<MomentId, Moment> = {
     beams: 0.08,
     backdrop: { zenith: '#0e2052', horizon: '#223d74', glow: '#ffdcae' },
     screens: 'exam',
+    people: 1,
+    chairs: 'tidy',
     overrides: { B3: 'examLeft', C6: 'off' },
     front: 'board',
     marker: true,
@@ -92,6 +103,8 @@ export const MOMENTS: Record<MomentId, Moment> = {
     beams: 0.15,
     backdrop: { zenith: '#0a1232', horizon: '#34284f', glow: '#ff7d45' },
     screens: 'desktop',
+    people: 0,
+    chairs: 'left',
     front: 'board',
     marker: false,
     labels: [],

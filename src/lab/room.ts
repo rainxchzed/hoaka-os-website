@@ -37,5 +37,6 @@ export function buildRoom() {
     clock: fixtures.clock,
     marker,
     anchors: { B3: anchor('B3'), C6: anchor('C6'), A6: anchor('A6') },
+    seating: { place: furniture.placeSeat, commit: furniture.commitSeats },
   }
 }

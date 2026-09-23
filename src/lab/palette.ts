@@ -66,6 +66,7 @@ export function createPalette() {
     plastic: standard('#101319', 0.36, 0.1),
     keys: standard('#272c36', 0.62),
     fabric: standard('#1e2a4f', 0.96),
+    clay: standard('#d9d4cb', 0.85),
     board: standard('#f6f7f9', 0.22),
     alu: standard('#c8cdd6', 0.32, 0.78),
     clock: standard('#fbfbfc', 0.4),

@@ -2,6 +2,8 @@ import { BoxGeometry, CylinderGeometry, Group, InstancedMesh, Mesh, Object3D, Pl
 import type { BufferGeometry } from 'three'
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js'
 import { instanced, merge } from './parts'
+import { seatedFigure } from './figure'
+import type { SeatState } from './seating'
 import type { Palette } from './palette'
 
 export const ROWS = [
@@ -21,6 +23,7 @@ const TOP = 0.034
 const SCREEN_Y = 0.34
 const SCREEN_Z = -0.25
 const TILT = -0.08
+const SEAT_TOP = 0.53
 
 export type Seat = { id: string; order: number; x: number; z: number; screen: Mesh }
 
@@ -152,19 +155,35 @@ export function buildFurniture(p: Palette) {
     mesh.receiveShadow = true
     group.add(mesh)
   }
+  const people = new InstancedMesh(seatedFigure(), p.clay, seats.length)
+  people.castShadow = true
+  people.receiveShadow = true
+  group.add(people)
+
   const dummy = new Object3D()
   const placeChair = (i: number, x: number, z: number, yaw: number) => {
     dummy.position.set(x, 0, z)
     dummy.rotation.set(0, yaw, 0)
+    dummy.scale.setScalar(1)
     dummy.updateMatrix()
     chairFrames.setMatrixAt(i, dummy.matrix)
     chairSeats.setMatrixAt(i, dummy.matrix)
   }
-  seats.forEach((seat) => {
-    const jitter = Math.sin(seat.order * 12.9898) * 0.5
-    placeChair(seat.order, seat.x + jitter * 0.06, seat.z + 0.62 + Math.abs(jitter) * 0.08, jitter * 0.3)
-  })
+  // People grow out of the seat rather than out of the floor.
+  const placeSeat = (i: number, { x, z, yaw, presence }: SeatState) => {
+    placeChair(i, x, z, yaw)
+    const size = Math.max(presence, 0.0001)
+    dummy.position.set(x, SEAT_TOP * (1 - size), z)
+    dummy.scale.setScalar(size)
+    dummy.updateMatrix()
+    people.setMatrixAt(i, dummy.matrix)
+  }
+  const commitSeats = () => {
+    chairFrames.instanceMatrix.needsUpdate = true
+    chairSeats.instanceMatrix.needsUpdate = true
+    people.instanceMatrix.needsUpdate = true
+  }
   placeChair(seats.length, TEACHER.x, TEACHER.z - 0.55, Math.PI)
 
-  return { group, seats }
+  return { group, seats, placeSeat, commitSeats }
 }
