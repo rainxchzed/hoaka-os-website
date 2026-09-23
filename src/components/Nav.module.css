@@ -1,71 +1,56 @@
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto;
   z-index: 60;
+  background: transparent;
   color: var(--ink);
-  transition: background-color 0.45s var(--ease-out), border-color 0.45s var(--ease-out),
-    color 0.45s var(--ease-out), backdrop-filter 0.45s var(--ease-out);
   border-bottom: 1px solid transparent;
+  transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease);
 }
 
+/* Without the script the bar never learns it has left the sky. */
+:global(:root:not([data-js])) .header,
 .header[data-lifted] {
-  background: color-mix(in srgb, var(--ground) 78%, transparent);
-  backdrop-filter: blur(16px) saturate(1.3);
-  border-bottom-color: var(--rule);
+  background: color-mix(in srgb, var(--ground) 84%, transparent);
+  backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom-color: var(--line);
 }
 
 .inner {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 2vw, 2rem);
-  width: 100%;
-  max-width: var(--page-wide);
+  gap: var(--s-4);
+  max-width: var(--page);
   margin-inline: auto;
-  padding: 0.85rem var(--gutter);
+  padding: 0.9rem var(--gutter);
 }
 
 .brand {
-  display: inline-flex;
   color: var(--ink);
-  transition: color 0.3s var(--ease-out);
-}
-
-.brand:hover {
-  color: var(--accent);
 }
 
 .links {
   display: none;
-  gap: 0.35rem;
+  gap: var(--s-3);
   margin-inline-start: auto;
 }
 
 .link {
-  position: relative;
-  padding: 0.45rem 0.85rem;
-  border-radius: 999px;
-  color: var(--ink-soft);
-  font-size: var(--step--1);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
   font-weight: 500;
-  transition: color 0.3s var(--ease-out), background-color 0.3s var(--ease-out);
+  transition: color 0.2s var(--ease);
 }
 
-.link:hover {
-  color: var(--ink);
-  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
-}
-
+.link:hover,
 .active {
   color: var(--ink);
-  font-weight: 600;
 }
 
 .tail {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: var(--s-2);
   margin-inline-start: auto;
 }
 
@@ -75,6 +60,8 @@
 
 .cta {
   display: none;
+  font-size: var(--t-sm);
+  padding: 0.7em 1.05em;
 }
 
 .burger {
@@ -82,21 +69,19 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 2.3rem;
-  height: 2.3rem;
-  padding: 0 0.45rem;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: none;
   cursor: pointer;
 }
 
 .burger span {
-  display: block;
   height: 1.5px;
   background: var(--ink);
-  border-radius: 2px;
-  transition: transform 0.35s var(--ease-out), opacity 0.25s var(--ease-out);
+  transition: transform 0.3s var(--ease);
 }
 
 .burger span[data-open]:first-child {
@@ -110,58 +95,34 @@
 .sheet {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 1.5rem var(--gutter) 2.5rem;
-  background: var(--ground);
-  border-top: 1px solid var(--rule);
-  animation: drop 0.35s var(--ease-out);
+  gap: var(--s-4);
+  padding: var(--s-3) var(--gutter) var(--s-5);
+  border-top: 1px solid var(--line);
 }
 
-@keyframes drop {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-.sheetNav {
+.sheetLinks {
   display: flex;
   flex-direction: column;
 }
 
 .sheetLink {
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--line);
   font-family: var(--font-display);
-  font-size: var(--step-2);
-  font-weight: 600;
-  color: var(--ink-soft);
-  opacity: 0;
-  animation: slide 0.5s var(--ease-out) forwards;
+  font-size: var(--t-lg);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--ink-2);
 }
 
-@keyframes slide {
-  from {
-    opacity: 0;
-    transform: translateX(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.sheetCta {
+.sheet :global(a:last-child) {
   align-self: flex-start;
 }
 
-@media (min-width: 62rem) {
-  .links {
-    display: flex;
-  }
-
+@media (min-width: 60rem) {
+  .links,
   .cta {
-    display: inline-flex;
+    display: flex;
   }
 
   .burger {

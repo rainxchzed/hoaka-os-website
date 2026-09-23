@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useI18n } from '../i18n'
 import type { PageKey } from '../i18n/locales'
 import { Logo } from './Logo'
-import { LocaleSwitcher } from './LocaleSwitcher'
+import { Languages } from './Languages'
 import { Button } from './Button'
 import styles from './Nav.module.css'
 
@@ -21,15 +21,15 @@ export function Nav({ page }: { page: PageKey }) {
   }, [])
 
   useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
   }, [open])
-
-  useEffect(() => {
-    setOpen(false)
-  }, [pathname])
 
   const links: { key: PageKey; label: string }[] = [
     { key: 'home', label: t.nav.home },
@@ -40,14 +40,13 @@ export function Nav({ page }: { page: PageKey }) {
   return (
     <header
       className={styles.header}
-      data-lifted={lifted ? '' : undefined}
-      /* Every page opens on a deep-space section, so the bar borrows those tokens
-         until it lifts off it and picks the page scheme up instead. */
-      data-deep={lifted ? undefined : ''}
+      data-lifted={lifted || open ? '' : undefined}
+      /* Every page opens on deep sky, so the bar borrows those tokens until it lifts. */
+      data-deep={lifted || open ? undefined : ''}
     >
       <div className={styles.inner}>
         <Link to={href('home')} className={styles.brand} aria-label="Hoaka OS">
-          <Logo size={26} />
+          <Logo size={24} />
         </Link>
 
         <nav className={styles.links} aria-label={t.nav.menu}>
@@ -64,7 +63,7 @@ export function Nav({ page }: { page: PageKey }) {
         </nav>
 
         <div className={styles.tail}>
-          <LocaleSwitcher page={page} />
+          <Languages page={page} />
           <Button to={href('pilot')} className={styles.cta}>
             {t.nav.cta}
           </Button>
@@ -83,24 +82,19 @@ export function Nav({ page }: { page: PageKey }) {
 
       {open ? (
         <div className={styles.sheet}>
-          <nav className={styles.sheetNav} aria-label={t.nav.menu}>
-            {links.map((link, i) => (
+          <nav className={styles.sheetLinks} aria-label={t.nav.menu}>
+            {links.map((link) => (
               <NavLink
                 key={link.key}
                 to={href(link.key)}
                 end={link.key === 'home'}
-                style={{ animationDelay: `${60 + i * 55}ms` }}
-                className={({ isActive }) =>
-                  [styles.sheetLink, isActive ? styles.active : ''].join(' ')
-                }
+                className={({ isActive }) => [styles.sheetLink, isActive ? styles.active : ''].join(' ')}
               >
                 {link.label}
               </NavLink>
             ))}
           </nav>
-          <Button to={href('pilot')} size="lg" className={styles.sheetCta}>
-            {t.nav.cta}
-          </Button>
+          <Button to={href('pilot')}>{t.nav.cta}</Button>
         </div>
       ) : null}
     </header>

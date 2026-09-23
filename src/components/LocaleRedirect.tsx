@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom'
 import { DEFAULT_LOCALE, isLocale, matchLocale, pathFor } from '../i18n/locales'
 import type { Locale } from '../i18n/locales'
-import { LOCALE_STORAGE_KEY } from './LocaleSwitcher'
+import { LOCALE_STORAGE_KEY } from './Languages'
 
 export function LocaleRedirect() {
   if (typeof window === 'undefined') return null
