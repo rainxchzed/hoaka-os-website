@@ -69,38 +69,65 @@ Most strings come from the project's own papers (`service-sheet.html`,
 The cost figures were read from vendor pages on 15 September 2026 and are
 presented as an indicator, not a quote — the pricing page says so.
 
-The exam section deliberately does not claim the lockdown is unbypassable. That
+The exam step deliberately does not claim the lockdown is unbypassable. That
 follows the project's own rule: friction, non-persistence and visibility.
 
-## Theming
+## Design
 
-Light and dark follow `prefers-color-scheme` with no toggle. Sections marked
-`data-deep` keep the deep-space palette in both schemes, because the imagery
-only reads on black; everything around them follows the system.
+The home page is one day in a lab. It opens at dawn, walks through 07:58 boot,
+09:00 open, 11:00 lecture, 14:00 exam and 17:30 last logout, and ends at dusk.
+The timestamps are the only labels on the page because they carry real order.
 
-All tokens are in `src/styles/tokens.css`.
+Type is Montserrat (light, large) for display and Onest for everything else; the
+dark scheme is blue hour rather than black, and gold is kept for the sun and the
+one primary action. Light and dark follow `prefers-color-scheme` with no toggle.
+Sections marked `data-deep` keep the deep palette in both schemes. All tokens are
+in `src/styles/tokens.css`.
 
-## The hero scene
+## The sky
 
-`src/three/` is a hand-written three.js scene: a shader-built planet with
-procedural continents and night-side city lights, plus two parallax star layers.
-No textures and no scene graph library.
+`src/sky/` renders the hero and the closing section with a single fixed WebGL2
+canvas: single scattering after Nishita (Rayleigh, Mie and an ozone layer)
+integrated along each view ray, with Earth's own shadow in the air, a thin
+airglow shell, stars, and filmic tone mapping. The sun rises over the limb when
+the page opens and sets as the last section scrolls in. It renders only while a
+`[data-sky]` section is on screen, only when something changed, and drops
+resolution if the GPU falls behind.
 
-It is gated behind `useRichScenes()` (`src/lib/useCapability.ts`), which needs
-memory, cores, a real pointer and a WebGL context, and which returns false under
-`prefers-reduced-motion`. When it declines, the hero shows a static poster —
-which is also what paints first on every machine, so it doubles as the LCP
-image. three.js is a lazy chunk and is never fetched on the fallback path.
+## The lab
+
+`src/lab/` is a three.js scene of a 24-seat lab: window light with soft shadows,
+ambient occlusion, bloom on the screens, and a wall clock that follows the
+timeline. Each timeline step sets a moment in `src/lab/moments.ts` (light,
+camera, what every screen shows), and the screens change seat by seat. The
+monitors show the real Hoaka states: the clean desktop, a blocked page, the blue
+Lecture bar, the red Exam bar, a seat that left the exam. three.js is a lazy
+chunk fetched only when the section comes within a screen of view.
+
+## Without WebGL or JavaScript
+
+Both scenes have stills in `public/media`: the sky's first frame, its dusk frame,
+and the lab at 07:58. They show until the live scene takes over, and stay when it
+cannot. Nothing on the page is hidden unless the script that reveals it is
+running, so a disabled or stalled bundle still leaves every word readable.
+
+Reduced motion keeps both scenes but stops the sunrise, the camera moves and the
+seat-by-seat changes.
 
 ## Images
 
-`scripts/images.sh` regenerates `public/media` from the source wallpapers into
-AVIF and WebP at two widths. It needs `cwebp` and `avifenc`:
+`npm run stills` renders the stills and one 1200×630 social preview per locale
+from a running dev server, using the local Chrome through `playwright-core`. It
+also needs `cwebp` and `avifenc`:
 
 ```bash
 brew install webp libavif
-./scripts/images.sh ~/path/to/hoakaos-wallpaper
+npm run dev
+BASE=http://localhost:5173 npm run stills
 ```
+
+`scripts/images.sh` regenerates the desktop wallpaper shown on the lab's screens
+from the source image.
 
 ## Contact details
 
