@@ -45,6 +45,25 @@
   }
 }
 
+@media (max-height: 520px) and (min-aspect-ratio: 9/10) {
+  .hero {
+    padding-top: 5.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 1rem + 4.5vw, 4rem);
+  }
+
+  .lede {
+    margin-top: var(--s-2);
+    font-size: var(--t-base);
+  }
+
+  .actions {
+    margin-top: var(--s-3);
+  }
+}
+
 @keyframes arrive {
   from {
     opacity: 0;

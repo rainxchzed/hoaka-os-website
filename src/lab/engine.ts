@@ -212,10 +212,12 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     ao?.setSize(width, height)
     renderer.getDrawingBufferSize(dome.material.uniforms.uRes.value)
     const portrait = width / height < 0.9
+    // A phone on its side: little height, so the room steps back and further right of the text.
+    const low = !portrait && height < 520
     camera.aspect = width / height
-    camera.fov = portrait ? 40 : 24
+    camera.fov = portrait ? 40 : low ? 30 : 24
     if (portrait) camera.setViewOffset(width, height, 0, height * 0.25, width, height)
-    else camera.setViewOffset(width, height, -width * 0.13, height * 0.03, width, height)
+    else camera.setViewOffset(width, height, -width * (low ? 0.21 : 0.13), height * 0.03, width, height)
     camera.updateProjectionMatrix()
   }
   const sizeObserver = new ResizeObserver(resize)
