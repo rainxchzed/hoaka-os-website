@@ -38,9 +38,7 @@ export function Footer({ page }: { page: PageKey }) {
       </div>
 
       <div className={`shell ${styles.base}`}>
-        <span>
-          © {new Date().getFullYear()} Hoaka · {t.footer.madeIn}
-        </span>
+        <span>© {new Date().getFullYear()} Hoaka</span>
         <span>Debian 13 · LXQt</span>
       </div>
     </footer>

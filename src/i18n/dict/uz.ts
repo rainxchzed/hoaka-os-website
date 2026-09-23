@@ -114,8 +114,8 @@ export const uz = {
   },
 
   cta: {
-    title: 'Uchta universitet. Bittadan sinfxona. Shu semestr. Bepul.',
-    body: 'Bir oy, aniq tugash sanasi bilan. Keyin davom ettirish yoki to‘xtatish — sizning qaroringiz.',
+    title: 'Bitta sinfxona, bir oy',
+    body: 'Aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz.',
     primary: 'Sinovni boshlash',
     secondary: 'Narxlarni ko‘rish',
   },
@@ -238,7 +238,6 @@ export const uz = {
   notFound: 'Sahifa topilmadi',
   footer: {
     tagline: 'Universitet sinfxonalari uchun boshqariladigan operatsion tizim.',
-    madeIn: 'O’zbekistonda ishlab chiqilmoqda',
     rights: 'Barcha huquqlar himoyalangan.',
     nav: 'Sahifalar',
     contact: 'Bog’lanish',

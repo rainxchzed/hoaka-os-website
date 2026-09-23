@@ -115,8 +115,8 @@ export const en: Dict = {
   },
 
   cta: {
-    title: 'Three universities. One lab each. This semester. Free.',
-    body: 'One month, with a hard end date. Carrying on afterwards is your call.',
+    title: 'One lab, one month',
+    body: 'With a hard end date. Carrying on afterwards is your call.',
     primary: 'Start a pilot',
     secondary: 'See what it costs',
   },
@@ -239,7 +239,6 @@ export const en: Dict = {
   notFound: 'Page not found',
   footer: {
     tagline: 'A managed operating system for university computer labs.',
-    madeIn: 'Built in Uzbekistan',
     rights: 'All rights reserved.',
     nav: 'Pages',
     contact: 'Contact',
