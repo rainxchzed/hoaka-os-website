@@ -96,13 +96,16 @@ resolution if the GPU falls behind.
 
 ## The lab
 
-`src/lab/` is a three.js scene of a 24-seat lab: window light with soft shadows,
-ambient occlusion, bloom on the screens, and a wall clock that follows the
-timeline. Each timeline step sets a moment in `src/lab/moments.ts` (light,
-camera, what every screen shows), and the screens change seat by seat. The
-monitors show the real Hoaka states: the clean desktop, a blocked page, the blue
-Lecture bar, the red Exam bar, a seat that left the exam. three.js is a lazy
-chunk fetched only when the section comes within a screen of view.
+`src/lab/` is a three.js scene of a 24-seat lab, built as a cutaway model:
+window light with soft shadows and light shafts, ambient occlusion, bloom on the
+screens, and a wall clock that follows the timeline. Each timeline step sets a
+moment in `src/lab/moments.ts` (light, camera, what every screen shows, how full
+the room is, what is on the whiteboard), and the screens change seat by seat.
+The monitors show the real Hoaka states: the clean desktop, a blocked page, the
+blue Lecture bar, the red Exam bar, a seat that left the exam. Students take
+their seats through the morning and leave the chairs pushed out at 17:30.
+three.js is a lazy chunk fetched only when the section comes within a screen of
+view.
 
 ## Without WebGL or JavaScript
 
