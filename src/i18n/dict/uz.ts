@@ -1,5 +1,3 @@
-export type Tone = 'live' | 'idle' | 'alarm'
-
 export const uz = {
   meta: {
     home: {
@@ -31,227 +29,83 @@ export const uz = {
   },
 
   hero: {
-    eyebrow: 'Universitet sinfxonalari uchun operatsion tizim',
     title: 'Eskirmaydigan sinfxonalar',
-    lede: 'Har bir kompyuter toza yuklanadi, faqat universitet ruxsat berganini ko’rsatadi, imtihonga qulflanadi va talaba chiqqanda o’zini o’zi tiklaydi.',
+    lede: 'Har bir kompyuter toza yuklanadi, faqat universitet ruxsat berganini ko‘rsatadi, imtihonga qulflanadi va talaba chiqqanda o‘zini o‘zi tiklaydi.',
     primary: 'Bepul sinovni boshlash',
     secondary: 'Bir yil qancha turadi',
-    scroll: 'Pastga',
-    stats: [
-      { value: '3.1', unit: 's', label: 'bosishdan har bir ekrangacha' },
-      { value: '4 823 341', unit: '', label: 'resolver biladigan domen' },
-      { value: '$15', unit: '', label: 'bir kompyuter, bir yil' },
-      { value: '12', unit: 'oy', label: 'hodisalar tarixi' },
-    ],
   },
 
-  decay: {
-    eyebrow: 'Muammo',
-    title: 'Sinfxona ochilgan kunidan boshlab eskira boshlaydi',
-    lede: 'Buzilib qolgani uchun emas. Har kuni yuzlab odam undan foydalangani uchun.',
-    items: [
+  day: {
+    heading: 'Sinfxonada bir kun, 07:58 dan 17:30 gacha',
+    steps: [
       {
-        title: 'Har bir talaba nimadir qoldiradi',
-        body: 'Ish stoli yorliqlarga to’ladi, brauzerga panel qo’shiladi, qayerdandir dastur o’rnatiladi. Bir semestrdan keyin sinfxonani tanib bo’lmaydi.',
+        id: 'boot',
+        time: '07:58',
+        title: 'Har bir kompyuter bir xil toza tizimdan boshlanadi',
+        body: 'Tizim diski har yuklanishda tiklanadi. Kecha o‘rnatilgan yoki o‘zgartirilgan narsa birinchi darsdan oldin yo‘qoladi. Parol oynasi yo‘q, kutish kerak emas.',
       },
       {
-        title: 'IT xodimi har bir kompyuterga yuguradi',
-        body: 'Nosozlik bo’lsa — kompyuter yoniga. Yangilanish bo’lsa — yana yoniga. Yigirma kompyuter, yigirma marta, har safar.',
+        id: 'open',
+        time: '09:00',
+        title: 'Ilmiy ish ishlaydi. Chalg‘itadigan narsalar ishlamaydi.',
+        body: 'Scholar, arXiv, Moodle va ular havola beradigan nashriyotlar odatdagidek ochiladi. Ijtimoiy tarmoqlar, video, o‘yinlar va boshqalar toifa bo‘yicha yopiq: 4 823 341 ta domen. Ro‘yxatlarni yangilab turish sizning IT xodimingizning emas, bizning ishimiz.',
       },
       {
-        title: 'Imtihonda nima bo’lganini hech kim bilmaydi',
-        body: 'Kim qachon sahifadan chiqqani haqida yozuv yo’q. Faqat nazoratchining xotirasi bor, va u hujjat emas.',
+        id: 'lecture',
+        time: '11:00',
+        title: 'Hamma ekranda bitta sahifa',
+        body: 'O‘qituvchi sinfxonani brauzerdan Ma’ruza rejimiga o‘tkazadi. Har bir ekranda ko‘k chiziq paydo bo‘ladi va u yuborgan sahifa hammasida bir vaqtda ochiladi. Alohida kompyuter ham, qo‘shimcha dastur ham kerak emas.',
       },
       {
-        title: 'Hisobot so’ralganda raqam yo’q',
-        body: 'Sinfxona qancha ishlatilgani, nechta kompyuter ishlayotgani, qaysi biri qachon o’chgani — aniq javob yo’q.',
+        id: 'exam',
+        time: '14:00',
+        title: 'Bitta qulflangan sahifa va har bir joyning yozuvi',
+        body: 'Sinfxona imtihon sahifasiga qulflanadi. Imtihondan chiqqan yoki tarmoqdan uzilgan joy joylar xaritasida qizil bo‘ladi va qizil bo‘lib qoladi, jurnal esa qachon va qancha vaqtga uzilganini yozib boradi.',
+      },
+      {
+        id: 'logout',
+        time: '17:30',
+        title: 'Kompyuter kunni unutadi',
+        body: 'Oxirgi talaba chiqqanda uning papkasi o‘chiriladi va qaytadan yaratiladi. Ertaga soat 07:58 da sinfxona bugun ertalabgidek yuklanadi.',
       },
     ],
-  },
-
-  clean: {
-    eyebrow: 'Tozalik',
-    title: 'Har yuklanishda zavoddan chiqqanidek',
-    body: 'Tizim diski o’zgarmaydi. Talaba nima o’rnatsa, nima yuklab olsa, nimani buzsa — qayta yuklanishda yo’qoladi. Talaba seansdan chiqqanda uning papkasi o’chiriladi va qaytadan yaratiladi.',
-    points: [
-      { k: 'Tizim diski', v: 'Har yuklanishda tiklanadi' },
-      { k: 'Talaba papkasi', v: 'Chiqishda o’chiriladi' },
-      { k: 'Terminal, paket menejeri, sozlamalar', v: 'Yo’q' },
-      { k: 'Menyudagi dasturlar', v: 'O’n ikkita, boshqasi yo’q' },
-    ],
-    demo: {
-      caption: 'Bir semestr → qayta yuklash',
-      before: 'Semestr oxiri',
-      after: 'Qayta yuklangandan keyin',
-      reboot: 'Qayta yuklash',
-      junk: ['yangi panel', 'noma’lum.exe', 'torrent', 'o’yin', 'reklama', 'panel 2'],
+    honest: 'Bu devor emas, yozuv: to‘siq, izsizlik va ko‘rinuvchanlik. Biz uni “chetlab o‘tib bo‘lmaydi” demaymiz.',
+    labels: {
+      interrupted: 'Uzildi · 2 daq 29 s',
+      noContact: 'Aloqa yo‘q',
+      blocked: 'Yopiq sayt',
     },
-  },
-
-  policy: {
-    eyebrow: 'Siyosat',
-    title: 'Faqat universitet ruxsat berganini',
-    body: 'Siyosat uch pog’onali: muassasa, sinfxona, kompyuter. Quyi pog’ona yuqoridagisini meros qilib oladi va kerak bo’lsa ustidan yozadi. Sinfxona rejimi hamma kompyuterga tarqaladi.',
-    tree: { site: 'Muassasa', room: 'Sinfxona 204', device: 'Kompyuter A3' },
-    counter: { label: 'Resolver biladigan domen', sub: 'UT1 ro’yxati va mintaqaviy qo’shimcha' },
-    modes: [
-      {
-        name: 'Ochiq',
-        body: 'Ilmiy ish uchun hammasi ochiq. Ijtimoiy tarmoq, video, o’yin va shunga o’xshashlar toifa bo’yicha yopiq.',
-      },
-      {
-        name: 'Ma’ruza',
-        body: 'Sinfxona ustida ko’k chiziq. O’qituvchi bitta sahifani hamma ekranga yuboradi.',
-      },
-      {
-        name: 'Imtihon',
-        body: 'Qizil chiziq va bitta qulflangan sahifa. Ro’yxatga hech kim, hech qaysi pog’onadan sayt qo’sha olmaydi.',
-      },
-    ],
-    note: 'Butun domen bloklari DNS darajasida. Sahifa darajasidagi istisnolar brauzerda qoladi, chunki DNS manzil ichini ko’rmaydi.',
-  },
-
-  exam: {
-    eyebrow: 'Imtihon',
-    title: 'Bitta qulflangan sahifa va joylar xaritasi',
-    body: 'Imtihon boshlanganda sinfxona qulflanadi va har bir joy o’z kvadratini oladi. Kvadrat yashil — joy imtihonda. Kulrang — aloqa yo’q. Qizil — joy imtihondan chiqqan yoki uzilgan, va u qizil bo’lib qoladi.',
-    legend: { live: 'Imtihonda', idle: 'Aloqa yo’q', alarm: 'Uzilgan' },
-    seatLabel: 'Joy',
-    logTitle: 'Imtihon jurnali',
-    logRows: [
-      { seat: 'A1', text: 'Oxirigacha qoldi', tone: 'live' },
-      { seat: 'C6', text: 'Aloqa yo’q 21:04:12 dan beri', tone: 'idle' },
-      { seat: 'B3', text: 'Javob bermadi 21:16:07 – 21:18:37, 2 daq 29 s', tone: 'alarm' },
-    ] as { seat: string; text: string; tone: Tone }[],
-    summary: '22 ta joy oxirigacha qoldi, 1 tasi uzildi, 1 tasida aloqa yo’q, jami 24 ta joy',
-    honest: {
-      title: 'Bu devor emas — bu yozuv',
-      body: 'Himoya uch narsadan iborat: to’siq, izsizlik va ko’rinuvchanlik. Biz uni “chetlab o’tib bo’lmaydi” deb atamaymiz va hech qachon atamaganmiz. Imtihon jurnali — nazoratchi qo’lida hujjat, nazoratchi o’rniga qo’yilgan dastur emas.',
-    },
-  },
-
-  teacher: {
-    eyebrow: 'O’qituvchi',
-    title: 'Sinfni brauzerdan boshqaradi',
-    body: 'Rejimni almashtirish, hamma ekranga bitta sahifa yuborish, hamma ekranga xabar berish — hammasi brauzerda. Alohida o’qituvchi kompyuteri kerak emas, administratorlar soni uchun qo’shimcha to’lov yo’q.',
-    actions: [
-      { k: 'Rejimni almashtirish', v: 'Ochiq ↔ Ma’ruza' },
-      { k: 'Sahifa yuborish', v: 'Bitta manzil, hamma ekran' },
-      { k: 'Xabar yuborish', v: 'Hamma ekranda ko’rinadi' },
-      { k: 'Seansni yakunlash', v: 'Kompyuter tozalanadi' },
-    ],
-    screens: 'ekran',
-    sent: 'Yuborildi',
   },
 
   reports: {
-    eyebrow: 'Hisobotlar',
-    title: 'Rektor vazirlikka bera oladigan hisobot',
-    body: 'Uchta hisobot: sinfxonadan foydalanish, imtihon hisoboti va inventar. Muassasa nomi va sana oralig’i bilan, brauzerdan to’g’ridan-to’g’ri chop etiladi. Uch tilda.',
+    title: 'Oyda bir marta — rektor vazirlikka bera oladigan hisobot',
+    body: 'Muassasa nomi va sana oralig‘i bilan, uch tilning istalganida, to‘g‘ridan-to‘g‘ri brauzerdan chop etiladi.',
     items: [
       { name: 'Sinfxonadan foydalanish', v: 'Qaysi sinfxona, qancha soat, qaysi kunlar' },
       { name: 'Imtihon hisoboti', v: 'Har bir joy, har bir uzilish, davomiyligi bilan' },
       { name: 'Inventar', v: 'Nechta kompyuter, qaysi sinfxonada, qaysi versiya' },
     ],
-    print: 'Chop etishga tayyor',
   },
 
-  how: {
-    eyebrow: 'Qanday ishlaydi',
-    title: 'Uch qadam',
-    steps: [
-      {
-        n: '01',
-        title: 'Obrazni yozing',
-        body: 'Obraz bizdan. Kompyuterga yoziladi va BIOS paroli bilan yuklanish tartibi qulflanadi. Parol sizda qoladi.',
-      },
-      {
-        n: '02',
-        title: 'Kompyuter o’zini ro’yxatga oladi',
-        body: 'Birinchi yuklanishda kompyuter serverni topadi va o’zini ro’yxatga oladi. 30 soniya ichida panelda ko’rinadi. Qo’lda sozlash yo’q.',
-      },
-      {
-        n: '03',
-        title: 'Paneldan boshqaring',
-        body: 'Server muassasa ichida ishlaydi. Siyosat, rejimlar, imtihonlar, hisobotlar — brauzerdan. Ma’lumot binodan chiqmaydi.',
-      },
-    ],
-  },
-
-  cost: {
-    eyebrow: 'Xarajat',
+  ledger: {
     title: 'Bitta kompyuter bir yilda qancha turadi',
-    lede: 'Chap tomonda to’rtta alohida mahsulot, uchta turli o’lchov birligi. O’ng tomonda bitta narx.',
-    them: {
-      label: 'Chet elda',
-      big: '$241.66',
-      bigSub: 'birinchi yil, har kompyuter uchun',
-      extras: [
-        { amount: '$41.67', label: 'keyingi har yil' },
-        { amount: '+ $26.40', label: 'har foydalanuvchi uchun yiliga, Windows A3' },
-        { amount: '+ $3 295', label: 'butun muassasa uchun yiliga, imtihon dasturi' },
-      ],
-    },
-    us: {
-      label: 'Hoaka',
-      big: '$15',
-      bigSub: 'har kompyuter uchun yiliga',
-      note: 'Har yili bir xil. Yuqoridagilarning hammasi kiradi. Qo’shimcha to’lov yo’q.',
-    },
-    breakdownTitle: '$241.66 nimalardan tashkil topgan',
+    sentence: 'Chet elda bu ishni to‘rtta alohida mahsulot bajaradi: birinchi yili har bir kompyuter uchun {abroad}, keyin har yili {after}, ustiga imtihon dasturi uchun yiliga {exam}. Hoaka hammasini har bir kompyuter uchun {ours} ga bajaradi, har yili bir xil.',
+    figures: { abroad: '$241.66', after: '$41.67', exam: '$3 295', ours: '$15' },
     rows: [
-      { job: 'Operatsion tizim', prod: 'Windows 11 Pro', amt: '$199.99', per: 'bir marta, har kompyuter uchun' },
-      { job: 'Kompyuter toza qaytadi', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'har kompyuter uchun yiliga' },
-      { job: 'O’qituvchi sinfni boshqaradi', prod: 'LanSchool', amt: '$7.00', per: 'har kompyuter uchun yiliga' },
-      { job: 'Ro’yxatlar, yangilanishlar, imtihon kuni yordam', prod: 'Alohida moddasi yo’q', amt: '—', per: 'hech kim sotmaydi' },
+      { job: 'Operatsion tizim', prod: 'Windows 11 Pro', amt: '$199.99', per: 'bir marta' },
+      { job: 'Kompyuter toza qaytadi', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'yiliga' },
+      { job: 'O‘qituvchi sinfni boshqaradi', prod: 'LanSchool', amt: '$7.00', per: 'yiliga' },
+      { job: 'Ro‘yxatlar, yangilanishlar, imtihon kuni yordam', prod: 'Hech kim sotmaydi', amt: '—', per: '' },
     ],
-    cta: 'To’liq taqqoslash',
+    source: 'Narxlar 15.09.2026 da ishlab chiqaruvchilarning o‘z sahifalaridan olingan, Shimoliy Amerika uchun. Ko‘rsatkich, taklif emas.',
+    cta: 'To‘liq taqqoslash',
   },
 
-  wallpapers: {
-    eyebrow: 'Obraz bilan birga',
-    title: 'Sinfxona ham bir joy',
-    body: 'Boshqariladigan kompyuter xunuk bo’lishi shart emas. Obrazda shu to’rtta fon keladi.',
-    alt: [
-      'Qora fonda piksellardan yasalgan oq gul',
-      'Qorong’ilikda yorishib turgan siyohrang gul',
-      'Orbitadan ko’ringan Yer va uning yonidagi oy',
-      'Yulduzlar fonida yorug’lik halqasi',
-    ],
-  },
-
-  requirements: {
-    eyebrow: 'Talablar',
-    title: 'Nima kerak',
-    provide: {
-      title: 'Muassasa ta’minlaydi',
-      items: [
-        { k: 'Kompyuterlar', v: 'Muassasa mulki bo’lgan sinfxona kompyuterlari' },
-        { k: 'Tarmoq', v: 'Simli tarmoq, DHCP va internetga chiqish' },
-        { k: 'Server uchun kompyuter', v: 'Boshqaruv serveri muassasa ichida ishlaydi' },
-        { k: 'BIOS parollari', v: 'Birga o’rnatamiz, parol sizda qoladi' },
-        { k: 'Mas’ul xodim', v: 'Bir kishi, biz bog’lana oladigan' },
-      ],
-    },
-    stack: {
-      title: 'Obraz nimadan iborat',
-      items: [
-        { k: 'Asos', v: 'Debian 13' },
-        { k: 'Ish stoli', v: 'LXQt' },
-        { k: 'Brauzer', v: 'Chromium, siyosat bilan boshqariladigan' },
-        { k: 'Klaviatura', v: 'uz (lotin), ru, en — Alt+Shift' },
-        { k: 'Tarmoq', v: 'Faqat simli' },
-      ],
-    },
-  },
-
-  scope: {
-    eyebrow: 'Chegaralar',
+  limits: {
     title: 'Hoaka nima qilmaydi',
-    body: 'Buni oldindan aytganimiz ma’qul. Quyidagilar rejada ham yo’q.',
     items: [
       'Shaxsiy telefon, planshet va noutbuklarga tegmaydi',
-      'Kamera orqali nazorat qilmaydi',
+      'Kamera orqali kuzatmaydi',
       'Ekran suratlarini saqlamaydi',
       'Bosilgan tugmalarni yozmaydi',
       'Ma’lumotni bulutga yubormaydi — server binoda',
@@ -260,11 +114,10 @@ export const uz = {
   },
 
   cta: {
-    eyebrow: 'Taklif',
     title: 'Uchta universitet. Bittadan sinfxona. Shu semestr. Bepul.',
-    body: 'Bir oy, aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz.',
+    body: 'Bir oy, aniq tugash sanasi bilan. Keyin davom ettirish yoki to‘xtatish — sizning qaroringiz.',
     primary: 'Sinovni boshlash',
-    secondary: 'Narxlarni ko’rish',
+    secondary: 'Narxlarni ko‘rish',
   },
 
   pricing: {
@@ -324,6 +177,30 @@ export const uz = {
       'Imtihon dasturi kompyuter bo’yicha sotilmaydi. Narx talabalar soniga bog’liq, shuning uchun sinfxona kichik bo’lsa ham to’liq to’lanadi.',
       'NetSupport School va Deep Freeze Enterprise narxini umuman e’lon qilmaydi. Bilish uchun so’rov yuborish kerak.',
     ],
+    requirements: {
+      eyebrow: 'Talablar',
+      title: 'Nima kerak',
+      provide: {
+        title: 'Muassasa ta’minlaydi',
+        items: [
+          { k: 'Kompyuterlar', v: 'Muassasa mulki bo’lgan sinfxona kompyuterlari' },
+          { k: 'Tarmoq', v: 'Simli tarmoq, DHCP va internetga chiqish' },
+          { k: 'Server uchun kompyuter', v: 'Boshqaruv serveri muassasa ichida ishlaydi' },
+          { k: 'BIOS parollari', v: 'Birga o’rnatamiz, parol sizda qoladi' },
+          { k: 'Mas’ul xodim', v: 'Bir kishi, biz bog’lana oladigan' },
+        ],
+      },
+      stack: {
+        title: 'Obraz nimadan iborat',
+        items: [
+          { k: 'Asos', v: 'Debian 13' },
+          { k: 'Ish stoli', v: 'LXQt' },
+          { k: 'Brauzer', v: 'Chromium, siyosat bilan boshqariladigan' },
+          { k: 'Klaviatura', v: 'uz (lotin), ru, en — Alt+Shift' },
+          { k: 'Tarmoq', v: 'Faqat simli' },
+        ],
+      },
+    },
   },
 
   pilot: {

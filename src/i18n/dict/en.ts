@@ -1,4 +1,4 @@
-import type { Dict, Tone } from './uz'
+import type { Dict } from './uz'
 
 export const en: Dict = {
   meta: {
@@ -30,224 +30,80 @@ export const en: Dict = {
   },
 
   hero: {
-    eyebrow: 'An operating system for university labs',
     title: 'Labs that never decay',
     lede: 'Every lab PC boots clean, shows only what the university allows, locks for exams, and resets itself when the student logs out.',
     primary: 'Start a free pilot',
     secondary: 'What a year costs',
-    scroll: 'Scroll',
-    stats: [
-      { value: '3.1', unit: 's', label: 'from one click to every screen' },
-      { value: '4,823,341', unit: '', label: 'domains the resolver knows' },
-      { value: '$15', unit: '', label: 'per machine, per year' },
-      { value: '12', unit: 'mo', label: 'of event history' },
-    ],
   },
 
-  decay: {
-    eyebrow: 'The problem',
-    title: 'A lab starts decaying the day it opens',
-    lede: 'Not because anything broke. Because hundreds of people use it every day.',
-    items: [
+  day: {
+    heading: 'One day in a lab, 07:58 to 17:30',
+    steps: [
       {
-        title: 'Every student leaves something behind',
-        body: 'The desktop fills with shortcuts, a toolbar appears in the browser, something gets installed from somewhere. After one semester the lab is unrecognisable.',
+        id: 'boot',
+        time: '07:58',
+        title: 'Every machine starts from the same clean system',
+        body: 'The system disk resets at every boot. Whatever was installed or changed yesterday is gone before the first class. There is no login screen and nothing to wait for.',
       },
       {
-        title: 'IT walks to every machine',
-        body: 'A fault means going to the machine. An update means going back. Twenty machines, twenty walks, every time.',
+        id: 'open',
+        time: '09:00',
+        title: 'Research works. Distractions don’t.',
+        body: 'Scholar, arXiv, Moodle and the publishers they link to open normally. Social media, streaming, games and the rest are closed by category: 4,823,341 domains. Keeping the lists current is our job, not your IT staff’s.',
       },
       {
-        title: 'Nobody knows what happened in the exam',
-        body: 'There is no record of who left the page and when. There is only the invigilator’s memory, and memory is not a document.',
+        id: 'lecture',
+        time: '11:00',
+        title: 'One page on every screen',
+        body: 'The teacher switches the room to Lecture from a browser. A blue bar appears on every screen, and the page they send opens everywhere at once. No second machine, nothing extra to install.',
       },
       {
-        title: 'When a report is asked for, there are no numbers',
-        body: 'How much the lab was used, how many machines are working, which one went down and when — there is no exact answer.',
+        id: 'exam',
+        time: '14:00',
+        title: 'One locked page, and a record of every seat',
+        body: 'The room locks to the exam page. A seat that leaves the exam or drops off the network turns red on the seat map and stays red, and the log records when and for how long.',
+      },
+      {
+        id: 'logout',
+        time: '17:30',
+        title: 'The machine forgets the day',
+        body: 'When the last student logs out, their folder is wiped and rebuilt. Tomorrow at 07:58 the lab boots exactly as it did this morning.',
       },
     ],
-  },
-
-  clean: {
-    eyebrow: 'Clean state',
-    title: 'Factory-fresh at every boot',
-    body: 'The system disk does not change. Whatever a student installs, downloads or breaks is gone at the next boot. A student’s home folder is wiped and rebuilt when they log out.',
-    points: [
-      { k: 'System disk', v: 'Resets at every boot' },
-      { k: 'Student home', v: 'Wiped at logout' },
-      { k: 'Terminal, package manager, settings', v: 'None' },
-      { k: 'Programs in the menu', v: 'Twelve, and nothing else' },
-    ],
-    demo: {
-      caption: 'One semester → one reboot',
-      before: 'End of semester',
-      after: 'After the reboot',
-      reboot: 'Reboot',
-      junk: ['new toolbar', 'unknown.exe', 'torrent', 'game', 'adware', 'toolbar 2'],
+    honest: 'It is a record, not a wall: friction, no persistence and visibility. We don’t call it unbypassable.',
+    labels: {
+      interrupted: 'Interrupted · 2m 29s',
+      noContact: 'No contact',
+      blocked: 'Blocked site',
     },
-  },
-
-  policy: {
-    eyebrow: 'Policy',
-    title: 'Only what the university allows',
-    body: 'Policy has three levels: institution, room, machine. A lower level inherits the one above it and overrides it where it needs to. A room’s mode reaches every machine in that room.',
-    tree: { site: 'Institution', room: 'Lab 204', device: 'Machine A3' },
-    counter: { label: 'Domains the resolver knows', sub: 'The UT1 lists plus a regional addition' },
-    modes: [
-      {
-        name: 'Open',
-        body: 'Everything for study works. Social media, video, games and the rest are closed by category.',
-      },
-      {
-        name: 'Lecture',
-        body: 'A blue bar over the room. The teacher sends one page to every screen.',
-      },
-      {
-        name: 'Exam',
-        body: 'A red bar and one locked page. No node at any level can add a site to an exam.',
-      },
-    ],
-    note: 'Whole-domain blocks live in DNS. Path-level exceptions stay in the browser, because DNS cannot see inside an address.',
-  },
-
-  exam: {
-    eyebrow: 'Exams',
-    title: 'One locked page, and a seat map',
-    body: 'When an exam starts the room locks and every seat gets its own square. Green means the seat is in the exam. Grey means no contact. Red means the seat left the mode or dropped off the network — and it stays red.',
-    legend: { live: 'In exam', idle: 'No contact', alarm: 'Interrupted' },
-    seatLabel: 'Seat',
-    logTitle: 'Exam log',
-    logRows: [
-      { seat: 'A1', text: 'Stayed to the end', tone: 'live' },
-      { seat: 'C6', text: 'No contact since 21:04:12', tone: 'idle' },
-      { seat: 'B3', text: 'Stopped answering 21:16:07 – 21:18:37, 2m 29s', tone: 'alarm' },
-    ] as { seat: string; text: string; tone: Tone }[],
-    summary: '22 stayed in exam, 1 interrupted, 1 no contact, 24 seats',
-    honest: {
-      title: 'This is not a wall — it is a record',
-      body: 'The protection is three things: friction, non-persistence and visibility. We do not call it unbypassable, and we never have. The exam log is a document in the invigilator’s hand, not a program standing in for one.',
-    },
-  },
-
-  teacher: {
-    eyebrow: 'The teacher',
-    title: 'Runs the class from a browser',
-    body: 'Switch the mode, send one page to every screen, put a message on every screen — all of it in a browser. No second teacher machine is needed, and there is no charge per administrator.',
-    actions: [
-      { k: 'Switch the mode', v: 'Open ↔ Lecture' },
-      { k: 'Send a page', v: 'One address, every screen' },
-      { k: 'Send a message', v: 'Shown on every screen' },
-      { k: 'End the session', v: 'The machine wipes itself' },
-    ],
-    screens: 'screens',
-    sent: 'Sent',
   },
 
   reports: {
-    eyebrow: 'Reports',
-    title: 'A report the rector hands to the ministry',
-    body: 'Three reports: lab utilization, the exam report and inventory. With the institution name and a date range, printed straight from the browser. In all three languages.',
+    title: 'And once a month, a report the rector can hand to the ministry',
+    body: 'With the institution’s name and the date range, in any of the three languages, printed straight from the browser.',
     items: [
       { name: 'Lab utilization', v: 'Which lab, how many hours, which days' },
       { name: 'Exam report', v: 'Every seat, every gap, with its length' },
       { name: 'Inventory', v: 'How many machines, in which lab, on which version' },
     ],
-    print: 'Ready to print',
   },
 
-  how: {
-    eyebrow: 'How it works',
-    title: 'Three steps',
-    steps: [
-      {
-        n: '01',
-        title: 'Write the image',
-        body: 'The image is ours. It is written to the machine, then a BIOS password and a fixed boot order go on. The password stays with you.',
-      },
-      {
-        n: '02',
-        title: 'The machine enrols itself',
-        body: 'On first boot it finds the server and enrols. It appears in the console within 30 seconds. There is nothing to configure by hand.',
-      },
-      {
-        n: '03',
-        title: 'Run it from the console',
-        body: 'The server runs inside the institution. Policy, modes, exams and reports come from a browser. The data does not leave the building.',
-      },
-    ],
-  },
-
-  cost: {
-    eyebrow: 'Cost',
+  ledger: {
     title: 'What one machine costs for a year',
-    lede: 'On the left, four separate products in three different units. On the right, one price.',
-    them: {
-      label: 'Abroad',
-      big: '$241.66',
-      bigSub: 'first year, per machine',
-      extras: [
-        { amount: '$41.67', label: 'each year after' },
-        { amount: '+ $26.40', label: 'per user per year, Windows A3' },
-        { amount: '+ $3,295', label: 'per institution per year, the exam software' },
-      ],
-    },
-    us: {
-      label: 'Hoaka',
-      big: '$15',
-      bigSub: 'per machine per year',
-      note: 'The same every year. Everything on the left is included. Nothing is added.',
-    },
-    breakdownTitle: 'What the $241.66 is made of',
+    sentence: 'Abroad, four separate products do this job for {abroad} per machine in the first year and {after} every year after, plus {exam} a year for the exam software. Hoaka does all of it for {ours} per machine, the same every year.',
+    figures: { abroad: '$241.66', after: '$41.67', exam: '$3,295', ours: '$15' },
     rows: [
-      { job: 'The operating system', prod: 'Windows 11 Pro', amt: '$199.99', per: 'once per machine' },
-      { job: 'The machine comes back clean', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'per machine per year' },
-      { job: 'The teacher controls the class', prod: 'LanSchool', amt: '$7.00', per: 'per machine per year' },
-      { job: 'Lists, updates, exam-day support', prod: 'No line item', amt: '—', per: 'nobody sells it' },
+      { job: 'The operating system', prod: 'Windows 11 Pro', amt: '$199.99', per: 'once' },
+      { job: 'The machine comes back clean', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'a year' },
+      { job: 'The teacher controls the class', prod: 'LanSchool', amt: '$7.00', per: 'a year' },
+      { job: 'Lists, updates, exam-day support', prod: 'Nobody sells it', amt: '—', per: '' },
     ],
+    source: 'Prices read from the vendors’ own pages on 15 September 2026, published for North America. An indicator, not a quote.',
     cta: 'The full comparison',
   },
 
-  wallpapers: {
-    eyebrow: 'Ships with the image',
-    title: 'A lab is a place too',
-    body: 'A managed machine does not have to be ugly. These four wallpapers come with the image.',
-    alt: [
-      'A white flower drawn in pixels on black',
-      'A glowing violet flower in the dark',
-      'Earth seen from orbit with a moon beside it',
-      'A ring of light against a field of stars',
-    ],
-  },
-
-  requirements: {
-    eyebrow: 'Requirements',
-    title: 'What it takes',
-    provide: {
-      title: 'The institution provides',
-      items: [
-        { k: 'The machines', v: 'Institution-owned lab computers' },
-        { k: 'Network', v: 'A wired network with DHCP and an internet uplink' },
-        { k: 'A host for the server', v: 'The management server runs inside the institution' },
-        { k: 'BIOS passwords', v: 'We set them together and the password stays with you' },
-        { k: 'A named contact', v: 'One person we can reach' },
-      ],
-    },
-    stack: {
-      title: 'What the image is',
-      items: [
-        { k: 'Base', v: 'Debian 13' },
-        { k: 'Desktop', v: 'LXQt' },
-        { k: 'Browser', v: 'Chromium under managed policy' },
-        { k: 'Keyboard', v: 'uz (Latin), ru, en — Alt+Shift' },
-        { k: 'Network', v: 'Wired only' },
-      ],
-    },
-  },
-
-  scope: {
-    eyebrow: 'Limits',
+  limits: {
     title: 'What Hoaka does not do',
-    body: 'Better said up front. None of this is planned either.',
     items: [
       'It does not touch personal phones, tablets or laptops',
       'It does not watch through a webcam',
@@ -259,7 +115,6 @@ export const en: Dict = {
   },
 
   cta: {
-    eyebrow: 'The ask',
     title: 'Three universities. One lab each. This semester. Free.',
     body: 'One month, with a hard end date. Carrying on afterwards is your call.',
     primary: 'Start a pilot',
@@ -323,6 +178,30 @@ export const en: Dict = {
       'The exam software is not sold per machine. It is priced on student numbers, so a small lab pays the same as a large one.',
       'NetSupport School and Deep Freeze Enterprise publish no price at all. You have to ask to find out.',
     ],
+    requirements: {
+      eyebrow: 'Requirements',
+      title: 'What it takes',
+      provide: {
+        title: 'The institution provides',
+        items: [
+          { k: 'The machines', v: 'Institution-owned lab computers' },
+          { k: 'Network', v: 'A wired network with DHCP and an internet uplink' },
+          { k: 'A host for the server', v: 'The management server runs inside the institution' },
+          { k: 'BIOS passwords', v: 'We set them together and the password stays with you' },
+          { k: 'A named contact', v: 'One person we can reach' },
+        ],
+      },
+      stack: {
+        title: 'What the image is',
+        items: [
+          { k: 'Base', v: 'Debian 13' },
+          { k: 'Desktop', v: 'LXQt' },
+          { k: 'Browser', v: 'Chromium under managed policy' },
+          { k: 'Keyboard', v: 'uz (Latin), ru, en — Alt+Shift' },
+          { k: 'Network', v: 'Wired only' },
+        ],
+      },
+    },
   },
 
   pilot: {
