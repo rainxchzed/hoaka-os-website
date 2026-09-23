@@ -29,6 +29,7 @@
 
 .sheet {
   display: grid;
+  min-width: 0;
   align-content: start;
   gap: 0.35rem;
   scroll-snap-align: start;
@@ -46,6 +47,8 @@
   flex-direction: column;
   gap: 0.7rem;
   aspect-ratio: 1 / 1.32;
+  min-width: 0;
+  overflow: hidden;
   margin-bottom: var(--s-2);
   padding: 1.05rem 1rem 0.9rem;
   border-radius: 3px;
@@ -78,7 +81,9 @@
 }
 
 .head > span:last-child {
+  overflow: hidden;
   color: var(--paper-muted);
+  white-space: nowrap;
 }
 
 .docTitle {
