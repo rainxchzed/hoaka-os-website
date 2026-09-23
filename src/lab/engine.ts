@@ -23,11 +23,11 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js'
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
 import { buildRoom } from './room'
-import { buildDome, buildOrrery } from './orrery'
+import { buildDome } from './dome'
 import { screenTextures } from './screens'
 import type { ScreenState } from './screens'
 import { MOMENTS } from './moments'
-import type { LabelId, Moment, MomentId } from './moments'
+import type { LabelId, MomentId } from './moments'
 
 export type LabOptions = {
   labels: Record<LabelId, string>
@@ -76,20 +76,6 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
 
   const dome = buildDome()
   scene.add(dome.dome)
-
-  // The sun's path hangs behind the room, facing where the cameras spend their time.
-  const orrery = buildOrrery()
-  const moments = Object.values(MOMENTS)
-  const mean = (pick: (m: Moment) => [number, number, number]) =>
-    moments
-      .reduce((acc, m) => acc.add(new Vector3(...pick(m))), new Vector3())
-      .divideScalar(moments.length)
-  const eye = mean((m) => m.camera.position)
-  const focus = mean((m) => m.camera.target)
-  const away = focus.clone().sub(eye).normalize()
-  orrery.group.position.copy(focus).addScaledVector(away, 10).add(new Vector3(0, 1.8, 0))
-  orrery.group.lookAt(eye)
-  scene.add(orrery.group)
 
   const textures = await screenTextures()
   const screenMaterial = Object.fromEntries(
@@ -294,11 +280,10 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     room.outside.uniforms.uTop.value.copy(live.top)
     room.outside.uniforms.uBottom.value.copy(live.bottom)
 
-    orrery.setTime(live.minutes)
     dome.material.uniforms.uZenith.value.copy(live.zenith)
     dome.material.uniforms.uHorizon.value.copy(live.horizon)
     dome.material.uniforms.uGlow.value.copy(live.glow)
-    dome.material.uniforms.uSun.value.copy(orrery.sunWorld())
+    dome.material.uniforms.uSunDir.value.copy(live.sunPos).sub(sun.target.position).normalize()
 
     const hours = live.minutes / 60
     room.clock.hour.rotation.z = -((hours % 12) / 12) * Math.PI * 2
