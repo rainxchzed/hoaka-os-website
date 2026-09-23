@@ -236,6 +236,7 @@ export const en: Dict = {
     },
   },
 
+  notFound: 'Page not found',
   footer: {
     tagline: 'A managed operating system for university computer labs.',
     madeIn: 'Built in Uzbekistan',

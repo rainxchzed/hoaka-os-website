@@ -15,7 +15,7 @@ npm run typecheck
 
 `npm run build` runs three steps: the client bundle, an SSR bundle, and
 `scripts/prerender.mjs`, which renders every route to HTML and writes the
-sitemap and robots.txt. Set `SITE_URL` to change the canonical host:
+sitemap, robots.txt and a 404 page. Set `SITE_URL` to change the canonical host:
 
 ```bash
 SITE_URL=https://hoaka.uz npm run build

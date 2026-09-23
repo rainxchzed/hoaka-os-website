@@ -134,6 +134,43 @@ function rootPage() {
 `
 }
 
+// GitHub Pages serves this for any path it has no file for.
+function notFoundPage() {
+  const lines = LOCALES.map((code) => {
+    const t = dictFor(code)
+    return `<li lang="${code}">${esc(t.notFound)}. <a hreflang="${code}" href="${pathFor(code, 'home')}">${esc(t.nav.home)}</a></li>`
+  }).join('\n        ')
+
+  return `<!doctype html>
+<html lang="uz-Latn-UZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Hoaka OS</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: dark }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #060d24; color: #eaf1ff; font: 1.05rem/1.6 system-ui, sans-serif }
+      main { padding: 0 1.25rem; max-width: 30rem }
+      img { width: 2.5rem; height: 2.5rem }
+      ul { list-style: none; padding: 0 }
+      li { margin: 0.6rem 0; color: #aebbd6 }
+      a { color: #9cc4ff; text-underline-offset: 0.2em }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/favicon.svg" alt="Hoaka OS" />
+      <ul>
+        ${lines}
+      </ul>
+    </main>
+  </body>
+</html>
+`
+}
+
 function sitemap() {
   const today = new Date().toISOString().slice(0, 10)
   const urls = ROUTES.map((route) => {
@@ -171,6 +208,8 @@ await writeFile(
   `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`,
   'utf8',
 )
+
+await writeFile(join(DIST, '404.html'), notFoundPage(), 'utf8')
 
 await rm(join(ROOT, 'dist-ssr'), { recursive: true, force: true })
 

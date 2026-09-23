@@ -235,6 +235,7 @@ export const uz = {
     },
   },
 
+  notFound: 'Sahifa topilmadi',
   footer: {
     tagline: 'Universitet sinfxonalari uchun boshqariladigan operatsion tizim.',
     madeIn: 'O’zbekistonda ishlab chiqilmoqda',
