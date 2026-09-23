@@ -8,30 +8,272 @@
   margin-top: var(--s-3);
 }
 
-.list {
+/* Three printed reports, side by side; on a phone they scroll sideways. */
+.sheets {
   display: grid;
-  gap: var(--s-4);
-  align-content: start;
+  grid-auto-flow: column;
+  grid-auto-columns: min(74%, 17rem);
+  gap: var(--s-3);
+  margin-inline: calc(-1 * var(--gutter));
+  padding: var(--s-2) var(--gutter) var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
 }
 
-.item {
+.sheets::-webkit-scrollbar {
+  display: none;
+}
+
+.sheet {
   display: grid;
+  align-content: start;
   gap: 0.35rem;
-  padding-top: var(--s-3);
-  border-top: 1px solid var(--line-strong);
+  scroll-snap-align: start;
+}
+
+.paper {
+  --paper: #f6f4ef;
+  --paper-ink: #0a1633;
+  --paper-muted: #8b93a7;
+  --paper-rule: #dfe1e7;
+  --paper-cobalt: #2448d8;
+  --paper-red: #d4383f;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  aspect-ratio: 1 / 1.32;
+  margin-bottom: var(--s-2);
+  padding: 1.05rem 1rem 0.9rem;
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--paper-ink);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.2),
+    0 22px 48px -22px rgb(2 6 20 / 0.55);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+}
+
+.sheet:hover .paper {
+  transform: translateY(-6px);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.2),
+    0 30px 60px -24px rgb(2 6 20 / 0.6);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--paper-rule);
+  color: var(--paper-ink);
+  font-size: 0.56rem;
+}
+
+.head > span:last-child {
+  color: var(--paper-muted);
+}
+
+.docTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.org {
+  width: 58%;
+  height: 4px;
+  margin-top: -0.35rem;
+  border-radius: 2px;
+  background: var(--paper-rule);
+}
+
+.lines {
+  display: grid;
+  gap: 5px;
+}
+
+.line {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--paper-rule);
+}
+
+.chart {
+  width: 100%;
+  height: auto;
+}
+
+.chart rect {
+  fill: var(--paper-cobalt);
+}
+
+.chart line {
+  stroke: var(--paper-muted);
+  stroke-width: 1;
+}
+
+.seats {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.seat {
+  aspect-ratio: 1.25;
+  border: 1px solid color-mix(in srgb, var(--paper-cobalt) 40%, transparent);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--paper-cobalt) 12%, transparent);
+}
+
+/* The aisle between the two benches of each row. */
+.seat:nth-child(8n + 4) {
+  margin-inline-end: 4px;
+}
+
+.seat:nth-child(8n + 5) {
+  margin-inline-start: 4px;
+}
+
+.seat[data-state='left'] {
+  border-color: var(--paper-red);
+  background: var(--paper-red);
+}
+
+.seat[data-state='gone'] {
+  border: 1px dashed var(--paper-muted);
+  background: none;
+}
+
+.log {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+
+.logRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--paper-rule);
+}
+
+.logRow i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--paper-muted);
+}
+
+.logRow[data-state='left'] i {
+  background: var(--paper-red);
+}
+
+.logRow b {
+  margin-inline-start: auto;
+  font-weight: 600;
+}
+
+.rooms {
+  display: grid;
+  font-size: 0.62rem;
+}
+
+.room {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  padding-block: 0.36rem;
+  border-bottom: 1px solid var(--paper-rule);
+  color: var(--paper-muted);
+}
+
+.room b {
+  color: var(--paper-ink);
+  font-weight: 600;
+}
+
+.room[data-total] {
+  border-bottom: 0;
+  color: var(--paper-ink);
+  font-weight: 700;
+}
+
+.sign {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+/* Where the institution's round stamp goes. */
+.stamp {
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 1.5px solid color-mix(in srgb, var(--paper-cobalt) 45%, transparent);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px color-mix(in srgb, var(--paper-cobalt) 30%, transparent);
+  rotate: -12deg;
 }
 
 .name {
-  font-size: var(--t-md);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .v {
   color: var(--ink-2);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 2.5rem;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sheet {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
+    }
+  }
 }
 
 @media (min-width: 60rem) {
   .grid {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: var(--s-7);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--s-6);
+  }
+
+  .sheets {
+    grid-auto-columns: minmax(0, 1fr);
+    margin-inline: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .sheet:nth-child(2) {
+    margin-top: var(--s-4);
+  }
+
+  .sheet:nth-child(3) {
+    margin-top: var(--s-6);
   }
 }
