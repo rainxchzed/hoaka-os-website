@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-/** React Router keeps the scroll position across navigations; a marketing site should not. */
 export function ScrollReset() {
   const { pathname } = useLocation()
 

@@ -70,7 +70,6 @@ function page(route) {
     .replace('<!--app-html-->', html)
 }
 
-/** `/` carries no content: it points a crawler at all three and a visitor at one. */
 function rootPage() {
   const links = LOCALES.map((code) => {
     const t = dictFor(code)

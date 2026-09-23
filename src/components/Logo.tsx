@@ -1,9 +1,5 @@
 type Props = { size?: number; withWordmark?: boolean; className?: string }
 
-/**
- * `hoaka` is a crescent: the mark is a lit limb with the planet's shadow cut out
- * of it, inside the orbit the console watches from.
- */
 export function Logo({ size = 28, withWordmark = true, className }: Props) {
   return (
     <span

@@ -41,20 +41,15 @@ export function isLocale(value: string | undefined): value is Locale {
   return LOCALES.includes(value as Locale)
 }
 
-/** Every route this site prerenders, as `{ locale, page, path }`. */
 export const ROUTES = LOCALES.flatMap((locale) =>
   PAGES.map((page) => ({ locale, page, path: pathFor(locale, page) })),
 )
 
-/**
- * Picks the best locale for a set of `Accept-Language`-style tags. Uzbek is the
- * fallback because the machines this runs on are in Uzbekistan; Russian is offered
- * to any Cyrillic-script preference we do not otherwise serve.
- */
 export function matchLocale(preferred: readonly string[]): Locale {
   for (const raw of preferred) {
     const tag = raw.toLowerCase()
     if (tag.startsWith('uz')) return 'uz'
+    // Kazakh and Kyrgyz readers are likelier to read Russian than Uzbek or English.
     if (tag.startsWith('ru') || tag.startsWith('kk') || tag.startsWith('ky')) return 'ru'
     if (tag.startsWith('en')) return 'en'
   }
