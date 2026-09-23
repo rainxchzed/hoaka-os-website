@@ -115,7 +115,7 @@ export async function createLab(host: HTMLElement, options: LabOptions): Promise
     ao.updatePdMaterial({ samples: 10 })
     composer.addPass(ao)
   }
-  const bloom = new UnrealBloomPass(new Vector2(1, 1), 0.34, 0.42, 1.02)
+  const bloom = new UnrealBloomPass(new Vector2(1, 1), 0.26, 0.42, 1.05)
   composer.addPass(bloom)
   composer.addPass(new OutputPass())
 
