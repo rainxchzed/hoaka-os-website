@@ -4,13 +4,16 @@ import type { PageKey } from '../i18n/locales'
 import { CONTACT } from '../lib/contact'
 import { Logo } from './Logo'
 import { Languages } from './Languages'
+import { Seam } from './Seam'
 import styles from './Footer.module.css'
 
 export function Footer({ page }: { page: PageKey }) {
   const { t, href } = useI18n()
 
   return (
-    <footer className={styles.footer}>
+    // Every page ends at night: the home page through its dusk sky, the others through this seam.
+    <footer className={styles.footer} data-deep>
+      {page === 'home' ? null : <Seam kind="dusk" />}
       <div className={`shell ${styles.grid}`}>
         <div className={styles.brand}>
           <Logo size={26} />

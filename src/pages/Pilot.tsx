@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { useI18n } from '../i18n'
 import { CONTACT } from '../lib/contact'
+import { Seam } from '../components/Seam'
 import styles from './Pilot.module.css'
 
 type FieldName = 'name' | 'role' | 'org' | 'email' | 'phone' | 'machines'
@@ -53,6 +54,7 @@ export function Pilot() {
           </ol>
         </div>
       </header>
+      <Seam kind="dawn" />
 
       <section className="section">
         <div className={`shell ${styles.split}`}>

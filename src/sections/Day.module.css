@@ -14,6 +14,29 @@
   z-index: 0;
 }
 
+/* The lab's backdrop is rendered, so its edges never match a CSS colour exactly; these
+   bands hand it over to the night blue of the sections above and below. */
+.stage::before,
+.stage::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.stage::before {
+  top: 0;
+  height: 12%;
+  background: linear-gradient(to bottom, var(--deep), transparent);
+}
+
+.stage::after {
+  bottom: 0;
+  height: 18%;
+  background: linear-gradient(to top, var(--deep), transparent);
+}
+
 /* Keeps the timeline legible where it overlaps the far edge of the room. */
 .scrim {
   position: absolute;

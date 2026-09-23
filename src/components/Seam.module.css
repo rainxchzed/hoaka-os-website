@@ -1,0 +1,116 @@
+/* Where two grounds meet, the sky in between: blue hour into day, sunset into night. */
+.seam[data-kind][aria-hidden] {
+  --stars: 0;
+  position: relative;
+  display: block;
+  height: var(--seam-tall);
+  pointer-events: none;
+}
+
+.seam[data-at='top'][aria-hidden],
+.seam[data-at='bottom'][aria-hidden] {
+  position: absolute;
+  inset-inline: 0;
+  z-index: 0;
+}
+
+.seam[data-at='top'] {
+  top: 0;
+}
+
+.seam[data-at='bottom'] {
+  bottom: 0;
+}
+
+.seam::before,
+.seam::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* Grain keeps the long gradients from banding; it fades out wherever the seam turns clear. */
+.seam::before {
+  opacity: 0.05;
+  mask-image: var(--grain-mask, none);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.seam::after {
+  opacity: var(--stars);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27320%27 height=%27240%27%3E%3Ccircle cx=%27145.0%27 cy=%27134.1%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.62%27/%3E%3Ccircle cx=%27272.2%27 cy=%2746.8%27 r=%271.0%27 fill=%27white%27 fill-opacity=%270.64%27/%3E%3Ccircle cx=%27196.0%27 cy=%2745.9%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.53%27/%3E%3Ccircle cx=%2730.7%27 cy=%27193.1%27 r=%271.2%27 fill=%27white%27 fill-opacity=%270.73%27/%3E%3Ccircle cx=%27190.2%27 cy=%2795.5%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.74%27/%3E%3Ccircle cx=%27196.5%27 cy=%2739.2%27 r=%270.5%27 fill=%27white%27 fill-opacity=%270.85%27/%3E%3Ccircle cx=%2722.0%27 cy=%2710.4%27 r=%270.6%27 fill=%27white%27 fill-opacity=%270.71%27/%3E%3Ccircle cx=%27247.9%27 cy=%2779.0%27 r=%271.0%27 fill=%27white%27 fill-opacity=%270.86%27/%3E%3Ccircle cx=%27166.0%27 cy=%27153.1%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.35%27/%3E%3Ccircle cx=%2728.9%27 cy=%27156.5%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.95%27/%3E%3Ccircle cx=%27316.6%27 cy=%27200.3%27 r=%271.2%27 fill=%27white%27 fill-opacity=%270.5%27/%3E%3Ccircle cx=%27241.5%27 cy=%27123.0%27 r=%270.5%27 fill=%27white%27 fill-opacity=%270.39%27/%3E%3Ccircle cx=%27244.1%27 cy=%2796.5%27 r=%270.7%27 fill=%27white%27 fill-opacity=%270.58%27/%3E%3Ccircle cx=%27304.7%27 cy=%27202.0%27 r=%270.5%27 fill=%27white%27 fill-opacity=%270.48%27/%3E%3Ccircle cx=%27294.9%27 cy=%2714.3%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.94%27/%3E%3Ccircle cx=%27127.6%27 cy=%2719.2%27 r=%271.2%27 fill=%27white%27 fill-opacity=%270.47%27/%3E%3Ccircle cx=%27215.3%27 cy=%2781.5%27 r=%270.7%27 fill=%27white%27 fill-opacity=%270.55%27/%3E%3Ccircle cx=%27306.6%27 cy=%27180.9%27 r=%270.5%27 fill=%27white%27 fill-opacity=%270.43%27/%3E%3Ccircle cx=%27225.4%27 cy=%274.6%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.83%27/%3E%3Ccircle cx=%2758.1%27 cy=%27134.0%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.66%27/%3E%3Ccircle cx=%27313.3%27 cy=%27183.6%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.74%27/%3E%3Ccircle cx=%2738.8%27 cy=%27101.3%27 r=%270.6%27 fill=%27white%27 fill-opacity=%270.35%27/%3E%3Ccircle cx=%27275.1%27 cy=%27232.1%27 r=%271.0%27 fill=%27white%27 fill-opacity=%270.53%27/%3E%3Ccircle cx=%27281.6%27 cy=%2751.7%27 r=%270.8%27 fill=%27white%27 fill-opacity=%270.95%27/%3E%3Ccircle cx=%27192.2%27 cy=%27138.2%27 r=%270.5%27 fill=%27white%27 fill-opacity=%270.94%27/%3E%3Ccircle cx=%2769.4%27 cy=%2763.0%27 r=%271.0%27 fill=%27white%27 fill-opacity=%270.55%27/%3E%3C/svg%3E");
+  background-size: 320px 240px;
+  mask-image: var(--star-mask);
+}
+
+/* Next to the live sky its own stars show through the clear end, so these seams add none. */
+.seam[data-kind='rise'][aria-hidden] {
+  --grain-mask: linear-gradient(to bottom, transparent 0%, #000 70%);
+  height: var(--seam-short);
+  background: linear-gradient(to bottom, transparent 0%, var(--deep) 100%);
+}
+
+.seam[data-kind='settle'][aria-hidden] {
+  --grain-mask: linear-gradient(to bottom, transparent 0%, #000 70%);
+  height: var(--seam-short);
+  background: linear-gradient(to bottom, transparent 0%, var(--night) 100%);
+}
+
+/* Day side of the page: the full sky between night and the pale ground. */
+.seam[data-kind='dawn'][aria-hidden] {
+  --stars: 0.85;
+  --star-mask: linear-gradient(to bottom, transparent 0%, #000 8%, transparent 38%);
+  background: linear-gradient(
+    to bottom,
+    var(--deep) 0%,
+    #15265c 14%,
+    #2b4690 30%,
+    #5f7fcb 50%,
+    #a9c0ec 70%,
+    #dbe5f7 87%,
+    var(--canvas) 100%
+  );
+}
+
+.seam[data-kind='nightfall'][aria-hidden],
+.seam[data-kind='dusk'][aria-hidden] {
+  --stars: 0.85;
+  --star-mask: linear-gradient(to bottom, transparent 50%, #000 80%, transparent 100%);
+  background: linear-gradient(
+    to bottom,
+    var(--canvas) 0%,
+    #efe7ea 14%,
+    #e6cdc6 27%,
+    #bca9d0 42%,
+    #7466ad 58%,
+    #332f6d 74%,
+    #10183b 88%,
+    var(--seam-end) 100%
+  );
+}
+
+.seam[data-kind='nightfall'] {
+  --seam-end: transparent;
+  --grain-mask: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+.seam[data-kind='dusk'] {
+  --seam-end: var(--night);
+}
+
+@media (prefers-color-scheme: dark) {
+  .seam[data-kind='dawn'][aria-hidden] {
+    display: none;
+  }
+
+  .seam[data-kind='nightfall'][aria-hidden],
+  .seam[data-kind='dusk'][aria-hidden] {
+    --star-mask: linear-gradient(to bottom, transparent 30%, #000 75%, transparent 100%);
+    background: linear-gradient(to bottom, var(--canvas) 0%, #0b1433 45%, var(--seam-end) 100%);
+  }
+
+  .seam[data-kind='dusk'][aria-hidden] {
+    height: var(--seam-short);
+  }
+}

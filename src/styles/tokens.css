@@ -90,4 +90,17 @@
   --radius: 4px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* The page's grounds in both schemes, for the seams between them. */
+  --deep: #0a1633;
+  --night: #0d1b3e;
+  --canvas: var(--ground);
+  --seam-tall: clamp(12rem, 8rem + 22vh, 24rem);
+  --seam-short: clamp(5rem, 3rem + 10vh, 10rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --seam-tall: clamp(6rem, 4rem + 10vh, 11rem);
+  }
 }

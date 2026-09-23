@@ -1,6 +1,5 @@
 .footer {
-  background: var(--ground-2);
-  border-top: 1px solid var(--line);
+  background: var(--night);
   color: var(--ink-2);
   font-size: var(--t-sm);
 }

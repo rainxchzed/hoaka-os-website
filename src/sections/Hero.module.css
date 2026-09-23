@@ -7,6 +7,11 @@
   padding-top: clamp(7.5rem, 20vh, 13rem);
 }
 
+.body {
+  position: relative;
+  z-index: 1;
+}
+
 .title {
   max-width: 12ch;
   font-size: clamp(2.6rem, 1.1rem + 7vw, 8rem);

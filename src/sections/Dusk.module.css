@@ -1,10 +1,13 @@
 .dusk {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  padding-top: clamp(6rem, 18vh, 12rem);
+  padding-block: calc(var(--seam-tall) + clamp(2rem, 6vh, 4.5rem)) calc(var(--seam-short) + var(--s-4));
 }
 
 .body {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
