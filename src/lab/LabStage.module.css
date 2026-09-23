@@ -5,6 +5,17 @@
   background: radial-gradient(120% 90% at 68% 45%, #0e1d45 0%, #081230 55%, #060d24 100%);
 }
 
+/* Full-resolution grain over the scene, the same texture the sky wears. */
+.stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 .stage[data-state='static'],
 :global(:root:not([data-js])) .stage {
   background: #060d24 image-set(url('/media/lab-still.avif') type('image/avif'), url('/media/lab-still.webp') type('image/webp')) 62% 50% / cover no-repeat;
