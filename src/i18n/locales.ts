@@ -5,7 +5,7 @@ export type Locale = (typeof LOCALES)[number]
 export const DEFAULT_LOCALE: Locale = 'uz'
 
 export const LOCALE_LABEL: Record<Locale, string> = {
-  uz: "O'zbekcha",
+  uz: 'Oʻzbekcha',
   ru: 'Русский',
   en: 'English',
 }
