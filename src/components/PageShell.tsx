@@ -26,7 +26,7 @@ export function PageShell({ locale, page, children }: Props) {
         {t.nav.skip}
       </a>
       <Sky />
-      <Nav page={page} />
+      <Nav />
       <main id="main" className="page-main">
         {children}
       </main>

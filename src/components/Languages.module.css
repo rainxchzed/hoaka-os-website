@@ -1,36 +1,32 @@
 .list {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  width: 100%;
+  max-width: 13rem;
 }
 
-.globe {
-  flex: none;
-  color: var(--ink-3);
-}
-
-/* One cell per language; the thumb rests on the current one and follows the pointer. */
+/* One row per language; the thumb rests on the current one and follows the pointer. */
 .track {
-  --cell: 2.45rem;
+  --cell: 2.4rem;
   --pos: var(--current);
   position: relative;
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--cell);
+  grid-auto-rows: var(--cell);
+  width: 100%;
   padding: 3px;
   border: 1px solid var(--line-strong);
-  border-radius: 999px;
+  border-radius: 12px;
 }
 
 .thumb {
   position: absolute;
-  inset-block: 3px;
-  inset-inline-start: 3px;
-  width: var(--cell);
-  border-radius: 999px;
+  inset-block: 3px auto;
+  inset-inline: 3px;
+  height: var(--cell);
+  border-radius: 9px;
   background: color-mix(in srgb, var(--ink) 13%, transparent);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent);
-  translate: calc(var(--pos) * 100%) 0;
+  translate: 0 calc(var(--pos) * 100%);
   transition: translate 0.4s var(--ease);
 }
 
@@ -49,14 +45,14 @@
 .item {
   position: relative;
   z-index: 1;
-  display: grid;
-  place-items: center;
-  height: 1.8rem;
-  border-radius: 999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 0.85rem 0.75rem;
+  border-radius: 9px;
   color: var(--ink-3);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: var(--t-sm);
+  font-weight: 500;
   transition: color 0.25s var(--ease);
 }
 
@@ -76,70 +72,9 @@
   letter-spacing: 0.08em;
 }
 
-.list[data-long] {
-  width: 100%;
-  max-width: 13rem;
-}
-
-.list[data-long] .track {
-  --cell: 2.4rem;
-  width: 100%;
-  grid-auto-flow: row;
-  grid-auto-columns: auto;
-  grid-auto-rows: var(--cell);
-  border-radius: 12px;
-}
-
-.list[data-long] .thumb {
-  inset-inline-end: 3px;
-  inset-block-end: auto;
-  width: auto;
-  height: var(--cell);
-  border-radius: 9px;
-  translate: 0 calc(var(--pos) * 100%);
-}
-
-.list[data-long] .item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: auto;
-  padding-inline: 0.85rem 0.75rem;
-  border-radius: 9px;
-  font-size: var(--t-sm);
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-@media (max-width: 22rem) {
-  .globe {
-    display: none;
-  }
-}
-
 /* Fingers need bigger cells than a pointer does. */
 @media (pointer: coarse) {
   .track {
-    --cell: 2.75rem;
-  }
-
-  .item {
-    height: 2.5rem;
-  }
-
-  .list[data-long] .track {
     --cell: 2.9rem;
-  }
-}
-
-@media (pointer: coarse) and (max-width: 26rem) {
-  .globe {
-    display: none;
-  }
-}
-
-@media (max-width: 22.5rem) {
-  .list:not([data-long]) .track {
-    --cell: 2.35rem;
   }
 }

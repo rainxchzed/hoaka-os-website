@@ -54,10 +54,6 @@
   margin-inline-start: auto;
 }
 
-.links + .tail {
-  margin-inline-start: 0;
-}
-
 .cta {
   display: none;
   font-size: var(--t-sm);
@@ -125,6 +121,10 @@
     display: flex;
   }
 
+  .links + .tail {
+    margin-inline-start: 0;
+  }
+
   .burger {
     display: none;
   }
@@ -139,20 +139,5 @@
     width: 2.75rem;
     height: 2.75rem;
     padding: 0 0.7rem;
-  }
-}
-
-/* The smallest phones: the wordmark keeps its name and drops "OS" so the switch and menu fit. */
-@media (max-width: 22.5rem) {
-  .inner {
-    gap: var(--s-2);
-  }
-
-  .tail {
-    gap: 0.4rem;
-  }
-
-  .brand [data-os] {
-    display: none;
   }
 }

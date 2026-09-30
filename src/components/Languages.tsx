@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Globe } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { useI18n } from '../i18n'
 import { LOCALES, LOCALE_LABEL, LOCALE_SHORT, pathFor } from '../i18n/locales'
@@ -16,13 +15,12 @@ function remember(code: Locale) {
   }
 }
 
-export function Languages({ page, long = false }: { page: PageKey; long?: boolean }) {
+export function Languages({ page }: { page: PageKey }) {
   const { locale, t } = useI18n()
   const current = { '--current': LOCALES.indexOf(locale) } as CSSProperties
 
   return (
-    <nav className={styles.list} aria-label={t.nav.language} data-long={long ? '' : undefined}>
-      {long ? null : <Globe className={styles.globe} size={15} strokeWidth={1.75} aria-hidden="true" />}
+    <nav className={styles.list} aria-label={t.nav.language}>
       <span className={styles.track} style={current}>
         <span className={styles.thumb} aria-hidden="true" />
         {LOCALES.map((code) => (
@@ -36,8 +34,8 @@ export function Languages({ page, long = false }: { page: PageKey; long?: boolea
             className={styles.item}
             onClick={() => remember(code)}
           >
-            {long ? LOCALE_LABEL[code] : LOCALE_SHORT[code]}
-            {long ? <span className={styles.code}>{LOCALE_SHORT[code]}</span> : null}
+            {LOCALE_LABEL[code]}
+            <span className={styles.code}>{LOCALE_SHORT[code]}</span>
           </Link>
         ))}
       </span>

@@ -3,11 +3,10 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useI18n } from '../i18n'
 import type { PageKey } from '../i18n/locales'
 import { Logo } from './Logo'
-import { Languages } from './Languages'
 import { Button } from './Button'
 import styles from './Nav.module.css'
 
-export function Nav({ page }: { page: PageKey }) {
+export function Nav() {
   const { t, href } = useI18n()
   const { pathname } = useLocation()
   const [lifted, setLifted] = useState(false)
@@ -63,7 +62,6 @@ export function Nav({ page }: { page: PageKey }) {
         </nav>
 
         <div className={styles.tail}>
-          <Languages page={page} />
           <Button to={href('pilot')} className={styles.cta}>
             {t.nav.cta}
           </Button>

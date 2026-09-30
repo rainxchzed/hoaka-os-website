@@ -35,7 +35,7 @@ export function Footer({ page }: { page: PageKey }) {
 
         <div className={styles.col}>
           <h2 className={styles.title}>{t.footer.language}</h2>
-          <Languages page={page} long />
+          <Languages page={page} />
         </div>
       </div>
 
