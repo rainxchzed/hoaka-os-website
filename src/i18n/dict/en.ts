@@ -33,7 +33,7 @@ export const en: Dict = {
     title: 'Labs that never decay',
     lede: 'Every lab PC boots clean, shows only what the university allows, locks for exams, and resets itself when the student logs out.',
     primary: 'Start a free pilot',
-    secondary: 'What a year costs',
+    secondary: 'How the free month works',
   },
 
   day: {
@@ -103,11 +103,25 @@ export const en: Dict = {
     cta: 'The full comparison',
   },
 
+  offer: {
+    eyebrow: 'Pilot',
+    title: 'The first month is on us',
+    body: 'Every university starts with a free month in one of its labs. We come and install Hoaka ourselves. While your teachers and students use the lab as usual, we stay on hand, and if something breaks, we fix it. At the end of the month you decide whether to carry on.',
+    days: { start: 'Day 1', end: 'Day 30' },
+    points: [
+      { k: 'We install it', v: 'One day on site. We set up the lab machines and the server ourselves.' },
+      { k: 'We stay on hand', v: 'For the whole month. Anything that breaks is ours to fix.' },
+      { k: 'You decide', v: 'You get the three reports and choose what happens next.' },
+    ],
+    price: 'After the pilot, Hoaka costs several times less than the same set of tools bought abroad.',
+    priceLink: 'Pricing',
+    cta: 'Start a pilot',
+  },
+
   cta: {
-    title: 'One lab, one month',
-    body: 'With a hard end date. Carrying on afterwards is your call.',
-    primary: 'Start a pilot',
-    secondary: 'See what it costs',
+    title: 'Let’s talk about your lab',
+    body: 'Tell us a little about it and we will reply within two working days.',
+    primary: 'Write to us',
   },
 
   pricing: {

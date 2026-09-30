@@ -1,0 +1,126 @@
+.offer {
+  scroll-margin-top: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+}
+
+.eyebrow {
+  margin-bottom: var(--s-2);
+  color: var(--cobalt);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+.body {
+  margin-top: var(--s-3);
+}
+
+.actions {
+  margin-top: var(--s-4);
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.day {
+  aspect-ratio: 0.5;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--cobalt) 32%, transparent);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.5s var(--ease);
+  transition-delay: calc(var(--i) * 22ms);
+  transform-origin: bottom center;
+}
+
+.day[data-phase='install'] {
+  background: var(--action);
+}
+
+.day[data-phase='decide'] {
+  background: none;
+  box-shadow: inset 0 0 0 1.5px var(--action);
+}
+
+/* Days fill in one after another the first time the strip comes into view. */
+:global(:root[data-js]) .days:not([data-seen]) .day {
+  opacity: 0;
+  transform: scaleY(0.25);
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+}
+
+.points {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.point {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  padding-top: var(--s-2);
+  border-top: 2px solid color-mix(in srgb, var(--cobalt) 55%, transparent);
+}
+
+.point[data-phase='install'] {
+  border-top-color: var(--action);
+}
+
+.point[data-phase='decide'] {
+  border-top-style: dashed;
+  border-top-color: var(--action);
+}
+
+.k {
+  font-size: var(--t-md);
+}
+
+.v {
+  color: var(--ink-2);
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem var(--s-2);
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+@media (min-width: 40rem) {
+  .points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60rem) {
+  .grid {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--s-7);
+    align-items: start;
+  }
+}
+
+@media (max-width: 24rem) {
+  .days {
+    gap: 3px;
+  }
+}

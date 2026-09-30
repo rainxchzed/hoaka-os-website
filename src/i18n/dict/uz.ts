@@ -32,7 +32,7 @@ export const uz = {
     title: 'Eskirmaydigan sinfxonalar',
     lede: 'Har bir kompyuter toza yuklanadi, faqat universitet ruxsat berganini ko‘rsatadi, imtihonga qulflanadi va talaba chiqqanda o‘zini o‘zi tiklaydi.',
     primary: 'Bepul sinovni boshlash',
-    secondary: 'Bir yil qancha turadi',
+    secondary: 'Bepul oy qanday oʻtadi',
   },
 
   day: {
@@ -102,11 +102,25 @@ export const uz = {
     cta: 'To‘liq taqqoslash',
   },
 
+  offer: {
+    eyebrow: 'Sinov oyi',
+    title: 'Birinchi oy bizdan',
+    body: 'Har bir universitet bilan ishni bitta kompyuter sinfida bir oylik bepul sinovdan boshlaymiz. Hoakani oʻzimiz kelib oʻrnatamiz. Oy davomida oʻqituvchilar dars oʻtadi, talabalar oʻqiydi, biz esa yoningizda boʻlamiz va biror narsa buzilsa, tuzatamiz. Oy oxirida davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
+    days: { start: '1-kun', end: '30-kun' },
+    points: [
+      { k: 'Oʻzimiz oʻrnatamiz', v: 'Bir kun joyida ishlaymiz: sinfdagi kompyuterlar va serverni sozlab beramiz.' },
+      { k: 'Yoningizda boʻlamiz', v: 'Oy davomida aloqadamiz. Nima buzilsa, oʻzimiz tuzatamiz.' },
+      { k: 'Qaror sizda', v: 'Oy oxirida uchta hisobotni olasiz va keyingi qadamni ularga qarab tanlaysiz.' },
+    ],
+    price: 'Sinovdan keyin Hoaka xuddi shu ishni qiladigan chet el dasturlari toʻplamidan bir necha barobar arzonga tushadi.',
+    priceLink: 'Narxlar',
+    cta: 'Sinovni boshlash',
+  },
+
   cta: {
-    title: 'Bitta sinfxona, bir oy',
-    body: 'Aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz.',
-    primary: 'Sinovni boshlash',
-    secondary: 'Narxlarni ko‘rish',
+    title: 'Kompyuter sinfingiz haqida gaplashaylik',
+    body: 'Bizga yozing, ikki ish kuni ichida javob beramiz.',
+    primary: 'Bogʻlanish',
   },
 
   pricing: {

@@ -20,7 +20,7 @@ export function Button({ to, children, tone = 'solid', className }: Props) {
     </>
   )
 
-  if (to.startsWith('mailto:') || to.startsWith('http')) {
+  if (to.startsWith('mailto:') || to.startsWith('http') || to.startsWith('#')) {
     return (
       <a className={cls} href={to}>
         {body}

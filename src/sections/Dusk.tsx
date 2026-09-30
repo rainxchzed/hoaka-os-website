@@ -14,9 +14,6 @@ export function Dusk() {
         <p className="lede">{t.cta.body}</p>
         <div className={styles.actions}>
           <Button to={href('pilot')}>{t.cta.primary}</Button>
-          <Button to={href('pricing')} tone="link">
-            {t.cta.secondary}
-          </Button>
         </div>
       </div>
       <Seam kind="settle" at="bottom" />

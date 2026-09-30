@@ -13,7 +13,7 @@ export function Hero() {
         <p className={styles.lede}>{t.hero.lede}</p>
         <div className={styles.actions}>
           <Button to={href('pilot')}>{t.hero.primary}</Button>
-          <Button to={href('pricing')} tone="link">
+          <Button to="#offer" tone="link">
             {t.hero.secondary}
           </Button>
         </div>
