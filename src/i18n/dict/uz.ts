@@ -1,9 +1,9 @@
 export const uz = {
   meta: {
     home: {
-      title: 'Hoaka OS — eskirmaydigan sinfxonalar',
+      title: 'Hoaka OS — universitetlar uchun operatsion tizim',
       description:
-        'Universitet sinfxonalari uchun boshqariladigan operatsion tizim. Har bir kompyuter toza yuklanadi, faqat ruxsat berilganini ko’rsatadi, imtihonga qulflanadi va o’zini o’zi tiklaydi.',
+        'Universitetlarning kompyuter sinflari uchun yaratilgan operatsion tizim. Hoaka universitetga, oʻqituvchiga va talabaga nima kerak boʻlsa, shuni beradi, talabalarga esa oʻqishdan chalgʻimaslikka yordam beradi.',
     },
     pricing: {
       title: 'Narxlar — Hoaka OS',
@@ -29,9 +29,9 @@ export const uz = {
   },
 
   hero: {
-    title: 'Eskirmaydigan sinfxonalar',
-    lede: 'Har bir kompyuter toza yuklanadi, faqat universitet ruxsat berganini ko‘rsatadi, imtihonga qulflanadi va talaba chiqqanda o‘zini o‘zi tiklaydi.',
-    primary: 'Bepul sinovni boshlash',
+    title: 'Universitetlar uchun operatsion tizim',
+    lede: 'Kompyuter sinfida universitetga, oʻqituvchiga va talabaga nima kerak boʻlsa, Hoaka aynan shuni beradi. Talabaga esa chalgʻimasdan izlanish, maʼruza va imtihonga diqqatini qaratishga yordam beradi.',
+    primary: 'Sinovni boshlash',
     secondary: 'Bepul oy qanday oʻtadi',
   },
 

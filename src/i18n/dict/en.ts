@@ -3,9 +3,9 @@ import type { Dict } from './uz'
 export const en: Dict = {
   meta: {
     home: {
-      title: 'Hoaka OS — labs that never decay',
+      title: 'Hoaka OS — an operating system for universities',
       description:
-        'A managed operating system for university computer labs. Every machine boots clean, shows only what the university allows, locks for exams, and resets itself.',
+        'An operating system built for university computer labs. It gives the university, its teachers and its students what a lab actually needs, and helps students focus on research, lectures and exams.',
     },
     pricing: {
       title: 'Pricing — Hoaka OS',
@@ -30,9 +30,9 @@ export const en: Dict = {
   },
 
   hero: {
-    title: 'Labs that never decay',
-    lede: 'Every lab PC boots clean, shows only what the university allows, locks for exams, and resets itself when the student logs out.',
-    primary: 'Start a free pilot',
+    title: 'An operating system for universities',
+    lede: 'Hoaka gives the university, its teachers and its students what a computer lab actually needs, and it helps students keep their minds on the work they came for: research, lectures and exams.',
+    primary: 'Start a pilot',
     secondary: 'How the free month works',
   },
 
