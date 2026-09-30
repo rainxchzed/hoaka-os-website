@@ -96,22 +96,6 @@
   line-height: 1.05;
 }
 
-.body {
-  max-width: 44ch;
-  color: var(--ink-2);
-  font-size: var(--t-base);
-  line-height: 1.65;
-}
-
-.honest {
-  max-width: 44ch;
-  padding-left: var(--s-2);
-  border-left: 2px solid var(--alarm);
-  color: var(--ink-3);
-  font-size: var(--t-sm);
-  line-height: 1.6;
-}
-
 @media (max-aspect-ratio: 9/10) {
   .track {
     padding-top: 62vh;
@@ -177,12 +161,6 @@
 
   .title {
     font-size: var(--t-lg);
-  }
-
-  .body,
-  .honest {
-    font-size: var(--t-sm);
-    line-height: 1.55;
   }
 
   .scrim {

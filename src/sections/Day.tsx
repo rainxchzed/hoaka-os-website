@@ -49,8 +49,6 @@ export function Day() {
                   {step.time}
                 </time>
                 <h3 className={styles.title}>{step.title}</h3>
-                <p className={styles.body}>{step.body}</p>
-                {step.id === 'exam' ? <p className={styles.honest}>{t.day.honest}</p> : null}
               </div>
             </li>
           ))}
