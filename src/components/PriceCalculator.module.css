@@ -189,10 +189,6 @@
   color: var(--cobalt);
 }
 
-.result[data-free] .value {
-  color: var(--action);
-}
-
 .track {
   grid-column: 1 / -1;
   height: 0.6rem;

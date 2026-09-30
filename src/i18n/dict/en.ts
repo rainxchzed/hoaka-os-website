@@ -10,7 +10,7 @@ export const en: Dict = {
     pricing: {
       title: 'Pricing — Hoaka OS',
       description:
-        '$15 per machine per year. Abroad, the same outcome costs $241.66 in the first year. Free up to 20 machines.',
+        '$15 per machine per year. Abroad, the same outcome costs $241.66 in the first year.',
     },
     pilot: {
       title: 'Free pilot — Hoaka OS',
@@ -123,7 +123,6 @@ export const en: Dict = {
       note: 'The abroad figures include the exam software. An indicator, not a quote.',
     },
     tiers: [
-      { count: 'Up to 20 machines', price: 'Free', note: 'No charge' },
       { count: '25 machines', price: '$375', note: 'a year' },
       { count: '50 machines', price: '$750', note: 'a year' },
       { count: '100 machines', price: '$1,500', note: 'a year' },
@@ -164,7 +163,6 @@ export const en: Dict = {
       'Contract length and how either side ends it',
       'The minimum machine: memory, processor, network',
       'What happens when the pilot ends',
-      'Above 20 machines: whether the price is for every machine or only for the ones beyond 20',
     ],
     sourcesTitle: 'Where the comparison figures come from',
     sources:
@@ -203,7 +201,7 @@ export const en: Dict = {
   pilot: {
     eyebrow: 'Free pilot',
     title: 'One lab, one month',
-    lede: 'With a hard end date. Carrying on afterwards is your call. No charge up to 20 machines.',
+    lede: 'With a hard end date. Carrying on afterwards is your call.',
     stepsTitle: 'How it goes',
     steps: [
       { n: '01', k: 'A conversation', v: 'Half an hour. We look at your lab and your machines.' },

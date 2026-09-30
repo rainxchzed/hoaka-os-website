@@ -8,7 +8,7 @@ export const uz = {
     pricing: {
       title: 'Narxlar — Hoaka OS',
       description:
-        'Bir kompyuter uchun yiliga $15. Chet elda xuddi shu natija birinchi yilda $241.66 turadi. 20 kompyutergacha bepul.',
+        'Bir kompyuter uchun yiliga $15. Chet elda xuddi shu natija birinchi yilda $241.66 turadi.',
     },
     pilot: {
       title: 'Bepul sinov — Hoaka OS',
@@ -122,7 +122,6 @@ export const uz = {
       note: 'Chet el narxiga imtihon dasturi ham kiradi. Ko‘rsatkich, taklif emas.',
     },
     tiers: [
-      { count: '20 kompyutergacha', price: 'Bepul', note: 'To’lovsiz' },
       { count: '25 kompyuter', price: '$375', note: 'yiliga' },
       { count: '50 kompyuter', price: '$750', note: 'yiliga' },
       { count: '100 kompyuter', price: '$1 500', note: 'yiliga' },
@@ -163,7 +162,6 @@ export const uz = {
       'Shartnoma muddati va uni bekor qilish tartibi',
       'Kompyuterga eng past talab: xotira, protsessor, tarmoq',
       'Sinov tugagandan keyin nima bo’ladi',
-      '20 tadan ortiq bo’lsa, to’lov hamma kompyuter uchunmi yoki faqat ortig’i uchunmi',
     ],
     sourcesTitle: 'Taqqoslash raqamlari qayerdan',
     sources:
@@ -202,7 +200,7 @@ export const uz = {
   pilot: {
     eyebrow: 'Bepul sinov',
     title: 'Bitta sinfxona, bir oy',
-    lede: 'Aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz. 20 kompyutergacha to’lov yo’q.',
+    lede: 'Aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz.',
     stepsTitle: 'Qanday kechadi',
     steps: [
       { n: '01', k: 'Suhbat', v: 'Yarim soat. Sinfxonangizni va kompyuterlaringizni ko’ramiz.' },

@@ -15,16 +15,14 @@ export function PriceCalculator() {
   const p = t.pricing
 
   const presets = p.tiers.map((tier) => ({ ...tier, machines: amount(tier.count) }))
-  const freeUpTo = presets[0]?.machines ?? 0
-  const free = machines <= freeUpTo
-  const ours = free ? 0 : machines * amount(t.ledger.figures.ours)
+  const ours = machines * amount(t.ledger.figures.ours)
   const exam = amount(t.ledger.figures.exam)
   const firstYear = machines * amount(t.ledger.figures.abroad) + exam
   const later = machines * amount(t.ledger.figures.after) + exam
   const fill = { '--fill': `${((machines - MIN) / (MAX - MIN)) * 100}%` } as CSSProperties
 
   const rows = [
-    { key: 'ours', label: p.calc.ours, value: free ? p.tiers[0].price : dollars(ours, locale), note: free ? p.tiers[0].note : p.tiers[1].note, bar: ours },
+    { key: 'ours', label: p.calc.ours, value: dollars(ours, locale), note: p.tiers[0].note, bar: ours },
     { key: 'first', label: p.calc.abroadFirst, value: dollars(firstYear, locale), note: '', bar: firstYear },
     { key: 'later', label: p.calc.abroadAfter, value: dollars(later, locale), note: '', bar: later },
   ]
@@ -70,7 +68,7 @@ export function PriceCalculator() {
       <div className={styles.results}>
         <dl className={styles.rows}>
           {rows.map((row) => (
-            <div key={row.key} className={styles.result} data-ours={row.key === 'ours' ? '' : undefined} data-free={row.key === 'ours' && free ? '' : undefined}>
+            <div key={row.key} className={styles.result} data-ours={row.key === 'ours' ? '' : undefined}>
               <dt>{row.label}</dt>
               <dd className={`tabular ${styles.value}`}>
                 {row.value}
