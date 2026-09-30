@@ -80,7 +80,7 @@ export const en: Dict = {
   },
 
   reports: {
-    title: 'Once a month, a report the rector can hand to the ministry',
+    title: 'Once a month, a report ready for the rector',
     body: 'Each report carries the university’s name and the period it covers, and prints straight from the browser in Uzbek, Russian or English.',
     items: [
       { name: 'Lab usage', v: 'Which lab was in use, on which days, for how many hours' },

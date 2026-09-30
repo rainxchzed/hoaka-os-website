@@ -78,7 +78,7 @@ export const uz = {
   },
 
   reports: {
-    title: 'Har oy rektor vazirlikka topshira oladigan hisobot',
+    title: 'Har oy rektor uchun tayyor hisobot',
     body: 'Hisobotlarda universitet nomi va sanalar koʻrsatiladi. Ularni oʻzbek, rus yoki ingliz tilida toʻgʻridan-toʻgʻri brauzerdan chop etish mumkin.',
     items: [
       { name: 'Sinflar bandligi', v: 'Qaysi sinf qaysi kunlari necha soat band boʻlgan' },
