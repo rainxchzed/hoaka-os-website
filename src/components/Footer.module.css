@@ -24,10 +24,6 @@
   line-height: 1.55;
 }
 
-.status {
-  color: var(--ink-3);
-}
-
 .col {
   display: flex;
   flex-direction: column;

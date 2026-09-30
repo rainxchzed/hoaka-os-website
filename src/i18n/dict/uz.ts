@@ -234,7 +234,6 @@ export const uz = {
     nav: 'Sahifalar',
     contact: 'Bog’lanish',
     language: 'Til',
-    status: 'Sinov bosqichi — birinchi sinfxona 2026-yil oktyabr',
   },
 }
 

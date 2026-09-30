@@ -235,6 +235,5 @@ export const en: Dict = {
     nav: 'Pages',
     contact: 'Contact',
     language: 'Language',
-    status: 'Pilot stage — first lab October 2026',
   },
 }

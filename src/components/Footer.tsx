@@ -18,7 +18,6 @@ export function Footer({ page }: { page: PageKey }) {
         <div className={styles.brand}>
           <Logo size={26} />
           <p className={styles.tagline}>{t.footer.tagline}</p>
-          <p className={styles.status}>{t.footer.status}</p>
         </div>
 
         <nav className={styles.col} aria-label={t.footer.nav}>
