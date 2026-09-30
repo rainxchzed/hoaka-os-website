@@ -10,11 +10,12 @@ export const en: Dict = {
     pricing: {
       title: 'Pricing — Hoaka OS',
       description:
-        '$15 per machine per year. Abroad, the same outcome costs $241.66 in the first year.',
+        '$15 per machine per year. Abroad, the same set of tools costs $241.66 per machine in the first year.',
     },
     pilot: {
       title: 'Free pilot — Hoaka OS',
-      description: 'One lab, one month, with a hard end date. Carrying on afterwards is your call.',
+      description:
+        'The first month is free. We come to your university, install Hoaka on one lab ourselves, stay on hand for the month and fix anything that breaks. Then you decide whether to carry on.',
     },
   },
 
@@ -26,7 +27,7 @@ export const en: Dict = {
     menu: 'Menu',
     close: 'Close',
     language: 'Language',
-    skip: 'Skip to main content',
+    skip: 'Skip to content',
   },
 
   hero: {
@@ -43,25 +44,25 @@ export const en: Dict = {
         id: 'boot',
         time: '07:58',
         title: 'Every machine starts from the same clean system',
-        body: 'The system disk resets at every boot. Whatever was installed or changed yesterday is gone before the first class. There is no login screen and nothing to wait for.',
+        body: 'The system disk resets at every boot. Whatever was installed or changed yesterday is gone before the first class. There is no login screen and nothing to wait for, so the class starts on time.',
       },
       {
         id: 'open',
         time: '09:00',
         title: 'Research works. Distractions don’t.',
-        body: 'Scholar, arXiv, Moodle and the publishers they link to open normally. Social media, streaming, games and the rest are closed by category: 4,823,341 domains. Keeping the lists current is our job, not your IT staff’s.',
+        body: 'Scholar, arXiv, Moodle and the publishers they link to open as usual. Social media, streaming, games and the like are closed by category: 4,823,341 domains. Keeping the lists current is our job, not your IT staff’s.',
       },
       {
         id: 'lecture',
         time: '11:00',
         title: 'One page on every screen',
-        body: 'The teacher switches the room to Lecture from a browser. A blue bar appears on every screen, and the page they send opens everywhere at once. No second machine, nothing extra to install.',
+        body: 'The teacher switches the lab to Lecture mode from a browser. A blue bar appears on every screen, and the page the teacher sends opens on all of them at once. No second machine, nothing extra to install.',
       },
       {
         id: 'exam',
         time: '14:00',
         title: 'One locked page, and a record of every seat',
-        body: 'The room locks to the exam page. A seat that leaves the exam or drops off the network turns red on the seat map and stays red, and the log records when and for how long.',
+        body: 'When the exam starts, the lab locks to the exam page. A seat that leaves the page or drops off the network turns red on the seat map and stays red after it comes back, and the log records when it happened and for how long.',
       },
       {
         id: 'logout',
@@ -70,7 +71,7 @@ export const en: Dict = {
         body: 'When the last student logs out, their folder is wiped and rebuilt. Tomorrow at 07:58 the lab boots exactly as it did this morning.',
       },
     ],
-    honest: 'It is a record, not a wall: friction, no persistence and visibility. We don’t call it unbypassable.',
+    honest: 'It is a record, not a wall: leaving takes effort, changes do not persist, and absences show. We don’t claim it cannot be bypassed.',
     labels: {
       interrupted: 'Interrupted · 2m 29s',
       noContact: 'No contact',
@@ -79,10 +80,10 @@ export const en: Dict = {
   },
 
   reports: {
-    title: 'And once a month, a report the rector can hand to the ministry',
-    body: 'With the institution’s name and the date range, in any of the three languages, printed straight from the browser.',
+    title: 'Once a month, a report the rector can hand to the ministry',
+    body: 'Each report carries the university’s name and the period it covers, and prints straight from the browser in Uzbek, Russian or English.',
     items: [
-      { name: 'Lab utilization', v: 'Which lab, how many hours, which days' },
+      { name: 'Lab usage', v: 'Which lab was in use, on which days, for how many hours' },
       { name: 'Exam report', v: 'Every seat, every gap, with its length' },
       { name: 'Inventory', v: 'How many machines, in which lab, on which version' },
     ],
@@ -123,7 +124,7 @@ export const en: Dict = {
 
   pricing: {
     eyebrow: 'Pricing',
-    title: 'One price, one unit',
+    title: 'One price per machine',
     lede: '$15 per machine per year. Quoted per lab, in US dollars.',
     tiersTitle: 'By lab size',
     calc: {
@@ -142,18 +143,18 @@ export const en: Dict = {
     included: [
       {
         k: 'Reset',
-        v: 'A student’s home is wiped and rebuilt at logout. The system disk resets at every boot. Nothing a student installs survives.',
+        v: 'A student’s folder is wiped and rebuilt at logout. The system disk resets at every boot. Nothing a student installs survives.',
       },
       {
         k: 'Reimaging',
-        v: 'Reinstalling is rare, because the machine restores itself at every boot. When it is needed we supply the image and the machine configures itself. Today this is done at the machine; over the network is planned.',
+        v: 'Reinstalling is rare, because the machine restores itself at every boot. When it is needed, we supply the image and the machine configures itself. Today this is done at the machine; over the network is planned.',
       },
       {
         k: 'Updates',
         v: 'We build and test the new versions. For now an update means writing a new image; updating in place is planned.',
       },
       {
-        k: 'List maintenance',
+        k: 'Site lists',
         v: 'The regional blocklist and the academic allowlist are ours to keep current, not your IT staff’s.',
       },
       {
@@ -162,13 +163,13 @@ export const en: Dict = {
       },
       {
         k: 'The console',
-        v: 'Policy, rooms, machines, reports and the audit log, in a browser. No charge per administrator.',
+        v: 'Access rules, labs, machines, reports and the audit log, all in a browser. No charge per administrator.',
       },
     ],
     excludedTitle: 'Not included',
     excluded: ['Hardware', 'Internet', 'The exam platform', 'Electrical or building work'],
-    openTitle: 'Open before this is signed',
-    openBody: 'These are deliberately blank. We fill them in together.',
+    openTitle: 'To agree before signing',
+    openBody: 'We left these blank on purpose and will fill them in with you.',
     open: [
       'Response time during an exam, and on an ordinary day',
       'Contract length and how either side ends it',
@@ -187,14 +188,14 @@ export const en: Dict = {
 
   pilot: {
     eyebrow: 'Free pilot',
-    title: 'One lab, one month',
-    lede: 'With a hard end date. Carrying on afterwards is your call.',
+    title: 'A free month in one of your labs',
+    lede: 'We come to your university, install Hoaka on one lab ourselves and stay on hand for the whole month, fixing anything that breaks. The end date is set in advance, and then you decide whether to carry on.',
     stepsTitle: 'How it goes',
     steps: [
       { n: '01', k: 'A conversation', v: 'Half an hour. We look at your lab and your machines.' },
-      { n: '02', k: 'Setup', v: 'One day. We write the image, stand up the server, and set BIOS passwords with you.' },
-      { n: '03', k: 'A month of use', v: 'The lab runs as usual. We are on hand.' },
-      { n: '04', k: 'Report and decision', v: 'You get all three reports. Carrying on afterwards is your call.' },
+      { n: '02', k: 'Setup', v: 'One day on site. We write the system to the machines, set up the server and set the BIOS passwords with you.' },
+      { n: '03', k: 'A month of use', v: 'Teachers and students use the lab as usual. We stay on hand and fix anything that breaks.' },
+      { n: '04', k: 'Reports and decision', v: 'You get all three reports and decide whether to carry on.' },
     ],
     ready: {
       title: 'Before we come',
@@ -208,23 +209,23 @@ export const en: Dict = {
       ],
     },
     formTitle: 'Get in touch',
-    formBody: 'Send these details and we will answer within two working days.',
+    formBody: 'Fill in the form and we will reply within two working days.',
     fields: {
       name: 'Name',
       role: 'Role',
-      org: 'Institution',
+      org: 'University',
       email: 'Email',
       phone: 'Phone',
       machines: 'Machines in the lab',
       message: 'Anything else',
-      messagePlaceholder: 'Is there anything about the lab we should know?',
+      messagePlaceholder: 'Anything about the lab we should know',
     },
     submit: 'Send',
     orEmail: 'Or write to us directly',
     required: 'required',
     sent: {
-      title: 'Sent',
-      body: 'Your message opens in your mail program. If it did not open, write to the address below instead.',
+      title: 'One more step',
+      body: 'Your mail program should open with the message ready. Send it from there. If it did not open, write to us directly at the address on this page.',
     },
   },
 

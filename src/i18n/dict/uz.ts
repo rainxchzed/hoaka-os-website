@@ -8,12 +8,12 @@ export const uz = {
     pricing: {
       title: 'Narxlar — Hoaka OS',
       description:
-        'Bir kompyuter uchun yiliga $15. Chet elda xuddi shu natija birinchi yilda $241.66 turadi.',
+        'Bir kompyuter uchun yiliga $15. Chet elda xuddi shu ishni qiladigan dasturlar birinchi yili bir kompyuterga $241.66 turadi.',
     },
     pilot: {
       title: 'Bepul sinov — Hoaka OS',
       description:
-        'Bitta sinfxona, bir oy, aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish sizning qaroringiz.',
+        'Birinchi oy bepul. Universitetingizga kelib, Hoakani bitta kompyuter sinfiga oʻzimiz oʻrnatamiz, oy davomida yoningizda boʻlamiz va nima buzilsa, tuzatamiz. Oy oxirida davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
     },
   },
 
@@ -25,7 +25,7 @@ export const uz = {
     menu: 'Menyu',
     close: 'Yopish',
     language: 'Til',
-    skip: 'Asosiy mazmunga o’tish',
+    skip: 'Asosiy qismga oʻtish',
   },
 
   hero: {
@@ -36,67 +36,67 @@ export const uz = {
   },
 
   day: {
-    heading: 'Sinfxonada bir kun, 07:58 dan 17:30 gacha',
+    heading: 'Kompyuter sinfida bir kun: soat 07:58 dan 17:30 gacha',
     steps: [
       {
         id: 'boot',
         time: '07:58',
-        title: 'Har bir kompyuter bir xil toza tizimdan boshlanadi',
-        body: 'Tizim diski har yuklanishda tiklanadi. Kecha o‘rnatilgan yoki o‘zgartirilgan narsa birinchi darsdan oldin yo‘qoladi. Parol oynasi yo‘q, kutish kerak emas.',
+        title: 'Hamma kompyuter bir xil, toza holatda ishga tushadi',
+        body: 'Kompyuter har yoqilganda tizim diski asl holiga qaytadi. Kecha kimdir oʻrnatgan dastur yoki oʻzgartirgan sozlama birinchi darsgacha yoʻqoladi. Parol soʻralmaydi, hech narsani kutish kerak emas, dars oʻz vaqtida boshlanadi.',
       },
       {
         id: 'open',
         time: '09:00',
-        title: 'Ilmiy ish ishlaydi. Chalg‘itadigan narsalar ishlamaydi.',
-        body: 'Scholar, arXiv, Moodle va ular havola beradigan nashriyotlar odatdagidek ochiladi. Ijtimoiy tarmoqlar, video, o‘yinlar va boshqalar toifa bo‘yicha yopiq: 4 823 341 ta domen. Ro‘yxatlarni yangilab turish sizning IT xodimingizning emas, bizning ishimiz.',
+        title: 'Oʻqishga keragi ochiq, chalgʻitadigani yopiq',
+        body: 'Scholar, arXiv, Moodle va ular havola bergan nashriyot saytlari odatdagidek ochiladi. Ijtimoiy tarmoqlar, video saytlar, oʻyinlar va shu kabilar toifalar boʻyicha yopilgan: jami 4 823 341 ta domen. Roʻyxatlarni biz yangilab boramiz, IT xodimlaringiz bunga vaqt sarflamaydi.',
       },
       {
         id: 'lecture',
         time: '11:00',
         title: 'Hamma ekranda bitta sahifa',
-        body: 'O‘qituvchi sinfxonani brauzerdan Ma’ruza rejimiga o‘tkazadi. Har bir ekranda ko‘k chiziq paydo bo‘ladi va u yuborgan sahifa hammasida bir vaqtda ochiladi. Alohida kompyuter ham, qo‘shimcha dastur ham kerak emas.',
+        body: 'Oʻqituvchi brauzer orqali sinfni maʼruza rejimiga oʻtkazadi. Har bir ekranning tepasida koʻk tasma paydo boʻladi, oʻqituvchi yuborgan sahifa esa hamma kompyuterda birdaniga ochiladi. Buning uchun alohida kompyuter ham, qoʻshimcha dastur ham kerak emas.',
       },
       {
         id: 'exam',
         time: '14:00',
-        title: 'Bitta qulflangan sahifa va har bir joyning yozuvi',
-        body: 'Sinfxona imtihon sahifasiga qulflanadi. Imtihondan chiqqan yoki tarmoqdan uzilgan joy joylar xaritasida qizil bo‘ladi va qizil bo‘lib qoladi, jurnal esa qachon va qancha vaqtga uzilganini yozib boradi.',
+        title: 'Imtihon bitta sahifada, har bir oʻrin hisobda',
+        body: 'Imtihon boshlanganda sinfdagi barcha kompyuterlar imtihon sahifasida qulflanadi. Sahifadan chiqib ketgan yoki tarmoqdan uzilgan kompyuter sinf sxemasida qizil boʻladi va qaytib kelgandan keyin ham qizilligicha qoladi. Uzilish qachon boshlangani va qancha davom etgani jurnalga yoziladi.',
       },
       {
         id: 'logout',
         time: '17:30',
         title: 'Kompyuter kunni unutadi',
-        body: 'Oxirgi talaba chiqqanda uning papkasi o‘chiriladi va qaytadan yaratiladi. Ertaga soat 07:58 da sinfxona bugun ertalabgidek yuklanadi.',
+        body: 'Oxirgi talaba ishini tugatib chiqqach, uning papkasi oʻchirilib, yangidan yaratiladi. Ertaga soat 07:58 da sinf xuddi bugun ertalabgidek ishga tushadi.',
       },
     ],
-    honest: 'Bu devor emas, yozuv: to‘siq, izsizlik va ko‘rinuvchanlik. Biz uni “chetlab o‘tib bo‘lmaydi” demaymiz.',
+    honest: 'Bu devor emas, qayd: chetga chiqish oson emas, oʻzgarishlar saqlanmaydi, uzilishlar koʻrinib turadi. Uni chetlab oʻtib boʻlmaydi, deb daʼvo qilmaymiz.',
     labels: {
-      interrupted: 'Uzildi · 2 daq 29 s',
-      noContact: 'Aloqa yo‘q',
-      blocked: 'Yopiq sayt',
+      interrupted: 'Uzilish · 2 daq 29 s',
+      noContact: 'Aloqa yoʻq',
+      blocked: 'Sayt yopiq',
     },
   },
 
   reports: {
-    title: 'Oyda bir marta — rektor vazirlikka bera oladigan hisobot',
-    body: 'Muassasa nomi va sana oralig‘i bilan, uch tilning istalganida, to‘g‘ridan-to‘g‘ri brauzerdan chop etiladi.',
+    title: 'Har oy rektor vazirlikka topshira oladigan hisobot',
+    body: 'Hisobotlarda universitet nomi va sanalar koʻrsatiladi. Ularni oʻzbek, rus yoki ingliz tilida toʻgʻridan-toʻgʻri brauzerdan chop etish mumkin.',
     items: [
-      { name: 'Sinfxonadan foydalanish', v: 'Qaysi sinfxona, qancha soat, qaysi kunlar' },
-      { name: 'Imtihon hisoboti', v: 'Har bir joy, har bir uzilish, davomiyligi bilan' },
-      { name: 'Inventar', v: 'Nechta kompyuter, qaysi sinfxonada, qaysi versiya' },
+      { name: 'Sinflar bandligi', v: 'Qaysi sinf qaysi kunlari necha soat band boʻlgan' },
+      { name: 'Imtihon hisoboti', v: 'Har bir oʻrin, har bir uzilish va uning davomiyligi' },
+      { name: 'Kompyuterlar roʻyxati', v: 'Qaysi sinfda nechta kompyuter bor va ularda qaysi versiya oʻrnatilgan' },
     ],
   },
 
   ledger: {
-    title: 'Bitta kompyuter bir yilda qancha turadi',
+    title: 'Bitta kompyuterning yillik xarajati',
     figures: { abroad: '$241.66', after: '$41.67', exam: '$3 295', ours: '$15' },
     rows: [
       { job: 'Operatsion tizim', prod: 'Windows 11 Pro', amt: '$199.99', per: 'bir marta' },
-      { job: 'Kompyuter toza qaytadi', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'yiliga' },
-      { job: 'O‘qituvchi sinfni boshqaradi', prod: 'LanSchool', amt: '$7.00', per: 'yiliga' },
-      { job: 'Ro‘yxatlar, yangilanishlar, imtihon kuni yordam', prod: 'Hech kim sotmaydi', amt: '—', per: '' },
+      { job: 'Kompyuter toza holatga qaytadi', prod: 'Deep Freeze Cloud', amt: '$34.67', per: 'yiliga' },
+      { job: 'Oʻqituvchi sinfni boshqaradi', prod: 'LanSchool', amt: '$7.00', per: 'yiliga' },
+      { job: 'Roʻyxatlar, yangilanishlar, imtihon kunidagi yordam', prod: 'Hech kim sotmaydi', amt: '—', per: '' },
     ],
-    source: 'Narxlar 15.09.2026 da ishlab chiqaruvchilarning o‘z sahifalaridan olingan, Shimoliy Amerika uchun. Ko‘rsatkich, taklif emas.',
+    source: 'Narxlar 15.09.2026 kuni ishlab chiqaruvchilarning oʻz saytlaridan olingan va Shimoliy Amerika uchun eʼlon qilingan. Bu moʻljal, narx taklifi emas.',
   },
 
   offer: {
@@ -122,15 +122,15 @@ export const uz = {
 
   pricing: {
     eyebrow: 'Narxlar',
-    title: 'Bitta narx, bitta o’lchov birligi',
-    lede: 'Bir kompyuter uchun yiliga $15. Narx sinfxona bo’yicha beriladi, AQSh dollarida.',
-    tiersTitle: 'Sinfxona o’lchamiga qarab',
+    title: 'Har bir kompyuterga bir xil narx',
+    lede: 'Bir kompyuter uchun yiliga $15. Narx har bir kompyuter sinfi uchun alohida, AQSh dollarida hisoblanadi.',
+    tiersTitle: 'Sinfdagi kompyuterlar soniga qarab',
     calc: {
-      label: 'Sinfxonangizdagi kompyuterlar',
+      label: 'Sinfingizdagi kompyuterlar soni',
       ours: 'Hoaka',
-      abroadFirst: 'Chet elda, birinchi yil',
+      abroadFirst: 'Chet elda, birinchi yili',
       abroadAfter: 'Chet elda, keyingi har yili',
-      note: 'Chet el narxiga imtihon dasturi ham kiradi. Ko‘rsatkich, taklif emas.',
+      note: 'Chet el narxiga imtihon dasturi ham kiritilgan. Bu moʻljal, narx taklifi emas.',
     },
     tiers: [
       { count: '25 kompyuter', price: '$375', note: 'yiliga' },
@@ -140,60 +140,60 @@ export const uz = {
     includedTitle: 'Narxga nima kiradi',
     included: [
       {
-        k: 'Har safar tozalash',
-        v: 'Talaba seansdan chiqqanda uning papkasi o’chiriladi va qaytadan yaratiladi. Tizim diski har yuklanishda tiklanadi. Talaba o’rnatgan hech narsa qolmaydi.',
+        k: 'Avtomatik tozalash',
+        v: 'Talaba ishini tugatib chiqqanda uning papkasi oʻchirilib, yangidan yaratiladi. Tizim diski esa kompyuter har yoqilganda asl holiga qaytadi. Talaba oʻrnatgan hech narsa saqlanib qolmaydi.',
       },
       {
-        k: 'Qayta o’rnatish',
-        v: 'Kompyuter har yuklanishda o’zini tiklagani uchun qayta o’rnatish deyarli kerak bo’lmaydi. Kerak bo’lsa, obrazni biz beramiz va kompyuter o’zini o’zi sozlaydi. Bugun bu kompyuter yonida bajariladi; tarmoq orqali qilish rejada.',
+        k: 'Qayta oʻrnatish',
+        v: 'Kompyuter har yoqilganda oʻzini tiklagani uchun tizimni qayta oʻrnatishga deyarli ehtiyoj qolmaydi. Zarur boʻlsa, tizim obrazini biz beramiz, qolgan sozlashni kompyuter oʻzi bajaradi. Hozircha buning uchun kompyuterning oldiga borish kerak, tarmoq orqali oʻrnatish rejada.',
       },
       {
         k: 'Yangilanishlar',
-        v: 'Yangi versiyalarni biz tayyorlaymiz va sinovdan o’tkazamiz. Hozircha yangilanish yangi obrazni yozishdir; joyida yangilash rejada.',
+        v: 'Yangi versiyalarni biz tayyorlaymiz va tekshiramiz. Hozircha yangilash uchun kompyuterga yangi obraz yoziladi, obrazni qayta yozmasdan yangilash rejada.',
       },
       {
-        k: 'Ro’yxatlarni yuritish',
-        v: 'Mintaqaviy bloklash ro’yxati va akademik ruxsat ro’yxati biz tomonidan yangilanadi. Bu sizning IT xodimingizning ishi emas.',
+        k: 'Saytlar roʻyxati',
+        v: 'Mintaqaviy taqiqlangan saytlar va ruxsat etilgan ilmiy saytlar roʻyxatlarini biz yangilab boramiz. Bu ish IT boʻlimingizga qolmaydi.',
       },
       {
         k: 'Imtihon kuni',
-        v: 'Har bir imtihonda joylar xaritasi va har bir joy nima qilgani yozilgan jurnal bo’ladi.',
+        v: 'Har bir imtihon uchun sinf sxemasi va har bir oʻrinda nima boʻlganini koʻrsatadigan jurnal boʻladi.',
       },
       {
         k: 'Boshqaruv paneli',
-        v: 'Siyosat, sinfxonalar, kompyuterlar, hisobotlar va audit jurnali — brauzerda. Administratorlar soni uchun qo’shimcha to’lov yo’q.',
+        v: 'Qoidalar, sinflar, kompyuterlar, hisobotlar va audit jurnali bir joyda, brauzerda. Administratorlar koʻpaysa ham narx oʻzgarmaydi.',
       },
     ],
     excludedTitle: 'Narxga kirmaydi',
     excluded: ['Jihozlar', 'Internet', 'Imtihon tizimi', 'Elektr va qurilish ishlari'],
-    openTitle: 'Imzolashdan oldin kelishib olinadi',
-    openBody: 'Quyidagilar ataylab bo’sh qoldirilgan. Ularni birga to’ldiramiz.',
+    openTitle: 'Imzolashdan oldin kelishib olamiz',
+    openBody: 'Bu bandlarni ataylab boʻsh qoldirdik. Ularni siz bilan birga toʻldiramiz.',
     open: [
-      'Imtihon vaqtida va oddiy kunlarda javob berish muddati',
+      'Imtihon paytida va oddiy kunlarda qancha vaqtda javob berishimiz',
       'Shartnoma muddati va uni bekor qilish tartibi',
-      'Kompyuterga eng past talab: xotira, protsessor, tarmoq',
-      'Sinov tugagandan keyin nima bo’ladi',
+      'Kompyuter uchun minimal talablar: xotira, protsessor, tarmoq',
+      'Sinov oyi tugagach nima boʻladi',
     ],
-    sourcesTitle: 'Taqqoslash raqamlari qayerdan',
+    sourcesTitle: 'Taqqoslashdagi raqamlar qayerdan olingan',
     sources:
-      'Narxlar 15.09.2026 da ishlab chiqaruvchilarning o’z sahifalaridan olingan va Shimoliy Amerika uchun e’lon qilingan, ya’ni bu ko’rsatkich, taklif emas. Bir kompyuter uchun summani biz qo’shdik: Windows bir marta, qolgani har yili.',
+      'Narxlarni 15.09.2026 kuni ishlab chiqaruvchilarning oʻz saytlaridan oldik. Ular Shimoliy Amerika uchun eʼlon qilingan, shu sababli bu moʻljal, narx taklifi emas. Bir kompyuterga toʻgʻri keladigan summani oʻzimiz hisobladik: Windows bir marta, qolganlari har yili.',
     footnotes: [
-      'Windows A3 mustaqil litsenziya emas. U faqat allaqachon litsenziyalangan kompyuterga o’rnatiladi, ya’ni operatsion tizim uchun ikki marta to’lanadi.',
-      'Imtihon dasturi kompyuter bo’yicha sotilmaydi. Narx talabalar soniga bog’liq, shuning uchun sinfxona kichik bo’lsa ham to’liq to’lanadi.',
-      'NetSupport School va Deep Freeze Enterprise narxini umuman e’lon qilmaydi. Bilish uchun so’rov yuborish kerak.',
+      'Windows A3 alohida litsenziya emas: u faqat litsenziyasi bor kompyuterga oʻrnatiladi. Demak, operatsion tizim uchun ikki marta pul toʻlanadi.',
+      'Imtihon dasturi kompyuter soniga qarab sotilmaydi, uning narxi talabalar soniga bogʻliq. Shuning uchun kichik sinf ham katta sinf bilan bir xil toʻlaydi.',
+      'NetSupport School va Deep Freeze Enterprise narxini umuman eʼlon qilmaydi, uni bilish uchun ularga soʻrov yuborish kerak.',
     ],
   },
 
   pilot: {
     eyebrow: 'Bepul sinov',
-    title: 'Bitta sinfxona, bir oy',
-    lede: 'Aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz.',
-    stepsTitle: 'Qanday kechadi',
+    title: 'Bir oy bepul sinab koʻring',
+    lede: 'Universitetingizga kelib, Hoakani bitta kompyuter sinfiga oʻzimiz oʻrnatamiz. Oy davomida yoningizda boʻlamiz va chiqqan har qanday nosozlikni tuzatamiz. Sinov qachon tugashi oldindan belgilanadi, keyin davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
+    stepsTitle: 'Sinov qanday oʻtadi',
     steps: [
-      { n: '01', k: 'Suhbat', v: 'Yarim soat. Sinfxonangizni va kompyuterlaringizni ko’ramiz.' },
-      { n: '02', k: 'O’rnatish', v: 'Bir kun. Obraz yoziladi, server qo’yiladi, BIOS parollari birga o’rnatiladi.' },
-      { n: '03', k: 'Bir oy ish', v: 'Sinfxona odatdagidek ishlaydi. Biz yonidamiz.' },
-      { n: '04', k: 'Hisobot va qaror', v: 'Uchta hisobotni olasiz. Davom ettirish yoki to’xtatish sizning qaroringiz.' },
+      { n: '01', k: 'Suhbat', v: 'Yarim soat. Sinfingiz va kompyuterlaringizni koʻrib chiqamiz.' },
+      { n: '02', k: 'Oʻrnatish', v: 'Bir kun joyida ishlaymiz: kompyuterlarga tizimni yozamiz, serverni ishga tushiramiz, BIOS parollarini siz bilan birga qoʻyamiz.' },
+      { n: '03', k: 'Sinov oyi', v: 'Oʻqituvchilar dars oʻtadi, talabalar oʻqiydi. Biz aloqadamiz va nima buzilsa, tuzatamiz.' },
+      { n: '04', k: 'Hisobotlar va qaror', v: 'Uchta hisobotni olasiz. Davom etamizmi yoki yoʻqmi, ularni koʻrib hal qilasiz.' },
     ],
     ready: {
       title: 'Kelishimizdan oldin',
@@ -206,33 +206,33 @@ export const uz = {
         { k: 'Masʼul xodim', v: 'Biz bogʻlana oladigan bitta xodim' },
       ],
     },
-    formTitle: 'Bog’lanish',
-    formBody: 'Quyidagi ma’lumotlarni yuboring, biz ikki ish kuni ichida javob beramiz.',
+    formTitle: 'Biz bilan bogʻlaning',
+    formBody: 'Formani toʻldirib yuboring, ikki ish kuni ichida javob beramiz.',
     fields: {
       name: 'Ism va familiya',
       role: 'Lavozim',
-      org: 'Muassasa',
+      org: 'Universitet',
       email: 'Elektron pochta',
       phone: 'Telefon',
-      machines: 'Sinfxonadagi kompyuterlar soni',
-      message: 'Qo’shimcha',
-      messagePlaceholder: 'Sinfxona haqida bilishimiz kerak bo’lgan narsa bormi?',
+      machines: 'Sinfdagi kompyuterlar soni',
+      message: 'Qoʻshimcha maʼlumot',
+      messagePlaceholder: 'Sinfingiz haqida bilishimiz kerak boʻlgan boshqa narsalar',
     },
     submit: 'Yuborish',
-    orEmail: 'Yoki to’g’ridan-to’g’ri yozing',
+    orEmail: 'Yoki toʻgʻridan-toʻgʻri yozing',
     required: 'majburiy',
     sent: {
-      title: 'Yuborildi',
-      body: 'Xabaringiz pochta dasturingizda ochiladi. Yubormasangiz, quyidagi manzilga to’g’ridan-to’g’ri yozishingiz mumkin.',
+      title: 'Yana bir qadam',
+      body: 'Pochta dasturingizda tayyor xat ochilishi kerak, uni oʻsha yerdan yuboring. Agar ochilmagan boʻlsa, shu sahifadagi manzilga toʻgʻridan-toʻgʻri yozing.',
     },
   },
 
   notFound: 'Sahifa topilmadi',
   footer: {
-    tagline: 'Universitet sinfxonalari uchun boshqariladigan operatsion tizim.',
+    tagline: 'Universitetlarning kompyuter sinflari uchun markazdan boshqariladigan operatsion tizim.',
     rights: 'Barcha huquqlar himoyalangan.',
     nav: 'Sahifalar',
-    contact: 'Bog’lanish',
+    contact: 'Aloqa',
     language: 'Til',
   },
 }
