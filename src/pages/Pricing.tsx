@@ -60,7 +60,7 @@ export function Pricing() {
         </div>
       </section>
 
-      <Ledger withLink={false} />
+      <Ledger />
 
       <section className="section">
         <div className={`shell ${styles.split}`}>

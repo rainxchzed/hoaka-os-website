@@ -1,92 +1,6 @@
-.title {
-  font-size: var(--t-md);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--ink-2);
-}
-
-.top {
-  display: grid;
-  gap: var(--s-5);
-  align-items: center;
-  margin-top: var(--s-3);
-}
-
-.sentence {
-  max-width: 30ch;
-  font-family: var(--font-display);
-  font-size: var(--t-xl);
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  line-height: 1.22;
-  text-wrap: pretty;
-}
-
-.figure {
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-}
-
-.figure[data-ours] {
-  color: var(--cobalt);
-}
-
-/* The sentence's two totals, drawn to the same scale. */
-.compare {
-  display: grid;
-  gap: var(--s-4);
-}
-
-.bar {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 0.6rem var(--s-2);
-}
-
-.barLabel {
-  color: var(--ink-2);
-  font-size: var(--t-sm);
-}
-
-.barValue {
-  font-family: var(--font-display);
-  font-size: var(--t-lg);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.barTrack {
-  grid-column: 1 / -1;
-  display: block;
-  height: 0.75rem;
-  border-radius: 999px;
-  background: var(--line);
-}
-
-.barFill {
-  display: block;
-  width: var(--share);
-  height: 100%;
-  border-radius: inherit;
-  background: var(--ink-3);
-  transform-origin: left center;
-}
-
-.bar[data-ours] .barValue {
-  color: var(--cobalt);
-}
-
-.bar[data-ours] .barFill {
-  background: var(--cobalt);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--cobalt) 55%, transparent);
-}
-
 .table {
   width: 100%;
-  margin-top: var(--s-6);
+  margin-top: var(--s-5);
   border-collapse: collapse;
 }
 
@@ -161,17 +75,9 @@
   padding-inline-start: 0.25rem;
 }
 
-.foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s-2) var(--s-4);
-  margin-top: var(--s-3);
-}
-
 .source {
   max-width: 60ch;
+  margin-top: var(--s-3);
   color: var(--ink-3);
   font-size: var(--t-sm);
 }
@@ -184,7 +90,6 @@
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .barFill,
     .fill {
       animation: grow linear both;
       animation-timeline: view();
@@ -193,19 +98,7 @@
   }
 }
 
-@media (min-width: 60rem) {
-  .top {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: var(--s-7);
-  }
-}
-
 @media (max-width: 40rem) {
-  .sentence {
-    font-size: var(--t-lg);
-    line-height: 1.28;
-  }
-
   .table,
   .table tbody,
   .table tr,
