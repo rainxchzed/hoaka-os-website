@@ -102,18 +102,6 @@ export const uz = {
     cta: 'To‘liq taqqoslash',
   },
 
-  limits: {
-    title: 'Hoaka nima qilmaydi',
-    items: [
-      'Shaxsiy telefon, planshet va noutbuklarga tegmaydi',
-      'Kamera orqali kuzatmaydi',
-      'Ekran suratlarini saqlamaydi',
-      'Bosilgan tugmalarni yozmaydi',
-      'Ma’lumotni bulutga yubormaydi — server binoda',
-      'Imtihon savollarini bermaydi — imtihon sahifasi sizniki',
-    ],
-  },
-
   cta: {
     title: 'Bitta sinfxona, bir oy',
     body: 'Aniq tugash sanasi bilan. Keyin davom ettirish yoki to’xtatish — sizning qaroringiz.',

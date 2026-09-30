@@ -103,18 +103,6 @@ export const en: Dict = {
     cta: 'The full comparison',
   },
 
-  limits: {
-    title: 'What Hoaka does not do',
-    items: [
-      'It does not touch personal phones, tablets or laptops',
-      'It does not watch through a webcam',
-      'It does not store screenshots',
-      'It does not record keystrokes',
-      'It does not send data to a cloud — the server is in the building',
-      'It does not supply exam content — the exam page is yours',
-    ],
-  },
-
   cta: {
     title: 'One lab, one month',
     body: 'With a hard end date. Carrying on afterwards is your call.',
