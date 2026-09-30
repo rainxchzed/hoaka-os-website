@@ -182,30 +182,6 @@ export const uz = {
       'Imtihon dasturi kompyuter bo’yicha sotilmaydi. Narx talabalar soniga bog’liq, shuning uchun sinfxona kichik bo’lsa ham to’liq to’lanadi.',
       'NetSupport School va Deep Freeze Enterprise narxini umuman e’lon qilmaydi. Bilish uchun so’rov yuborish kerak.',
     ],
-    requirements: {
-      eyebrow: 'Talablar',
-      title: 'Nima kerak',
-      provide: {
-        title: 'Muassasa ta’minlaydi',
-        items: [
-          { k: 'Kompyuterlar', v: 'Muassasa mulki bo’lgan sinfxona kompyuterlari' },
-          { k: 'Tarmoq', v: 'Simli tarmoq, DHCP va internetga chiqish' },
-          { k: 'Server uchun kompyuter', v: 'Boshqaruv serveri muassasa ichida ishlaydi' },
-          { k: 'BIOS parollari', v: 'Birga o’rnatamiz, parol sizda qoladi' },
-          { k: 'Mas’ul xodim', v: 'Bir kishi, biz bog’lana oladigan' },
-        ],
-      },
-      stack: {
-        title: 'Obraz nimadan iborat',
-        items: [
-          { k: 'Asos', v: 'Debian 13' },
-          { k: 'Ish stoli', v: 'LXQt' },
-          { k: 'Brauzer', v: 'Chromium, siyosat bilan boshqariladigan' },
-          { k: 'Klaviatura', v: 'uz (lotin), ru, en — Alt+Shift' },
-          { k: 'Tarmoq', v: 'Faqat simli' },
-        ],
-      },
-    },
   },
 
   pilot: {
@@ -219,6 +195,17 @@ export const uz = {
       { n: '03', k: 'Bir oy ish', v: 'Sinfxona odatdagidek ishlaydi. Biz yonidamiz.' },
       { n: '04', k: 'Hisobot va qaror', v: 'Uchta hisobotni olasiz. Davom ettirish yoki to’xtatish sizning qaroringiz.' },
     ],
+    ready: {
+      title: 'Kelishimizdan oldin',
+      lede: 'Shular tayyor boʻlsa, oʻrnatish bir kun ichida tugaydi.',
+      items: [
+        { k: 'Kompyuterlar', v: 'Sinfdagi kompyuterlar universitetga tegishli boʻlishi kerak' },
+        { k: 'Tarmoq', v: 'Simli tarmoq, DHCP va internetga ulanish' },
+        { k: 'Server uchun kompyuter', v: 'Boshqaruv serveri universitetning oʻzida ishlaydi' },
+        { k: 'BIOS parollari', v: 'Birga oʻrnatamiz, parol sizda qoladi' },
+        { k: 'Masʼul xodim', v: 'Biz bogʻlana oladigan bitta xodim' },
+      ],
+    },
     formTitle: 'Bog’lanish',
     formBody: 'Quyidagi ma’lumotlarni yuboring, biz ikki ish kuni ichida javob beramiz.',
     fields: {

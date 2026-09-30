@@ -12,7 +12,6 @@ const COVERS = [RotateCcw, HardDriveDownload, PackageCheck, ListChecks, Clipboar
 export function Pricing() {
   const { t, href } = useI18n()
   const p = t.pricing
-  const req = p.requirements
 
   return (
     <>
@@ -61,39 +60,6 @@ export function Pricing() {
       </section>
 
       <Ledger />
-
-      <section className="section">
-        <div className={`shell ${styles.split}`}>
-          <h2 className="h-xl">{req.title}</h2>
-          <div className={styles.columns}>
-            <div>
-              <h3 className={styles.colTitle}>{req.provide.title}</h3>
-              <ul className={styles.checklist}>
-                {req.provide.items.map((item) => (
-                  <li key={item.k} className={styles.check}>
-                    <span className={styles.box} aria-hidden="true" />
-                    <span className={styles.checkText}>
-                      <strong>{item.k}</strong>
-                      <span>{item.v}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className={styles.colTitle}>{req.stack.title}</h3>
-              <dl className={styles.spec}>
-                {req.stack.items.map((item) => (
-                  <div key={item.k} className={styles.specRow}>
-                    <dt>{item.k}</dt>
-                    <dd>{item.v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="section">
         <div className={`shell ${styles.split}`}>

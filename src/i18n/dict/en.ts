@@ -183,30 +183,6 @@ export const en: Dict = {
       'The exam software is not sold per machine. It is priced on student numbers, so a small lab pays the same as a large one.',
       'NetSupport School and Deep Freeze Enterprise publish no price at all. You have to ask to find out.',
     ],
-    requirements: {
-      eyebrow: 'Requirements',
-      title: 'What it takes',
-      provide: {
-        title: 'The institution provides',
-        items: [
-          { k: 'The machines', v: 'Institution-owned lab computers' },
-          { k: 'Network', v: 'A wired network with DHCP and an internet uplink' },
-          { k: 'A host for the server', v: 'The management server runs inside the institution' },
-          { k: 'BIOS passwords', v: 'We set them together and the password stays with you' },
-          { k: 'A named contact', v: 'One person we can reach' },
-        ],
-      },
-      stack: {
-        title: 'What the image is',
-        items: [
-          { k: 'Base', v: 'Debian 13' },
-          { k: 'Desktop', v: 'LXQt' },
-          { k: 'Browser', v: 'Chromium under managed policy' },
-          { k: 'Keyboard', v: 'uz (Latin), ru, en — Alt+Shift' },
-          { k: 'Network', v: 'Wired only' },
-        ],
-      },
-    },
   },
 
   pilot: {
@@ -220,6 +196,17 @@ export const en: Dict = {
       { n: '03', k: 'A month of use', v: 'The lab runs as usual. We are on hand.' },
       { n: '04', k: 'Report and decision', v: 'You get all three reports. Carrying on afterwards is your call.' },
     ],
+    ready: {
+      title: 'Before we come',
+      lede: 'With these ready, setup takes one day.',
+      items: [
+        { k: 'The machines', v: 'Lab computers owned by the university' },
+        { k: 'Network', v: 'A wired network with DHCP and an internet uplink' },
+        { k: 'A host for the server', v: 'The management server runs on your premises' },
+        { k: 'BIOS passwords', v: 'We set them together and the password stays with you' },
+        { k: 'A named contact', v: 'One person we can reach' },
+      ],
+    },
     formTitle: 'Get in touch',
     formBody: 'Send these details and we will answer within two working days.',
     fields: {

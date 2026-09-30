@@ -59,6 +59,26 @@ export function Pilot() {
       <section className="section">
         <div className={`shell ${styles.split}`}>
           <div>
+            <h2 className="h-xl">{t.pilot.ready.title}</h2>
+            <p className={`lede ${styles.lede}`}>{t.pilot.ready.lede}</p>
+          </div>
+          <ul className={styles.checklist}>
+            {t.pilot.ready.items.map((item) => (
+              <li key={item.k} className={styles.check}>
+                <span className={styles.box} aria-hidden="true" />
+                <span className={styles.checkText}>
+                  <strong>{item.k}</strong>
+                  <span>{item.v}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className={`shell ${styles.split}`}>
+          <div>
             <h2 className="h-xl">{t.pilot.formTitle}</h2>
             <p className={`lede ${styles.lede}`}>{t.pilot.formBody}</p>
             <div className={styles.direct}>
