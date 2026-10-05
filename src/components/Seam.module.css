@@ -64,11 +64,11 @@
   background: linear-gradient(
     to bottom,
     var(--deep) 0%,
-    #15265c 14%,
-    #2b4690 30%,
-    #5f7fcb 50%,
-    #a9c0ec 70%,
-    #dbe5f7 87%,
+    #15265c 22%,
+    #2b4690 36%,
+    #5f7fcb 54%,
+    #a9c0ec 72%,
+    #dbe5f7 88%,
     var(--canvas) 100%
   );
 }

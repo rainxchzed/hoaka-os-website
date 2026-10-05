@@ -1,13 +1,13 @@
-/* Day: the light scheme. Ink is the night blue, so both schemes share one hue. */
+/* Day: the light scheme. Ink is the brand's near-black, the same one that grounds the dark scheme. */
 :root {
   --ground: #f3f6fb;
   --ground-2: #e8eef8;
   --surface: #ffffff;
-  --line: rgb(10 22 51 / 0.11);
-  --line-strong: rgb(10 22 51 / 0.22);
-  --ink: #0a1633;
-  --ink-2: #3a4b72;
-  --ink-3: #66749a;
+  --line: rgb(25 25 25 / 0.11);
+  --line-strong: rgb(25 25 25 / 0.22);
+  --ink: #191919;
+  --ink-2: #474747;
+  --ink-3: #6e6e6e;
   --cobalt: #2448d8;
   --action: #1f44d0;
   --action-hover: #1837b3;
@@ -15,48 +15,48 @@
   --sun: #f4b860;
   --live: #1b9a61;
   --alarm: #d4383f;
-  --idle: #8793aa;
+  --idle: #8c8c8c;
   --lecture: #2448d8;
 }
 
-/* Blue hour: the dark scheme and every deep-space section in either scheme. */
+/* Night: the dark scheme and every deep section in either scheme. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --ground: #0a1633;
-    --ground-2: #0d1b3e;
-    --surface: #10214a;
-    --line: rgb(156 196 255 / 0.12);
-    --line-strong: rgb(156 196 255 / 0.24);
-    --ink: #eaf1ff;
-    --ink-2: #a7b8de;
-    --ink-3: #7184ad;
+    --ground: #191919;
+    --ground-2: #1f1f1f;
+    --surface: #262626;
+    --line: rgb(255 255 255 / 0.1);
+    --line-strong: rgb(255 255 255 / 0.2);
+    --ink: #ededed;
+    --ink-2: #b3b3b3;
+    --ink-3: #858585;
     --cobalt: #86a8ff;
     --action: #f4b860;
     --action-hover: #ffc97a;
-    --action-ink: #0a1633;
+    --action-ink: #191919;
     --live: #3fcf8e;
     --alarm: #ff5f5f;
-    --idle: #5c6a8c;
+    --idle: #6b6b6b;
     --lecture: #5b82ff;
   }
 }
 
 [data-deep] {
-  --ground: #0a1633;
-  --ground-2: #0d1b3e;
-  --surface: #10214a;
-  --line: rgb(156 196 255 / 0.12);
-  --line-strong: rgb(156 196 255 / 0.24);
-  --ink: #eaf1ff;
-  --ink-2: #a7b8de;
-  --ink-3: #7184ad;
+  --ground: #191919;
+  --ground-2: #1f1f1f;
+  --surface: #262626;
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.2);
+  --ink: #ededed;
+  --ink-2: #b3b3b3;
+  --ink-3: #858585;
   --cobalt: #86a8ff;
   --action: #f4b860;
   --action-hover: #ffc97a;
-  --action-ink: #0a1633;
+  --action-ink: #191919;
   --live: #3fcf8e;
   --alarm: #ff5f5f;
-  --idle: #5c6a8c;
+  --idle: #6b6b6b;
   --lecture: #5b82ff;
   color-scheme: dark;
   background: var(--ground);
@@ -92,8 +92,8 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* The page's grounds in both schemes, for the seams between them. */
-  --deep: #0a1633;
-  --night: #0d1b3e;
+  --deep: #191919;
+  --night: #1f1f1f;
   --canvas: var(--ground);
   --seam-tall: clamp(12rem, 8rem + 22vh, 24rem);
   --seam-short: clamp(5rem, 3rem + 10vh, 10rem);

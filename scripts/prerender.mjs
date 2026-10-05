@@ -171,11 +171,11 @@ function notFoundPage() {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <style>
       :root { color-scheme: dark }
-      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #060d24; color: #eaf1ff; font: 1.05rem/1.6 system-ui, sans-serif }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #191919; color: #ededed; font: 1.05rem/1.6 system-ui, sans-serif }
       main { padding: 0 1.25rem; max-width: 30rem }
       svg { display: block; width: 2rem; height: 2.5rem }
       ul { list-style: none; padding: 0 }
-      li { margin: 0.6rem 0; color: #aebbd6 }
+      li { margin: 0.6rem 0; color: #b3b3b3 }
       a { color: #9cc4ff; text-underline-offset: 0.2em }
     </style>
   </head>
