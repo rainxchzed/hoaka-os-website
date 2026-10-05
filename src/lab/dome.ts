@@ -4,8 +4,8 @@ export function buildDome() {
   const material = new ShaderMaterial({
     side: BackSide,
     uniforms: {
-      uZenith: { value: new Color('#0b1740') },
-      uHorizon: { value: new Color('#1a2a5c') },
+      uZenith: { value: new Color('#141414') },
+      uHorizon: { value: new Color('#222222') },
       uGlow: { value: new Color('#ff9a5a') },
       uSunDir: { value: new Vector3(-1, 0.3, 0).normalize() },
       uRes: { value: new Vector2(1, 1) },
