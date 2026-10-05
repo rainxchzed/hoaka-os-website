@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -12,12 +13,36 @@ const { render, ROUTES, LOCALES, LOCALE_HTML_LANG, pathFor, dictFor } = await im
 
 const template = await readFile(join(DIST, 'index.html'), 'utf8')
 
+// Link previews are cached by image URL, so the URL changes whenever the image does.
+const ogImage = Object.fromEntries(
+  await Promise.all(
+    LOCALES.map(async (code) => {
+      const file = `media/og-${code}.jpg`
+      const hash = createHash('sha256').update(await readFile(join(DIST, file))).digest('hex').slice(0, 8)
+      return [code, `${SITE}/${file}?v=${hash}`]
+    }),
+  ),
+)
+
 const esc = (value) =>
   String(value)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
+
+function socialTags({ locale, url, title, description }) {
+  return `<meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hoaka OS" />
+    <meta property="og:locale" content="${locale}" />
+    <meta property="og:url" content="${url}" />
+    <meta property="og:title" content="${esc(title)}" />
+    <meta property="og:description" content="${esc(description)}" />
+    <meta property="og:image" content="${ogImage[locale]}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />`
+}
 
 function headFor({ locale, page, path }) {
   const t = dictFor(locale)
@@ -51,16 +76,7 @@ function headFor({ locale, page, path }) {
     <link rel="canonical" href="${url}" />
     ${alternates}
     <link rel="alternate" hreflang="x-default" href="${SITE}/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Hoaka OS" />
-    <meta property="og:locale" content="${locale}" />
-    <meta property="og:url" content="${url}" />
-    <meta property="og:title" content="${esc(meta.title)}" />
-    <meta property="og:description" content="${esc(meta.description)}" />
-    <meta property="og:image" content="${SITE}/media/og-${locale}.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
+    ${socialTags({ locale, url, title: meta.title, description: meta.description })}
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
 }
 
@@ -82,6 +98,7 @@ function rootPage() {
     (code) => `<link rel="alternate" hreflang="${code}" href="${SITE}${pathFor(code, 'home')}" />`,
   ).join('\n    ')
   const fallback = pathFor('uz', 'home')
+  const home = dictFor('uz').meta.home
 
   return `<!doctype html>
 <html lang="uz-Latn-UZ">
@@ -89,11 +106,12 @@ function rootPage() {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hoaka OS</title>
-    <meta name="description" content="${esc(dictFor('uz').meta.home.description)}" />
+    <meta name="description" content="${esc(home.description)}" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="${SITE}${fallback}" />
     ${alternates}
     <link rel="alternate" hreflang="x-default" href="${SITE}${fallback}" />
+    ${socialTags({ locale: 'uz', url: `${SITE}${fallback}`, title: home.title, description: home.description })}
     <meta http-equiv="refresh" content="0; url=${fallback}" />
     <style>
       body { font-family: system-ui, sans-serif; margin: 3rem auto; max-width: 34rem; padding: 0 1.25rem; line-height: 1.6 }
