@@ -108,6 +108,7 @@ function rootPage() {
     <title>Hoaka OS</title>
     <meta name="description" content="${esc(home.description)}" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href="${SITE}${fallback}" />
     ${alternates}
     <link rel="alternate" hreflang="x-default" href="${SITE}${fallback}" />
@@ -167,11 +168,12 @@ function notFoundPage() {
     <meta name="robots" content="noindex" />
     <title>Hoaka OS</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <style>
       :root { color-scheme: dark }
       body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #060d24; color: #eaf1ff; font: 1.05rem/1.6 system-ui, sans-serif }
       main { padding: 0 1.25rem; max-width: 30rem }
-      img { width: 2.5rem; height: 2.5rem }
+      svg { display: block; width: 2rem; height: 2.5rem }
       ul { list-style: none; padding: 0 }
       li { margin: 0.6rem 0; color: #aebbd6 }
       a { color: #9cc4ff; text-underline-offset: 0.2em }
@@ -179,7 +181,7 @@ function notFoundPage() {
   </head>
   <body>
     <main>
-      <img src="/favicon.svg" alt="Hoaka OS" />
+      <svg viewBox="0 0 25 31" role="img" aria-label="Hoaka OS"><path fill="currentColor" fill-rule="evenodd" d="M0 0h11v31H0zM13 0h12v31h-4V13h-8zm4 4v5h4V4z" /></svg>
       <ul>
         ${lines}
       </ul>
