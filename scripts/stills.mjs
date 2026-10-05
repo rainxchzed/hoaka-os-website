@@ -60,7 +60,7 @@ async function page(options) {
   await p.evaluate(() => document.querySelector('[data-moment="boot"]')?.scrollIntoView({ block: 'center' }))
   await p.waitForTimeout(3500)
   await p.addStyleTag({
-    content: 'header, [class*="_track_"], [class*="_scrim_"], .lab-labels { visibility: hidden !important; }',
+    content: 'header { display: none !important; } [class*="_track_"], [class*="_scrim_"], .lab-labels { visibility: hidden !important; }',
   })
   await p.waitForTimeout(300)
   await p.screenshot({ path: join(tmp, 'lab-still.png') })
