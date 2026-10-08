@@ -135,27 +135,31 @@ export const uz = {
     included: [
       {
         k: 'Avtomatik tozalash',
-        v: 'Talaba ishini tugatib chiqqanda uning papkasi oʻchirilib, yangidan yaratiladi. Tizim diski esa kompyuter har yoqilganda asl holiga qaytadi. Talaba oʻrnatgan hech narsa saqlanib qolmaydi.',
+        v: 'Talaba chiqib ketganda uning fayllari, sozlamalari va brauzer tarixi oʻchiriladi, tizim diski esa kompyuter har yoqilganda asl holiga qaytadi. Talaba qidiruv orqali oʻrnatgan ruxsat etilgan dasturlar keyingi talabalar uchun kompyuterda qoladi. Uning bu dasturlardagi shaxsiy fayllari esa saqlanmaydi.',
       },
       {
-        k: 'Qayta oʻrnatish',
-        v: 'Kompyuter har yoqilganda oʻzini tiklagani uchun tizimni qayta oʻrnatishga deyarli ehtiyoj qolmaydi. Zarur boʻlsa, tizim obrazini biz beramiz, qolgan sozlashni kompyuter oʻzi bajaradi. Hozircha buning uchun kompyuterning oldiga borish kerak, tarmoq orqali oʻrnatish rejada.',
+        k: 'Dasturlar',
+        v: 'Talaba oʻzi biladigan Windows dasturini, masalan AutoCADni qidiradi va uning oʻrniga nima borligini koʻradi: bepul muqobili bir bosishda oʻrnatiladi yoki veb-versiyasi ochiladi. Faqat ruxsat etilgan dasturlar, imtihon paytida hech qachon. Imtihondan tashqari vaqtda har bir talabada terminal va dasturlash vositalari bor.',
+      },
+      {
+        k: 'Oʻrnatish',
+        v: 'Universitetning oʻz serveri boshqaruv panelida oʻrnatish fleshkasini tayyorlaydi. Undan yoqilgan kompyuter tizimni oʻzi oʻrnatadi, qayta oʻrnatilganda esa nomi va sinfi saqlanib qoladi. Tarmoq orqali oʻrnatish rejada.',
       },
       {
         k: 'Yangilanishlar',
-        v: 'Yangi versiyalarni biz tayyorlaymiz va tekshiramiz. Hozircha yangilash uchun kompyuterga yangi obraz yoziladi, obrazni qayta yozmasdan yangilash rejada.',
+        v: 'Har bir yangi versiyani biz tayyorlaymiz, tekshiramiz va imzolaymiz. Kompyuterlar uni sinf tarmogʻi orqali oʻz serveringizdan oladi, oʻzi oʻrnatadi va siz tanlagan vaqtda ishga tushiradi, imtihon paytida esa hech qachon.',
       },
       {
         k: 'Saytlar roʻyxati',
-        v: 'Mintaqaviy taqiqlangan saytlar va ruxsat etilgan ilmiy saytlar roʻyxatlarini biz yangilab boramiz. Bu ish IT boʻlimingizga qolmaydi.',
+        v: 'Mintaqaviy taqiqlangan saytlar va ruxsat etilgan ilmiy saytlar roʻyxatlarini biz yangilab boramiz. Bu ish IT boʻlimingizga qolmaydi. Hisobot sinflaringizda qaysi saytlar ochilayotganini koʻrsatadi, istalganini bir bosishda bloklash mumkin.',
       },
       {
         k: 'Imtihon kuni',
-        v: 'Har bir imtihon uchun sinf sxemasi va har bir oʻrinda nima boʻlganini koʻrsatadigan jurnal boʻladi.',
+        v: 'Har bir imtihon uchun jonli sinf sxemasi va har bir oʻrinda nima boʻlganini koʻrsatadigan jurnal boʻladi.',
       },
       {
         k: 'Boshqaruv paneli',
-        v: 'Qoidalar, sinflar, kompyuterlar, hisobotlar va audit jurnali bir joyda, brauzerda. Administratorlar koʻpaysa ham narx oʻzgarmaydi.',
+        v: 'Qoidalar, sinflar, kompyuterlar, hisobotlar va audit jurnali bir joyda, brauzerda. Oʻqituvchilar oʻz sinflarini oʻzi boshqaradi: rejimlar, imtihonlar, barcha ekranlarga bitta sahifa, dars uchun bitta havola. Administratorlar koʻpaysa ham narx oʻzgarmaydi.',
       },
     ],
     excludedTitle: 'Narxga kirmaydi',
@@ -185,7 +189,7 @@ export const uz = {
     stepsTitle: 'Sinov qanday oʻtadi',
     steps: [
       { n: '01', k: 'Suhbat', v: 'Yarim soat. Sinfingiz va kompyuterlaringizni koʻrib chiqamiz.' },
-      { n: '02', k: 'Oʻrnatish', v: 'Bir kun joyida ishlaymiz: kompyuterlarga tizimni yozamiz, serverni ishga tushiramiz, BIOS parollarini siz bilan birga qoʻyamiz.' },
+      { n: '02', k: 'Oʻrnatish', v: 'Bir kun joyida ishlaymiz: serverni kompyuterlaringizdan birida ishga tushiramiz, sinf kompyuterlariga tizimni u tayyorlagan fleshkadan oʻrnatamiz, BIOS parollarini siz bilan birga qoʻyamiz.' },
       { n: '03', k: 'Sinov oyi', v: 'Oʻqituvchilar dars oʻtadi, talabalar oʻqiydi. Biz aloqadamiz va nima buzilsa, tuzatamiz.' },
       { n: '04', k: 'Hisobotlar va qaror', v: 'Uchta hisobotni olasiz. Davom etamizmi yoki yoʻqmi, ularni koʻrib hal qilasiz.' },
     ],
@@ -193,9 +197,9 @@ export const uz = {
       title: 'Kelishimizdan oldin',
       lede: 'Shular tayyor boʻlsa, oʻrnatish bir kun ichida tugaydi.',
       items: [
-        { k: 'Kompyuterlar', v: 'Sinfdagi kompyuterlar universitetga tegishli boʻlishi kerak' },
+        { k: 'Kompyuterlar', v: 'Sinfdagi kompyuterlar universitetga tegishli, 64 bitli va fleshkadan yuklana oladigan boʻlishi kerak' },
         { k: 'Tarmoq', v: 'Simli tarmoq, DHCP va internetga ulanish' },
-        { k: 'Server uchun kompyuter', v: 'Boshqaruv serveri universitetning oʻzida ishlaydi' },
+        { k: 'Server uchun kompyuter', v: 'Windows 10 yoki 11 yoki Linux, sinf tarmogʻida, kun boʻyi yoqiq turadi' },
         { k: 'BIOS parollari', v: 'Birga oʻrnatamiz, parol sizda qoladi' },
         { k: 'Masʼul xodim', v: 'Biz bogʻlana oladigan bitta xodim' },
       ],

@@ -137,27 +137,31 @@ export const en: Dict = {
     included: [
       {
         k: 'Reset',
-        v: 'A student’s folder is wiped and rebuilt at logout. The system disk resets at every boot. Nothing a student installs survives.',
+        v: 'A student’s files, settings and browsing are wiped at logout, and the system disk starts clean at every boot. Approved programs a student installs from the search stay on the machine for whoever comes next. Their own files in those programs do not.',
       },
       {
-        k: 'Reimaging',
-        v: 'Reinstalling is rare, because the machine restores itself at every boot. When it is needed, we supply the image and the machine configures itself. Today this is done at the machine; over the network is planned.',
+        k: 'Programs',
+        v: 'Search for the Windows program you know, such as AutoCAD, and get its route: a free equivalent installed in one click, or a web version. Approved programs only, never during an exam. Outside exams every student also has a terminal and programming tools.',
+      },
+      {
+        k: 'Installing',
+        v: 'The university’s own server makes the install stick from its console. A computer started from it installs itself, and reinstalling keeps the computer’s name and room. Installing over the network is planned.',
       },
       {
         k: 'Updates',
-        v: 'We build and test the new versions. For now an update means writing a new image; updating in place is planned.',
+        v: 'We build, test and sign every new version. Computers fetch it from your own server over the lab network, install it themselves and start it at a time you choose, never during an exam.',
       },
       {
         k: 'Site lists',
-        v: 'The regional blocklist and the academic allowlist are ours to keep current, not your IT staff’s.',
+        v: 'The regional blocklist and the academic allowlist are ours to keep current, not your IT staff’s. A report shows which sites your labs open, and blocking one takes a click.',
       },
       {
         k: 'Exam day',
-        v: 'Every exam gets a seat map and a log of what each seat did.',
+        v: 'Every exam gets a live seat map and a log of what each seat did.',
       },
       {
         k: 'The console',
-        v: 'Access rules, labs, machines, reports and the audit log, all in a browser. No charge per administrator.',
+        v: 'Access rules, labs, machines, reports and the audit log, all in a browser. Teachers run their own rooms: modes, exams, a page on every screen, one link for the class. No charge per administrator.',
       },
     ],
     excludedTitle: 'Not included',
@@ -187,7 +191,7 @@ export const en: Dict = {
     stepsTitle: 'How it goes',
     steps: [
       { n: '01', k: 'A conversation', v: 'Half an hour. We look at your lab and your machines.' },
-      { n: '02', k: 'Setup', v: 'One day on site. We write the system to the machines, set up the server and set the BIOS passwords with you.' },
+      { n: '02', k: 'Setup', v: 'One day on site. We set up the server on one of your computers, install the lab machines from the stick it makes, and set the BIOS passwords with you.' },
       { n: '03', k: 'A month of use', v: 'Teachers and students use the lab as usual. We stay on hand and fix anything that breaks.' },
       { n: '04', k: 'Reports and decision', v: 'You get all three reports and decide whether to carry on.' },
     ],
@@ -195,9 +199,9 @@ export const en: Dict = {
       title: 'Before we come',
       lede: 'With these ready, setup takes one day.',
       items: [
-        { k: 'The machines', v: 'Lab computers owned by the university' },
+        { k: 'The machines', v: 'Lab computers owned by the university, 64-bit, able to start from a USB stick' },
         { k: 'Network', v: 'A wired network with DHCP and an internet uplink' },
-        { k: 'A host for the server', v: 'The management server runs on your premises' },
+        { k: 'A computer for the server', v: 'Windows 10 or 11, or Linux, on the lab network and on all day' },
         { k: 'BIOS passwords', v: 'We set them together and the password stays with you' },
         { k: 'A named contact', v: 'One person we can reach' },
       ],

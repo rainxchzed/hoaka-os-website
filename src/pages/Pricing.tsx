@@ -1,4 +1,4 @@
-import { ClipboardCheck, HardDriveDownload, LayoutDashboard, ListChecks, PackageCheck, RotateCcw, X } from 'lucide-react'
+import { AppWindow, ClipboardCheck, HardDriveDownload, LayoutDashboard, ListChecks, PackageCheck, RotateCcw, X } from 'lucide-react'
 import { useI18n } from '../i18n'
 import { Button } from '../components/Button'
 import { PriceCalculator } from '../components/PriceCalculator'
@@ -6,8 +6,8 @@ import { Ledger } from '../sections/Ledger'
 import { Seam } from '../components/Seam'
 import styles from './Pricing.module.css'
 
-// In the dictionaries' order: reset, reimaging, updates, lists, exam day, console.
-const COVERS = [RotateCcw, HardDriveDownload, PackageCheck, ListChecks, ClipboardCheck, LayoutDashboard]
+// In the dictionaries' order: reset, programs, installing, updates, lists, exam day, console.
+const COVERS = [RotateCcw, AppWindow, HardDriveDownload, PackageCheck, ListChecks, ClipboardCheck, LayoutDashboard]
 
 export function Pricing() {
   const { t, href } = useI18n()
