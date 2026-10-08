@@ -15,7 +15,7 @@ export const en: Dict = {
     pilot: {
       title: 'Free pilot — Hoaka OS',
       description:
-        'The first month is free. We come to your university, install Hoaka on one lab ourselves, stay on hand for the month and fix anything that breaks. Then you decide whether to carry on.',
+        'The first three months are free. We come to your university, install Hoaka on one lab ourselves, stay on hand for the three months and fix anything that breaks. Then you decide whether to carry on.',
     },
   },
 
@@ -34,7 +34,7 @@ export const en: Dict = {
     title: 'An operating system for universities',
     lede: 'Hoaka gives the university, its teachers and its students what a computer lab actually needs, and it helps students keep their minds on the work they came for: research, lectures and exams.',
     primary: 'Start a pilot',
-    secondary: 'How the free month works',
+    secondary: 'How the free three months work',
   },
 
   day: {
@@ -97,12 +97,12 @@ export const en: Dict = {
 
   offer: {
     eyebrow: 'Pilot',
-    title: 'The first month is on us',
-    body: 'Every university starts with a free month in one of its labs. We come and install Hoaka ourselves. While your teachers and students use the lab as usual, we stay on hand, and if something breaks, we fix it. At the end of the month you decide whether to carry on.',
-    days: { start: 'Day 1', end: 'Day 30' },
+    title: 'The first three months are on us',
+    body: 'Every university starts with three free months in one of its labs. We come and install Hoaka ourselves. While your teachers and students use the lab as usual, we stay on hand, and if something breaks, we fix it. At the end of the three months you decide whether to carry on.',
+    days: { start: 'Week 1', end: 'Week 13' },
     points: [
       { k: 'We install it', v: 'One day on site. We set up the lab machines and the server ourselves.' },
-      { k: 'We stay on hand', v: 'For the whole month. Anything that breaks is ours to fix.' },
+      { k: 'We stay on hand', v: 'For the whole three months. Anything that breaks is ours to fix.' },
       { k: 'You decide', v: 'You get the three reports and choose what happens next.' },
     ],
     price: 'After the pilot, Hoaka costs several times less than the same set of tools bought abroad.',
@@ -186,13 +186,13 @@ export const en: Dict = {
 
   pilot: {
     eyebrow: 'Free pilot',
-    title: 'A free month in one of your labs',
-    lede: 'We come to your university, install Hoaka on one lab ourselves and stay on hand for the whole month, fixing anything that breaks. The end date is set in advance, and then you decide whether to carry on.',
+    title: 'Three free months in one of your labs',
+    lede: 'We come to your university, install Hoaka on one lab ourselves and stay on hand for the whole three months, fixing anything that breaks. The end date is set in advance, and then you decide whether to carry on.',
     stepsTitle: 'How it goes',
     steps: [
       { n: '01', k: 'A conversation', v: 'Half an hour. We look at your lab and your machines.' },
       { n: '02', k: 'Setup', v: 'One day on site. We set up the server on one of your computers, install the lab machines from the stick it makes, and set the BIOS passwords with you.' },
-      { n: '03', k: 'A month of use', v: 'Teachers and students use the lab as usual. We stay on hand and fix anything that breaks.' },
+      { n: '03', k: 'Three months of use', v: 'Teachers and students use the lab as usual. We stay on hand and fix anything that breaks.' },
       { n: '04', k: 'Reports and decision', v: 'You get all three reports and decide whether to carry on.' },
     ],
     ready: {

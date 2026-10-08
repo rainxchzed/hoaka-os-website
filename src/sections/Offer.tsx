@@ -4,7 +4,7 @@ import { useI18n } from '../i18n'
 import { Button } from '../components/Button'
 import styles from './Offer.module.css'
 
-const DAYS = 30
+const DAYS = 13
 const PHASES = ['install', 'use', 'decide'] as const
 
 function phaseOf(day: number) {
@@ -46,7 +46,7 @@ export function Offer() {
         </div>
 
         <div>
-          {/* The pilot as thirty days: the install, the weeks in use, the decision. */}
+          {/* The trial as thirteen weeks: the install, the weeks in use, the decision. */}
           <ol ref={strip} className={styles.days} data-seen={seen ? '' : undefined} aria-hidden="true">
             {Array.from({ length: DAYS }, (_, day) => (
               <li key={day} className={styles.day} data-phase={phaseOf(day)} style={{ '--i': day } as CSSProperties} />

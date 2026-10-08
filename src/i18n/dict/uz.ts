@@ -13,7 +13,7 @@ export const uz = {
     pilot: {
       title: 'Bepul sinov — Hoaka OS',
       description:
-        'Birinchi oy bepul. Universitetingizga kelib, Hoakani bitta kompyuter sinfiga oʻzimiz oʻrnatamiz, oy davomida yoningizda boʻlamiz va nima buzilsa, tuzatamiz. Oy oxirida davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
+        'Birinchi uch oy bepul. Universitetingizga kelib, Hoakani bitta kompyuter sinfiga oʻzimiz oʻrnatamiz, uch oy davomida yoningizda boʻlamiz va nima buzilsa, tuzatamiz. Uch oy oxirida davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
     },
   },
 
@@ -32,7 +32,7 @@ export const uz = {
     title: 'Universitetlar uchun operatsion tizim',
     lede: 'Kompyuter sinfida universitetga, oʻqituvchiga va talabaga nima kerak boʻlsa, Hoaka aynan shuni beradi. Talabaga esa chalgʻimasdan izlanish, maʼruza va imtihonga diqqatini qaratishga yordam beradi.',
     primary: 'Sinovni boshlash',
-    secondary: 'Bepul oy qanday oʻtadi',
+    secondary: 'Bepul uch oy qanday oʻtadi',
   },
 
   day: {
@@ -94,14 +94,14 @@ export const uz = {
   },
 
   offer: {
-    eyebrow: 'Sinov oyi',
-    title: 'Birinchi oy bizdan',
-    body: 'Har bir universitet bilan ishni bitta kompyuter sinfida bir oylik bepul sinovdan boshlaymiz. Hoakani oʻzimiz kelib oʻrnatamiz. Oy davomida oʻqituvchilar dars oʻtadi, talabalar oʻqiydi, biz esa yoningizda boʻlamiz va biror narsa buzilsa, tuzatamiz. Oy oxirida davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
-    days: { start: '1-kun', end: '30-kun' },
+    eyebrow: 'Sinov davri',
+    title: 'Birinchi uch oy bizdan',
+    body: 'Har bir universitet bilan ishni bitta kompyuter sinfida uch oylik bepul sinovdan boshlaymiz. Hoakani oʻzimiz kelib oʻrnatamiz. Uch oy davomida oʻqituvchilar dars oʻtadi, talabalar oʻqiydi, biz esa yoningizda boʻlamiz va biror narsa buzilsa, tuzatamiz. Uch oy oxirida davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
+    days: { start: '1-hafta', end: '13-hafta' },
     points: [
       { k: 'Oʻzimiz oʻrnatamiz', v: 'Bir kun joyida ishlaymiz: sinfdagi kompyuterlar va serverni sozlab beramiz.' },
-      { k: 'Yoningizda boʻlamiz', v: 'Oy davomida aloqadamiz. Nima buzilsa, oʻzimiz tuzatamiz.' },
-      { k: 'Qaror sizda', v: 'Oy oxirida uchta hisobotni olasiz va keyingi qadamni ularga qarab tanlaysiz.' },
+      { k: 'Yoningizda boʻlamiz', v: 'Uch oy davomida aloqadamiz. Nima buzilsa, oʻzimiz tuzatamiz.' },
+      { k: 'Qaror sizda', v: 'Uch oy oxirida uchta hisobotni olasiz va keyingi qadamni ularga qarab tanlaysiz.' },
     ],
     price: 'Sinovdan keyin Hoaka xuddi shu ishni qiladigan chet el dasturlari toʻplamidan bir necha barobar arzonga tushadi.',
     priceLink: 'Narxlar',
@@ -170,7 +170,7 @@ export const uz = {
       'Imtihon paytida va oddiy kunlarda qancha vaqtda javob berishimiz',
       'Shartnoma muddati va uni bekor qilish tartibi',
       'Kompyuter uchun minimal talablar: xotira, protsessor, tarmoq',
-      'Sinov oyi tugagach nima boʻladi',
+      'Sinov davri tugagach nima boʻladi',
     ],
     sourcesTitle: 'Taqqoslashdagi raqamlar qayerdan olingan',
     sources:
@@ -184,13 +184,13 @@ export const uz = {
 
   pilot: {
     eyebrow: 'Bepul sinov',
-    title: 'Bir oy bepul sinab koʻring',
-    lede: 'Universitetingizga kelib, Hoakani bitta kompyuter sinfiga oʻzimiz oʻrnatamiz. Oy davomida yoningizda boʻlamiz va chiqqan har qanday nosozlikni tuzatamiz. Sinov qachon tugashi oldindan belgilanadi, keyin davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
+    title: 'Uch oy bepul sinab koʻring',
+    lede: 'Universitetingizga kelib, Hoakani bitta kompyuter sinfiga oʻzimiz oʻrnatamiz. Uch oy davomida yoningizda boʻlamiz va chiqqan har qanday nosozlikni tuzatamiz. Sinov qachon tugashi oldindan belgilanadi, keyin davom ettirish-ettirmaslikni oʻzingiz hal qilasiz.',
     stepsTitle: 'Sinov qanday oʻtadi',
     steps: [
       { n: '01', k: 'Suhbat', v: 'Yarim soat. Sinfingiz va kompyuterlaringizni koʻrib chiqamiz.' },
       { n: '02', k: 'Oʻrnatish', v: 'Bir kun joyida ishlaymiz: serverni kompyuterlaringizdan birida ishga tushiramiz, sinf kompyuterlariga tizimni u tayyorlagan fleshkadan oʻrnatamiz, BIOS parollarini siz bilan birga qoʻyamiz.' },
-      { n: '03', k: 'Sinov oyi', v: 'Oʻqituvchilar dars oʻtadi, talabalar oʻqiydi. Biz aloqadamiz va nima buzilsa, tuzatamiz.' },
+      { n: '03', k: 'Uch oylik sinov', v: 'Oʻqituvchilar dars oʻtadi, talabalar oʻqiydi. Biz aloqadamiz va nima buzilsa, tuzatamiz.' },
       { n: '04', k: 'Hisobotlar va qaror', v: 'Uchta hisobotni olasiz. Davom etamizmi yoki yoʻqmi, ularni koʻrib hal qilasiz.' },
     ],
     ready: {
