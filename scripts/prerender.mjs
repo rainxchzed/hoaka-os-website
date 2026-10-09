@@ -153,6 +153,30 @@ function rootPage() {
 `
 }
 
+// Paths that were live before every path became English, each sent on to where it lives now.
+const MOVED = [
+  ['/uz/narxlar/', pathFor('uz', 'pricing')],
+  ['/ru/stoimost/', pathFor('ru', 'pricing')],
+  ['/uz/sinov/', pathFor('uz', 'pilot')],
+]
+
+function movedPage(to) {
+  return `<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Hoaka OS</title>
+    <link rel="canonical" href="${SITE}${to}" />
+    <meta http-equiv="refresh" content="0; url=${to}" />
+  </head>
+  <body>
+    <a href="${to}">${SITE}${to}</a>
+  </body>
+</html>
+`
+}
+
 // GitHub Pages serves this for any path it has no file for.
 function notFoundPage() {
   const lines = LOCALES.map((code) => {
@@ -219,6 +243,12 @@ for (const route of ROUTES) {
   const dir = join(DIST, route.path)
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'index.html'), page(route), 'utf8')
+}
+
+for (const [from, to] of MOVED) {
+  const dir = join(DIST, from)
+  await mkdir(dir, { recursive: true })
+  await writeFile(join(dir, 'index.html'), movedPage(to), 'utf8')
 }
 
 await writeFile(join(DIST, 'index.html'), rootPage(), 'utf8')

@@ -26,15 +26,16 @@ export type PageKey = 'home' | 'pricing' | 'pilot' | 'install'
 
 export const PAGES: readonly PageKey[] = ['home', 'pricing', 'pilot', 'install'] as const
 
-const SLUGS: Record<PageKey, Record<Locale, string>> = {
-  home: { uz: '', ru: '', en: '' },
-  pricing: { uz: 'narxlar', ru: 'stoimost', en: 'pricing' },
-  pilot: { uz: 'sinov', ru: 'pilot', en: 'pilot' },
-  install: { uz: 'ornatish', ru: 'ustanovka', en: 'install' },
+// Paths are English in every language, so a link reads the same whoever shares it.
+const SLUGS: Record<PageKey, string> = {
+  home: '',
+  pricing: 'pricing',
+  pilot: 'pilot',
+  install: 'install',
 }
 
 export function pathFor(locale: Locale, page: PageKey): string {
-  const slug = SLUGS[page][locale]
+  const slug = SLUGS[page]
   return slug ? `/${locale}/${slug}/` : `/${locale}/`
 }
 
