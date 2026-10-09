@@ -2,15 +2,6 @@
   padding-block: clamp(8rem, 18vh, 12rem) var(--s-7);
 }
 
-.eyebrow {
-  margin-bottom: var(--s-2);
-  color: var(--cobalt);
-  font-size: var(--t-sm);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .lede {
   margin-top: var(--s-3);
 }
@@ -26,11 +17,6 @@
 .chooseLabel {
   flex-basis: 100%;
   font-weight: 600;
-}
-
-.chooseHint {
-  color: var(--ink-3);
-  font-size: var(--t-sm);
 }
 
 .noFiles {
@@ -111,26 +97,11 @@
 
 .railPick {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s-2);
-}
-
-.railLabel {
-  color: var(--ink-2);
-  font-size: var(--t-sm);
-  font-weight: 600;
+  justify-content: center;
 }
 
 .index {
   display: none;
-}
-
-.indexTitle {
-  margin-bottom: var(--s-1);
-  color: var(--ink-3);
-  font-size: var(--t-sm);
-  font-weight: 600;
 }
 
 .indexLink {
@@ -457,14 +428,6 @@
 }
 
 @media (max-width: 26rem) {
-  .railLabel {
-    display: none;
-  }
-
-  .railPick {
-    justify-content: center;
-  }
-
   .option {
     padding-inline: 1em;
   }
@@ -504,9 +467,7 @@
   }
 
   .railPick {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--s-1);
+    display: grid;
     margin-bottom: var(--s-4);
   }
 

@@ -16,10 +16,9 @@ export type InstallStep = {
 }
 
 export type InstallGuide = {
-  eyebrow: string
   title: string
   lede: string
-  pick: { label: string; hint: string; options: Record<Server, string>; short: Record<Server, string> }
+  pick: { label: string; options: Record<Server, string>; short: Record<Server, string> }
   noFiles: string
   noFilesCta: string
   contents: string

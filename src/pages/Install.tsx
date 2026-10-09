@@ -193,13 +193,11 @@ export function Install() {
     <>
       <header className={styles.top} data-deep>
         <div className="shell">
-          <p className={styles.eyebrow}>{g.eyebrow}</p>
           <h1 className="h-2xl">{g.title}</h1>
           <p className={`lede ${styles.lede}`}>{g.lede}</p>
           <div className={styles.choose}>
             <span className={styles.chooseLabel}>{g.pick.label}</span>
             <Picker server={server} onPick={pick} />
-            <span className={styles.chooseHint}>{g.pick.hint}</span>
           </div>
           <p className={styles.noFiles}>
             <span>{g.noFiles}</span>
@@ -215,11 +213,9 @@ export function Install() {
         <div className={`shell ${styles.layout}`}>
           <aside className={styles.rail}>
             <div className={styles.railPick}>
-              <span className={styles.railLabel}>{g.pick.label}</span>
               <Picker server={server} onPick={pick} compact />
             </div>
             <nav className={styles.index} aria-label={g.contents}>
-              <p className={styles.indexTitle}>{g.contents}</p>
               <ol>
                 {index.map((entry) => (
                   <li key={entry.id}>
