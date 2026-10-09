@@ -1,5 +1,12 @@
+import { installUz } from './install/uz'
+
 export const uz = {
   meta: {
+    install: {
+      title: 'Oʻrnatish — Hoaka OS',
+      description:
+        'Hoaka OSni bosqichma-bosqich oʻrnatish: Windows yoki Linuxdagi server, bepul litsenziya, oʻrnatish fleshkasi va har bir oʻquv kompyuteri.',
+    },
     home: {
       title: 'Hoaka OS — universitetlar uchun operatsion tizim',
       description:
@@ -18,6 +25,7 @@ export const uz = {
   },
 
   nav: {
+    install: 'Oʻrnatish',
     home: 'Bosh sahifa',
     pricing: 'Narxlar',
     pilot: 'Sinov',
@@ -226,6 +234,8 @@ export const uz = {
   },
 
   notFound: 'Sahifa topilmadi',
+  install: installUz,
+
   footer: {
     tagline: 'Universitetlarning kompyuter sinflari uchun markazdan boshqariladigan operatsion tizim.',
     rights: 'Barcha huquqlar himoyalangan.',

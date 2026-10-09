@@ -34,6 +34,7 @@ export function Nav() {
     { key: 'home', label: t.nav.home },
     { key: 'pricing', label: t.nav.pricing },
     { key: 'pilot', label: t.nav.pilot },
+    { key: 'install', label: t.nav.install },
   ]
 
   return (

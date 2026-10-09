@@ -1,7 +1,13 @@
 import type { Dict } from './uz'
+import { installRu } from './install/ru'
 
 export const ru: Dict = {
   meta: {
+    install: {
+      title: 'Установка — Hoaka OS',
+      description:
+        'Пошаговая установка Hoaka OS: сервер на Windows или Linux, бесплатная лицензия, установочная флешка и каждый учебный компьютер.',
+    },
     home: {
       title: 'Hoaka OS — операционная система для вузов',
       description:
@@ -20,6 +26,7 @@ export const ru: Dict = {
   },
 
   nav: {
+    install: 'Установка',
     home: 'Главная',
     pricing: 'Стоимость',
     pilot: 'Пилот',
@@ -229,6 +236,8 @@ export const ru: Dict = {
   },
 
   notFound: 'Страница не найдена',
+  install: installRu,
+
   footer: {
     tagline: 'Операционная система с централизованным управлением для компьютерных классов университетов.',
     rights: 'Все права защищены.',

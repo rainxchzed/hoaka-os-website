@@ -1,7 +1,13 @@
 import type { Dict } from './uz'
+import { installEn } from './install/en'
 
 export const en: Dict = {
   meta: {
+    install: {
+      title: 'Install — Hoaka OS',
+      description:
+        'Install Hoaka OS step by step: the server on Windows or Linux, the free licence, the install stick and each lab computer.',
+    },
     home: {
       title: 'Hoaka OS — an operating system for universities',
       description:
@@ -20,6 +26,7 @@ export const en: Dict = {
   },
 
   nav: {
+    install: 'Install',
     home: 'Home',
     pricing: 'Pricing',
     pilot: 'Pilot',
@@ -228,6 +235,8 @@ export const en: Dict = {
   },
 
   notFound: 'Page not found',
+  install: installEn,
+
   footer: {
     tagline: 'A managed operating system for university computer labs.',
     rights: 'All rights reserved.',

@@ -25,6 +25,7 @@ export function Footer({ page }: { page: PageKey }) {
           <Link to={href('home')}>{t.nav.home}</Link>
           <Link to={href('pricing')}>{t.nav.pricing}</Link>
           <Link to={href('pilot')}>{t.nav.pilot}</Link>
+          <Link to={href('install')}>{t.nav.install}</Link>
         </nav>
 
         <div className={styles.col}>

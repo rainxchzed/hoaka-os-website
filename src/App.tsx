@@ -6,6 +6,7 @@ import { LocaleRedirect } from './components/LocaleRedirect'
 import { Home } from './pages/Home'
 import { Pricing } from './pages/Pricing'
 import { Pilot } from './pages/Pilot'
+import { Install } from './pages/Install'
 import { NotFound } from './pages/NotFound'
 import type { PageKey } from './i18n/locales'
 
@@ -13,6 +14,7 @@ const VIEWS: Record<PageKey, () => React.JSX.Element> = {
   home: Home,
   pricing: Pricing,
   pilot: Pilot,
+  install: Install,
 }
 
 export function App() {

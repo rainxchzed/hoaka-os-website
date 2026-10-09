@@ -1,0 +1,520 @@
+.top {
+  padding-block: clamp(8rem, 18vh, 12rem) var(--s-7);
+}
+
+.eyebrow {
+  margin-bottom: var(--s-2);
+  color: var(--cobalt);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lede {
+  margin-top: var(--s-3);
+}
+
+.choose {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-1) var(--s-2);
+  margin-top: var(--s-5);
+}
+
+.chooseLabel {
+  flex-basis: 100%;
+  font-weight: 600;
+}
+
+.chooseHint {
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+}
+
+.noFiles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  margin-top: var(--s-4);
+  color: var(--ink-2);
+}
+
+/* The one choice the guide turns on: a two-way switch whose thumb slides to the answer. */
+.picker {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--surface);
+}
+
+.thumb {
+  position: absolute;
+  inset: 4px auto 4px 4px;
+  width: calc(50% - 4px);
+  border-radius: var(--radius);
+  background: var(--action);
+  transition: transform 0.4s var(--ease);
+}
+
+.picker[data-at='linux'] .thumb {
+  transform: translateX(100%);
+}
+
+.option {
+  position: relative;
+  z-index: 1;
+  padding: 0.75em 1.4em;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+
+.option[aria-checked='true'] {
+  color: var(--action-ink);
+}
+
+.option:focus-visible {
+  outline-offset: -2px;
+}
+
+.picker[data-compact] .option {
+  padding: 0.5em 0.9em;
+  font-size: var(--t-sm);
+}
+
+.layout {
+  display: block;
+}
+
+/* On a phone the switch rides under the bar, so the choice stays in reach while reading. */
+.rail {
+  position: sticky;
+  top: calc(4.05rem + 1px);
+  z-index: 20;
+  margin-inline: calc(-1 * var(--gutter));
+  margin-bottom: var(--s-4);
+  padding: 0.6rem var(--gutter);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--ground) 96%, transparent);
+  backdrop-filter: blur(18px) saturate(1.4);
+}
+
+.railPick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.railLabel {
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+.index {
+  display: none;
+}
+
+.indexTitle {
+  margin-bottom: var(--s-1);
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+.indexLink {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  gap: 0.35rem;
+  padding: 0.45rem 0 0.45rem 0.75rem;
+  border-left: 2px solid var(--line);
+  color: var(--ink-3);
+  font-size: var(--t-sm);
+  line-height: 1.35;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.indexLink:hover {
+  color: var(--ink);
+}
+
+.indexLink[aria-current] {
+  border-left-color: var(--cobalt);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.indexN {
+  color: var(--cobalt);
+}
+
+.flow {
+  display: grid;
+  gap: var(--s-6);
+  min-width: 0;
+}
+
+.block,
+.step {
+  scroll-margin-top: 8rem;
+}
+
+.blockTitle {
+  font-size: var(--t-xl);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+.need {
+  display: grid;
+  margin-top: var(--s-4);
+}
+
+.needItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-block: var(--s-2);
+  border-top: 1px solid var(--line);
+}
+
+.box {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  border: 1.5px solid var(--ink-3);
+  border-radius: 4px;
+}
+
+.needText {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.needText strong {
+  font-weight: 600;
+}
+
+.needText span {
+  color: var(--ink-2);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-1);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line-strong);
+}
+
+.n {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--cobalt);
+}
+
+.stepBody {
+  min-width: 0;
+}
+
+.stepTitle {
+  font-size: var(--t-lg);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Where in the console the step happens, as the path a click takes. */
+.where {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.35rem;
+  margin-top: var(--s-1);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius);
+  background: var(--ground-2);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+.where svg {
+  color: var(--ink-3);
+}
+
+.lines {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.85rem;
+  margin-top: var(--s-3);
+}
+
+.line {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--ink-2);
+}
+
+.line::before {
+  content: '';
+  position: absolute;
+  top: 0.62em;
+  left: 0.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--cobalt);
+}
+
+.line[data-run]::before {
+  display: none;
+}
+
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+[data-swap] {
+  animation: swap 0.4s var(--ease) both;
+}
+
+/* A word as it appears on the screen being described. */
+.ui {
+  padding: 0.05em 0.45em;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.code {
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius);
+  background: var(--ground-2);
+  color: var(--ink);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+}
+
+.cmd {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: 0.45rem 0.45rem 0.45rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: #121212;
+  color: #ededed;
+}
+
+.cmdText {
+  flex: 1;
+  min-width: 0;
+  padding-block: 0.3rem;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.copy {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgb(255 255 255 / 0.18);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.06);
+  color: #ededed;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease);
+}
+
+.copy:hover {
+  background: rgb(255 255 255 / 0.14);
+}
+
+.aside {
+  margin-top: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  border-left: 2px solid var(--cobalt);
+  background: var(--ground-2);
+}
+
+.asideLines {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+}
+
+.asideLines .line {
+  padding-left: 0;
+}
+
+.asideLines .line::before {
+  display: none;
+}
+
+.run {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-3) var(--s-4);
+  margin-top: var(--s-4);
+}
+
+.runItem {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: var(--s-2);
+  border-top: 1px solid var(--line);
+}
+
+.runItem dt {
+  font-weight: 600;
+}
+
+.runItem dd {
+  color: var(--ink-2);
+}
+
+.help {
+  display: grid;
+  gap: var(--s-1);
+  padding: var(--s-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.helpTitle {
+  font-size: var(--t-lg);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.help p {
+  color: var(--ink-2);
+}
+
+.helpLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem var(--s-3);
+  margin-top: var(--s-1);
+}
+
+.helpLinks a {
+  color: var(--cobalt);
+  font-size: var(--t-md);
+  font-weight: 500;
+}
+
+@media (pointer: coarse) {
+  .rail {
+    top: calc(5rem + 1px);
+  }
+}
+
+@media (max-width: 30rem) {
+  .copyLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .copy {
+    padding: 0.55rem;
+  }
+}
+
+@media (max-width: 26rem) {
+  .railLabel {
+    display: none;
+  }
+
+  .railPick {
+    justify-content: center;
+  }
+
+  .option {
+    padding-inline: 1em;
+  }
+}
+
+@media (min-width: 40rem) {
+  .run {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .step {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: var(--s-3);
+  }
+
+  .n {
+    font-size: var(--t-xl);
+    font-weight: 300;
+  }
+}
+
+@media (min-width: 60rem) {
+  .layout {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: var(--s-7);
+  }
+
+  .rail {
+    top: 7rem;
+    align-self: start;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+
+  .railPick {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--s-1);
+    margin-bottom: var(--s-4);
+  }
+
+  .index {
+    display: block;
+  }
+
+  .flow {
+    max-width: 48rem;
+  }
+}
