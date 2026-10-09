@@ -1,0 +1,72 @@
+.lede {
+  margin-top: var(--s-3);
+}
+
+/* The screens as tabs; on a phone the row scrolls sideways. */
+.tabs {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: none;
+  padding: 0.75rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  color: var(--ink-3);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tab[aria-selected='true'] {
+  border-bottom-color: var(--cobalt);
+  color: var(--ink);
+}
+
+.panel {
+  margin-top: var(--s-3);
+}
+
+.caption {
+  min-height: 1.6em;
+  color: var(--ink-2);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.frame {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--s-3);
+  animation: rise 0.5s var(--ease) both;
+}
+
+@media (min-width: 60rem) {
+  .tabs {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}

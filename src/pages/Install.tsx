@@ -5,12 +5,22 @@ import { useI18n } from '../i18n'
 import { CONTACT } from '../lib/contact'
 import { Seam } from '../components/Seam'
 import { Button } from '../components/Button'
-import type { Entry, Line, Server, Varies } from '../i18n/dict/install/types'
+import { Shot } from '../components/Shot'
+import type { Entry, InstallShot, Line, Server, Varies } from '../i18n/dict/install/types'
 import styles from './Install.module.css'
 
 const SERVERS: readonly Server[] = ['windows', 'linux']
 const REMEMBER = 'hoaka-install-server'
 const MARK = /(\[\[.+?\]\]|`[^`]+`)/g
+
+// The screens each step happens on, a row of pictures per inner list.
+const SHOTS: Record<string, InstallShot[][]> = {
+  setup: [['setup']],
+  licence: [['licence']],
+  rooms: [['create-room']],
+  stick: [['installer']],
+  computers: [['installer-disk', 'name'], ['enrolled']],
+}
 
 function isPair(entry: Entry): entry is Varies<Line[]> {
   return typeof entry === 'object' && 'windows' in entry
@@ -135,7 +145,7 @@ function Picker({ server, onPick, compact }: { server: Server; onPick: (s: Serve
 }
 
 export function Install() {
-  const { t, href } = useI18n()
+  const { t, href, locale } = useI18n()
   const g = t.install
   const [server, setServer] = useState<Server>('windows')
 
@@ -270,6 +280,13 @@ export function Install() {
                     </p>
                   ) : null}
                   <Lines entries={step.lines} server={server} className={styles.lines} />
+                  {(SHOTS[step.id] ?? []).map((row) => (
+                    <div key={row.join()} className={styles.shots} data-count={row.length}>
+                      {row.map((name) => (
+                        <Shot key={name} locale={locale} name={name} alt={g.alt[name]} zoom />
+                      ))}
+                    </div>
+                  ))}
                   {step.aside ? (
                     <div className={styles.aside}>
                       <Lines entries={step.aside} server={server} className={styles.asideLines} />

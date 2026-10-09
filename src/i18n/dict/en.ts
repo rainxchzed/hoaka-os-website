@@ -80,6 +80,18 @@ export const en: Dict = {
     },
   },
 
+  screens: {
+    title: 'What it looks like',
+    lede: 'The console the university runs, and the lab computer students sit at. Real screens, from a demo university.',
+    tabs: [
+      { id: 'rooms', label: 'Rooms', caption: 'One switch per room: Open, Lecture or Exam.' },
+      { id: 'exam', label: 'Exams', caption: 'Every seat of a running exam, and the one that needs a look.' },
+      { id: 'devices', label: 'Devices', caption: 'Every lab computer, its room, its state and its version.' },
+      { id: 'websites', label: 'Websites', caption: 'Which sites the labs opened, and which were blocked.' },
+      { id: 'store', label: 'Program Store', caption: 'Free programs for the work Windows programs do, ready to install.' },
+    ],
+  },
+
   reports: {
     title: 'Once a month, a report ready for the rector',
     body: 'Each report carries the university’s name and the period it covers, and prints straight from the browser in Uzbek, Russian or English.',

@@ -127,6 +127,15 @@ export const installEn: InstallGuide = {
       { k: 'Updates', v: 'New versions arrive by themselves, never during an exam.' },
     ],
   },
+  alt: {
+    setup: 'The setup page',
+    licence: 'The Licence page with the free trial request',
+    'create-room': 'The Create room dialog',
+    installer: 'The Lab installer card',
+    'installer-disk': "The installer's disk choice",
+    name: 'The naming screen',
+    enrolled: 'A new computer under Devices',
+  },
   copy: 'Copy',
   copied: 'Copied',
   help: {

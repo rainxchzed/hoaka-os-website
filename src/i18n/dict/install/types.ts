@@ -15,6 +15,8 @@ export type InstallStep = {
   aside?: Entry[]
 }
 
+export type InstallShot = 'setup' | 'licence' | 'create-room' | 'installer' | 'installer-disk' | 'name' | 'enrolled'
+
 export type InstallGuide = {
   title: string
   lede: string
@@ -25,6 +27,7 @@ export type InstallGuide = {
   need: { id: string; title: string; items: { k: string; v: string | Varies<string> }[] }
   steps: InstallStep[]
   run: { id: string; title: string; items: { k: string; v: string }[] }
+  alt: Record<InstallShot, string>
   copy: string
   copied: string
   help: { title: string; body: string }

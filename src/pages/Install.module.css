@@ -331,6 +331,14 @@
   background: rgb(255 255 255 / 0.14);
 }
 
+.shots {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-2);
+  align-items: start;
+  margin-top: var(--s-3);
+}
+
 .aside {
   margin-top: var(--s-3);
   padding: var(--s-2) var(--s-3);
@@ -434,6 +442,10 @@
 }
 
 @media (min-width: 40rem) {
+  .shots[data-count='2'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .run {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

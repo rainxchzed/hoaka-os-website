@@ -127,6 +127,15 @@ export const installUz: InstallGuide = {
       { k: 'Yangilanishlar', v: 'Yangi versiyalar oʻzi keladi, imtihon paytida hech qachon oʻrnatilmaydi.' },
     ],
   },
+  alt: {
+    setup: 'Sozlash sahifasi',
+    licence: 'Bepul sinov soʻrovi bilan Litsenziya sahifasi',
+    'create-room': 'Xona yaratish oynasi',
+    installer: 'Oʻquv kompyuterlari uchun oʻrnatuvchi kartasi',
+    'installer-disk': 'Oʻrnatuvchida disk tanlash',
+    name: 'Kompyuterga nom berish ekrani',
+    enrolled: 'Kompyuterlar sahifasidagi yangi kompyuter',
+  },
   copy: 'Nusxa olish',
   copied: 'Nusxa olindi',
   help: {

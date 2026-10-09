@@ -79,6 +79,18 @@ export const uz = {
     },
   },
 
+  screens: {
+    title: 'Qanday koʻrinadi',
+    lede: 'Universitet boshqaradigan konsol va talabalar oʻtiradigan oʻquv kompyuteri. Namunaviy universitetning haqiqiy ekranlari.',
+    tabs: [
+      { id: 'rooms', label: 'Xonalar', caption: 'Har bir xona uchun bitta tanlov: Ochiq, Maʼruza yoki Imtihon.' },
+      { id: 'exam', label: 'Imtihonlar', caption: 'Ketayotgan imtihonning har bir oʻrni va eʼtibor talab qiladigani.' },
+      { id: 'devices', label: 'Kompyuterlar', caption: 'Har bir oʻquv kompyuteri: xonasi, holati va versiyasi.' },
+      { id: 'websites', label: 'Saytlar', caption: 'Kompyuter sinflarida qaysi saytlar ochilgani va qaysilari bloklangani.' },
+      { id: 'store', label: 'Dasturlar doʻkoni', caption: 'Windows dasturlari bajaradigan ish uchun bepul dasturlar, oʻrnatishga tayyor.' },
+    ],
+  },
+
   reports: {
     title: 'Har oy rektor uchun tayyor hisobot',
     body: 'Hisobotlarda universitet nomi va sanalar koʻrsatiladi. Ularni oʻzbek, rus yoki ingliz tilida toʻgʻridan-toʻgʻri brauzerdan chop etish mumkin.',
